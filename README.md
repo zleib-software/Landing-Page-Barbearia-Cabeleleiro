@@ -22,8 +22,8 @@ Landing page de altíssima conversão e posicionamento premium para Barbearias, 
 
 ### 1. Clonar o repositório
 ```bash
-git clone https://github.com/SEU_USUARIO/SEU_REPOSITORIO.git
-cd SEU_REPOSITORIO
+git clone https://github.com/zleib-software/Landing-Page-Barbearia-Cabeleleiro
+cd Landing-Page-Barbearia-Cabeleleiro
 ```
 
 ### 2. Instalar as dependências
