@@ -1,0 +1,1150 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO Meta Tags -->
+  <title>LUMEN & CO. | Barbearia & Hair Studio de Luxo</title>
+  <meta name="description" content="Barbearia premium e hair salon de alto padrão. Cortes masculinos e femininos, barboterapia, mechas, tratamentos e atendimento VIP com agendamento via WhatsApp.">
+  <meta name="keywords" content="barbearia, cabeleireiro, hair salon, salão de beleza, barboterapia, corte masculino, fade, balayage, são paulo, agendamento whatsapp">
+  <meta name="author" content="LUMEN & CO.">
+  <meta name="robots" content="index, follow">
+
+  <!-- Open Graph / Redes Sociais -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="LUMEN & CO. | Barbearia & Hair Studio de Luxo">
+  <meta property="og:description" content="A arte do estilo e cuidado pessoal em alto padrão. Agende seu horário direto no WhatsApp.">
+  <meta property="og:image" content="assets/images/hero-bg.jpg">
+  <meta property="og:url" content="https://lumencobarber.com.br">
+
+  <!-- Favicon (SVG inline) -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23c5a059'><path d='M6 3h12v2H6zm0 16h12v2H6zm2-8h8v2H8zm-4 4h16v2H4zm0-8h16v2H4z'/></svg>">
+
+  <!-- CSS Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/components.css">
+
+  <!-- Structured Data / Schema.org para SEO Local -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HairSalon",
+    "name": "LUMEN & CO. Barber & Studio",
+    "image": "assets/images/hero-bg.jpg",
+    "telephone": "+5511999999999",
+    "priceRange": "$$",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Av. Paulista, 1578",
+      "addressLocality": "São Paulo",
+      "addressRegion": "SP",
+      "postalCode": "01310-200",
+      "addressCountry": "BR"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": -23.561081,
+      "longitude": -46.656571
+    },
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+        "opens": "09:00",
+        "closes": "20:00"
+      }
+    ],
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "reviewCount": "348"
+    }
+  }
+  </script>
+</head>
+<body>
+
+  <!-- ==========================================================================
+       1. CABEÇALHO / NAVBAR FIXA
+       ========================================================================== -->
+  <header class="main-header" id="main-header">
+    <div class="container nav-container">
+      <!-- Logo -->
+      <a href="#inicio" class="brand-logo" aria-label="Página inicial Lumen & Co.">
+        <div class="logo-symbol">L</div>
+        <span>LUMEN<span class="gold-gradient-text">&CO.</span></span>
+      </a>
+
+      <!-- Menu Desktop -->
+      <nav class="nav-desktop-menu" aria-label="Menu Principal">
+        <a href="#experiencia" class="nav-link">Experiência</a>
+        <a href="#servicos" class="nav-link">Serviços & Preços</a>
+        <a href="#galeria" class="nav-link">Galeria</a>
+        <a href="#equipe" class="nav-link">Especialistas</a>
+        <a href="#localizacao" class="nav-link">Localização</a>
+        <a href="#faq" class="nav-link">Dúvidas</a>
+      </nav>
+
+      <!-- Ações do Header -->
+      <div class="nav-actions">
+        <div class="live-status-badge status-open">
+          <span class="status-pulse-dot"></span>
+          <span class="status-text">Aberto agora</span>
+        </div>
+
+        <a href="#agendamento-rapido" class="btn btn-gold btn-sm btn-header-cta" data-whatsapp-direct data-custom-message="Olá! Gostaria de agendar um horário na Lumen & Co.">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"/>
+          </svg>
+          <span>Agendar Horário</span>
+        </a>
+
+        <!-- Botão Menu Mobile -->
+        <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Abrir menu de navegação">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Menu Mobile Gaveta -->
+  <div class="mobile-backdrop" id="mobile-backdrop"></div>
+  <aside class="mobile-drawer" id="mobile-drawer" aria-label="Menu Mobile">
+    <div>
+      <div class="mobile-drawer-header">
+        <a href="#inicio" class="brand-logo">
+          <div class="logo-symbol">L</div>
+          <span>LUMEN<span class="gold-gradient-text">&CO.</span></span>
+        </a>
+        <button class="mobile-drawer-close" id="mobile-drawer-close" aria-label="Fechar menu">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+
+      <nav class="mobile-nav-list">
+        <a href="#experiencia" class="mobile-nav-link">💎 Experiência VIP</a>
+        <a href="#servicos" class="mobile-nav-link">✂️ Serviços & Preços</a>
+        <a href="#galeria" class="mobile-nav-link">📸 Galeria de Estilos</a>
+        <a href="#equipe" class="mobile-nav-link">💈 Nossos Especialistas</a>
+        <a href="#localizacao" class="mobile-nav-link">📍 Localização & Horários</a>
+        <a href="#faq" class="mobile-nav-link">❓ Perguntas Frequentes</a>
+        <a href="#contato" class="mobile-nav-link">💬 Fale Conosco</a>
+      </nav>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 0.85rem;">
+      <a href="#agendamento-rapido" class="btn btn-whatsapp btn-full mobile-nav-link" data-whatsapp-direct>
+        <span>Agendar no WhatsApp</span>
+      </a>
+      <p style="font-size: 0.75rem; color: var(--text-dim); text-align: center;">Av. Paulista, 1578 • Bela Vista - SP</p>
+    </div>
+  </aside>
+
+  <!-- ==========================================================================
+       2. HERO SECTION COM WIDGET DE AGENDAMENTO RÁPIDO
+       ========================================================================== -->
+  <section class="hero-section" id="inicio">
+    <div class="hero-background">
+      <img src="assets/images/hero-bg.jpg" alt="Ambiente sofisticado da barbearia e hair studio Lumen & Co." class="hero-bg-img" width="1920" height="1080">
+    </div>
+    <div class="hero-overlay"></div>
+
+    <div class="container">
+      <div class="hero-grid">
+        <!-- Coluna de Apresentação -->
+        <div class="hero-content reveal-on-scroll">
+          <div class="hero-rating-badge">
+            <span class="stars-gold">★★★★★</span>
+            <span class="rating-text">4.9 ★ no Google (350+ avaliações)</span>
+          </div>
+
+          <h1 class="hero-title">
+            Eleve seu visual com a <span class="gold-gradient-text">experiência premium</span> que você merece.
+          </h1>
+
+          <p class="hero-description">
+            Do clássico ao contemporâneo. Cortes milimétricos, barboterapia relaxante, visagismo e tratamentos capilares em um lounge exclusivo com open bar cortesia.
+          </p>
+
+          <div class="hero-cta-group">
+            <a href="#agendamento-rapido" class="btn btn-gold btn-lg">
+              <span>Agendamento Rápido</span>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </a>
+
+            <a href="#servicos" class="btn btn-outline-gold btn-lg">
+              <span>Ver Serviços & Valores</span>
+            </a>
+          </div>
+
+          <div class="hero-stats-row">
+            <div class="hero-stat-item">
+              <h4>+15k</h4>
+              <p>Clientes Atendidos</p>
+            </div>
+            <div class="hero-stat-item">
+              <h4>12 Anos</h4>
+              <p>De Tradição & Arte</p>
+            </div>
+            <div class="hero-stat-item">
+              <h4>100%</h4>
+              <p>Produtos Nobres</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Coluna do Widget de Agendamento Rápido -->
+        <div class="hero-booking-wrapper reveal-on-scroll reveal-delay-2" id="agendamento-rapido">
+          <div class="quick-booking-card">
+            <div class="booking-card-header">
+              <span class="section-tagline" style="margin-bottom: 0.5rem;">Reserva Express</span>
+              <h3 class="booking-card-title">Agendar Horário Online</h3>
+              <p class="booking-card-subtitle">Escolha o serviço e envie direto ao nosso WhatsApp</p>
+            </div>
+
+            <form class="booking-form" id="hero-booking-form">
+              <div class="form-group">
+                <label for="quick-service" class="form-label">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="6" cy="6" r="3"></circle><circle cx="6" cy="18" r="3"></circle><line x1="20" y1="4" x2="8.12" y2="15.88"></line><line x1="14.47" y1="14.48" x2="20" y2="20"></line><line x1="8.12" y1="8.12" x2="12" y2="12"></line></svg>
+                  Qual serviço você deseja?
+                </label>
+                <select id="quick-service" class="form-select" required>
+                  <option value="" disabled selected>Selecione o serviço...</option>
+                  <option value="corte-signature">Corte Signature & Fade (R$ 85)</option>
+                  <option value="barboterapia">Barboterapia Spa & Toalha Quente (R$ 75)</option>
+                  <option value="combo-royal">Combo Royal: Corte + Barba (R$ 145)</option>
+                  <option value="balayage">Design de Mechas & Balayage Glow (A partir de R$ 380)</option>
+                  <option value="corte-feminino">Corte & Visagismo Feminino (R$ 160)</option>
+                  <option value="spa-capilar">Spa Capilar & Nutrição Profunda (R$ 190)</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="quick-professional" class="form-label">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                  Profissional de Preferência
+                </label>
+                <select id="quick-professional" class="form-select">
+                  <option value="qualquer" selected>Qualquer profissional disponível</option>
+                  <option value="alex">Alexandre 'Alex' Souza (Master Barber)</option>
+                  <option value="camila">Camila Torres (Hair Artist & Visagista)</option>
+                </select>
+              </div>
+
+              <div class="form-row-2">
+                <div class="form-group">
+                  <label for="quick-date" class="form-label">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                    Data Preferida
+                  </label>
+                  <input type="date" id="quick-date" class="form-input" required>
+                </div>
+
+                <div class="form-group">
+                  <label for="quick-period" class="form-label">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    Período / Turno
+                  </label>
+                  <select id="quick-period" class="form-select" required>
+                    <option value="" disabled selected>Selecione o turno...</option>
+                    <option value="manha">Manhã (09h às 12h)</option>
+                    <option value="tarde">Tarde (13h às 17h)</option>
+                    <option value="noite">Noite (18h às 21h)</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="quick-name" class="form-label">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                  Seu Nome (Opcional)
+                </label>
+                <input type="text" id="quick-name" class="form-input" placeholder="Como podemos te chamar?">
+              </div>
+
+              <button type="submit" class="btn btn-whatsapp btn-full btn-lg" style="margin-top: 0.5rem;" id="btn-submit-hero-booking">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"/>
+                </svg>
+                <span>Confirmar no WhatsApp</span>
+              </button>
+
+              <div class="booking-security-note">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                <span>Atendimento rápido e confirmação imediata</span>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- ==========================================================================
+       3. SEÇÃO EXPERIÊNCIA & DIFERENCIAIS
+       ========================================================================== -->
+  <section class="section" id="experiencia">
+    <div class="container">
+      <div class="section-header reveal-on-scroll">
+        <span class="section-tagline">Alto Padrão em Cada Detalhe</span>
+        <h2 class="section-title">Muito mais que um atendimento, uma <span class="gold-gradient-text">experiência VIP</span></h2>
+        <p class="section-subtitle">
+          Projetamos um espaço exclusivo para você relaxar, desligar da rotina acelerada e cuidar da sua imagem com comodidade absoluta.
+        </p>
+      </div>
+
+      <div class="differentials-grid">
+        <!-- Diferencial 1 -->
+        <div class="diff-card reveal-on-scroll reveal-delay-1">
+          <div class="diff-icon-box">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 8h1a4 4 0 0 1 0 8h-1"></path>
+              <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path>
+              <line x1="6" y1="1" x2="6" y2="4"></line>
+              <line x1="10" y1="1" x2="10" y2="4"></line>
+              <line x1="14" y1="1" x2="14" y2="4"></line>
+            </svg>
+          </div>
+          <h3 class="diff-title">Open Bar & Café Expresso</h3>
+          <p class="diff-description">Desfrute de chopes artesanais selecionados, cafés expressos moídos na hora e drinks cortesia durante o seu atendimento.</p>
+        </div>
+
+        <!-- Diferencial 2 -->
+        <div class="diff-card reveal-on-scroll reveal-delay-2">
+          <div class="diff-icon-box">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path>
+            </svg>
+          </div>
+          <h3 class="diff-title">Toalha Quente & Ozonioterapia</h3>
+          <p class="diff-description">Ritual clássico de barboterapia com vapor de ozônio, toalhas aquecidas com óleos essenciais e hidratação profunda da pele.</p>
+        </div>
+
+        <!-- Diferencial 3 -->
+        <div class="diff-card reveal-on-scroll reveal-delay-3">
+          <div class="diff-icon-box">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>
+          </div>
+          <h3 class="diff-title">Pontualidade Britânica</h3>
+          <p class="diff-description">Seu tempo é precioso. Trabalhamos com agenda rigorosamente controlada para garantir zero tempo de espera na sua chegada.</p>
+        </div>
+
+        <!-- Diferencial 4 -->
+        <div class="diff-card reveal-on-scroll reveal-delay-1">
+          <div class="diff-icon-box">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M2 12h20"></path>
+              <path d="M20 12v8H4v-8"></path>
+              <path d="m4 4 16 0"></path>
+            </svg>
+          </div>
+          <h3 class="diff-title">Visagismo Personalizado</h3>
+          <p class="diff-description">Estudo técnico da proporção do seu rosto, estilo e formato de barba/cabelo para harmonizar e valorizar sua presença.</p>
+        </div>
+
+        <!-- Diferencial 5 -->
+        <div class="diff-card reveal-on-scroll reveal-delay-2">
+          <div class="diff-icon-box">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+            </svg>
+          </div>
+          <h3 class="diff-title">Cosméticos de Elite</h3>
+          <p class="diff-description">Utilizamos as marcas líderes mundiais em nutrição capilar, pigmentos livres de amônia e pomadas modeladoras de alta performance.</p>
+        </div>
+
+        <!-- Diferencial 6 -->
+        <div class="diff-card reveal-on-scroll reveal-delay-3">
+          <div class="diff-icon-box">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+              <line x1="8" y1="21" x2="16" y2="21"></line>
+              <line x1="12" y1="17" x2="12" y2="21"></line>
+            </svg>
+          </div>
+          <h3 class="diff-title">Lounge Gamer & Wi-Fi 5G</h3>
+          <p class="diff-description">Ambiente climatizado, poltronas Chesterfield, mesa de sinuca, som ambiente de alta fidelidade e rede Wi-Fi ultrarrápida.</p>
+        </div>
+      </div>
+
+      <!-- Banner de Destaque Lounge -->
+      <div class="lounge-highlight-banner reveal-on-scroll">
+        <div class="lounge-image-wrapper">
+          <img src="assets/images/experience-lounge.jpg" alt="Lounge VIP com mesa de sinuca e bar executivo" loading="lazy">
+        </div>
+        <div class="lounge-content">
+          <span class="section-tagline">Ambiente Exclusivo</span>
+          <h3 class="section-title" style="font-size: 2rem;">Sinta-se em casa no nosso Lounge Club</h3>
+          <p class="section-subtitle" style="margin-bottom: 1.75rem;">
+            Chegue alguns minutos antes para relaxar na nossa sinuca, tomar uma cerveja especial gelada ou colocar o trabalho em dia no nosso espaço executivo.
+          </p>
+          <a href="#agendamento-rapido" class="btn btn-gold">
+            <span>Reservar Minha Experiência</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- ==========================================================================
+       4. SEÇÃO CATÁLOGO DE SERVIÇOS & PREÇOS
+       ========================================================================== -->
+  <section class="section" id="servicos">
+    <div class="container">
+      <div class="section-header reveal-on-scroll">
+        <span class="section-tagline">Menu de Procedimentos</span>
+        <h2 class="section-title">Serviços Executivos & <span class="gold-gradient-text">Tabela de Preços</span></h2>
+        <p class="section-subtitle">
+          Excelência técnica, produtos nobres e atendimento individualizado. Selecione o serviço para agendar direto pelo WhatsApp.
+        </p>
+      </div>
+
+      <div class="services-grid">
+        <!-- Serviço 1: Corte Signature -->
+        <article class="service-card reveal-on-scroll reveal-delay-1">
+          <div class="service-card-img-wrap">
+            <img src="assets/images/service-haircut.jpg" alt="Corte masculino de precisão e fade" loading="lazy">
+            <span class="service-badge-popular">Mais Escolhido</span>
+          </div>
+          <div class="service-card-body">
+            <div class="service-header-row">
+              <h3 class="service-title">Corte Signature & Fade</h3>
+              <span class="service-price">R$ 85</span>
+            </div>
+            <div class="service-meta-row">
+              <span class="service-meta-item">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                45 min
+              </span>
+              <span>• Barbearia</span>
+            </div>
+            <p class="service-description">
+              Lavagem com massagem capilar energizante, corte milimétrico na tesoura ou navalha, acabamento perfeito e finalização com pomada matte premium.
+            </p>
+            <button class="btn btn-whatsapp btn-full btn-sm" data-whatsapp-service data-service-title="Corte Signature & Fade" data-service-price="R$ 85">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"/></svg>
+              <span>Agendar no WhatsApp</span>
+            </button>
+          </div>
+        </article>
+
+        <!-- Serviço 2: Barboterapia Spa -->
+        <article class="service-card reveal-on-scroll reveal-delay-2">
+          <div class="service-card-img-wrap">
+            <img src="assets/images/service-beard.jpg" alt="Barboterapia com toalha quente e óleos essenciais" loading="lazy">
+            <span class="service-badge-popular">Relaxamento Total</span>
+          </div>
+          <div class="service-card-body">
+            <div class="service-header-row">
+              <h3 class="service-title">Barboterapia Spa</h3>
+              <span class="service-price">R$ 75</span>
+            </div>
+            <div class="service-meta-row">
+              <span class="service-meta-item">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                40 min
+              </span>
+              <span>• Spa da Barba</span>
+            </div>
+            <p class="service-description">
+              Esfoliação, vapor de ozônio para abertura dos poros, toalha quente aromática, desenho com navalhete descartável e pós-barba hidratante calmante.
+            </p>
+            <button class="btn btn-whatsapp btn-full btn-sm" data-whatsapp-service data-service-title="Barboterapia Spa & Toalha Quente" data-service-price="R$ 75">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"/></svg>
+              <span>Agendar no WhatsApp</span>
+            </button>
+          </div>
+        </article>
+
+        <!-- Serviço 3: Combo Royal -->
+        <article class="service-card reveal-on-scroll reveal-delay-3">
+          <div class="service-card-img-wrap">
+            <img src="assets/images/hero-bg.jpg" alt="Combo completo corte e barba" loading="lazy">
+            <span class="service-badge-popular">Melhor Custo-Benefício</span>
+          </div>
+          <div class="service-card-body">
+            <div class="service-header-row">
+              <h3 class="service-title">Combo Royal (Corte + Barba)</h3>
+              <span class="service-price">R$ 145</span>
+            </div>
+            <div class="service-meta-row">
+              <span class="service-meta-item">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                1h 20m
+              </span>
+              <span>• Completo</span>
+            </div>
+            <p class="service-description">
+              A combinação perfeita: corte completo sob medida, barboterapia relaxante com toalha aquecida, limpeza de sobrancelha e drink cortesia do nosso bar.
+            </p>
+            <button class="btn btn-whatsapp btn-full btn-sm" data-whatsapp-service data-service-title="Combo Royal (Corte + Barba)" data-service-price="R$ 145">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"/></svg>
+              <span>Agendar no WhatsApp</span>
+            </button>
+          </div>
+        </article>
+
+        <!-- Serviço 4: Balayage & Mechas Glow -->
+        <article class="service-card reveal-on-scroll reveal-delay-1">
+          <div class="service-card-img-wrap">
+            <img src="assets/images/gallery-balayage.jpg" alt="Balayage e mechas iluminadas femininas" loading="lazy">
+            <span class="service-badge-popular">Hair Studio VIP</span>
+          </div>
+          <div class="service-card-body">
+            <div class="service-header-row">
+              <h3 class="service-title">Mechas & Balayage Glow</h3>
+              <span class="service-price">A partir R$ 380</span>
+            </div>
+            <div class="service-meta-row">
+              <span class="service-meta-item">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                3h 30m
+              </span>
+              <span>• Studio Feminino</span>
+            </div>
+            <p class="service-description">
+              Técnica francesa de iluminação sem marcas, teste prévio de mechas, produtos de proteção capilar e matização com brilho tridimensional.
+            </p>
+            <button class="btn btn-whatsapp btn-full btn-sm" data-whatsapp-service data-service-title="Design de Mechas & Balayage Glow" data-service-price="R$ 380">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"/></svg>
+              <span>Agendar no WhatsApp</span>
+            </button>
+          </div>
+        </article>
+
+        <!-- Serviço 5: Corte & Styling Feminino -->
+        <article class="service-card reveal-on-scroll reveal-delay-2">
+          <div class="service-card-img-wrap">
+            <img src="assets/images/service-salon.jpg" alt="Corte e styling feminino de alta precisão" loading="lazy">
+          </div>
+          <div class="service-card-body">
+            <div class="service-header-row">
+              <h3 class="service-title">Corte & Visagismo Feminino</h3>
+              <span class="service-price">R$ 160</span>
+            </div>
+            <div class="service-meta-row">
+              <span class="service-meta-item">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                1h 00m
+              </span>
+              <span>• Studio Feminino</span>
+            </div>
+            <p class="service-description">
+              Consultoria visagista, lavagem terapêutica com massagem no couro cabeludo, corte moderno adaptado ao seu tipo de fio e escova modelada.
+            </p>
+            <button class="btn btn-whatsapp btn-full btn-sm" data-whatsapp-service data-service-title="Corte & Visagismo Feminino" data-service-price="R$ 160">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"/></svg>
+              <span>Agendar no WhatsApp</span>
+            </button>
+          </div>
+        </article>
+
+        <!-- Serviço 6: Spa Capilar & Cronograma -->
+        <article class="service-card reveal-on-scroll reveal-delay-3">
+          <div class="service-card-img-wrap">
+            <img src="assets/images/service-salon.jpg" alt="Tratamento e spa capilar regenerativo" loading="lazy">
+          </div>
+          <div class="service-card-body">
+            <div class="service-header-row">
+              <h3 class="service-title">Spa Capilar & Nutrição</h3>
+              <span class="service-price">R$ 190</span>
+            </div>
+            <div class="service-meta-row">
+              <span class="service-meta-item">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                1h 15m
+              </span>
+              <span>• Spa Capilar</span>
+            </div>
+            <p class="service-description">
+              Tratamento intensivo anti-ressecamento e fortalecimento dos fios, reposição de aminoácidos essenciais, ozonioterapia e finalização sedosa.
+            </p>
+            <button class="btn btn-whatsapp btn-full btn-sm" data-whatsapp-service data-service-title="Spa Capilar & Nutrição Profunda" data-service-price="R$ 190">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"/></svg>
+              <span>Agendar no WhatsApp</span>
+            </button>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- ==========================================================================
+       5. SEÇÃO GALERIA & PORTFÓLIO DE TRANSFORMAÇÕES
+       ========================================================================== -->
+  <section class="section" id="galeria">
+    <div class="container">
+      <div class="section-header reveal-on-scroll">
+        <span class="section-tagline">Portfólio em Destaque</span>
+        <h2 class="section-title">Galeria de <span class="gold-gradient-text">Resultados & Estilo</span></h2>
+        <p class="section-subtitle">
+          Confira um pouco das produções, alinhamentos e transformações realizadas pelos nossos especialistas.
+        </p>
+      </div>
+
+      <div class="gallery-grid">
+        <div class="gallery-item-card reveal-on-scroll reveal-delay-1" data-category="barber">
+          <img src="assets/images/service-haircut.jpg" alt="Fade Cut Degradê Masculino" loading="lazy">
+          <div class="gallery-item-overlay">
+            <span class="gallery-item-tag">Barbearia Clássica</span>
+            <h4 class="gallery-item-title">Fade Navalhado & Pompadour</h4>
+          </div>
+        </div>
+
+        <div class="gallery-item-card reveal-on-scroll reveal-delay-2" data-category="barber">
+          <img src="assets/images/service-beard.jpg" alt="Alinhamento e Spa de Barba" loading="lazy">
+          <div class="gallery-item-overlay">
+            <span class="gallery-item-tag">Barboterapia</span>
+            <h4 class="gallery-item-title">Design de Barba & Hidratação</h4>
+          </div>
+        </div>
+
+        <div class="gallery-item-card reveal-on-scroll reveal-delay-3" data-category="salon">
+          <img src="assets/images/gallery-balayage.jpg" alt="Balayage Iluminada Morena Iluminada" loading="lazy">
+          <div class="gallery-item-overlay">
+            <span class="gallery-item-tag">Hair Studio</span>
+            <h4 class="gallery-item-title">Balayage Honey & Ondas Naturais</h4>
+          </div>
+        </div>
+
+        <div class="gallery-item-card reveal-on-scroll reveal-delay-4" data-category="salon">
+          <img src="assets/images/service-salon.jpg" alt="Corte e Escova Modelada" loading="lazy">
+          <div class="gallery-item-overlay">
+            <span class="gallery-item-tag">Styling & Visagismo</span>
+            <h4 class="gallery-item-title">Blowout & Tratamento de Brilho</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- ==========================================================================
+       6. SEÇÃO EQUIPE & ESPECIALISTAS
+       ========================================================================== -->
+  <section class="section" id="equipe">
+    <div class="container">
+      <div class="section-header reveal-on-scroll">
+        <span class="section-tagline">Nossa Bancada de Mestres</span>
+        <h2 class="section-title">Profissionais <span class="gold-gradient-text">Especialistas</span></h2>
+        <p class="section-subtitle">
+          Mestres barbeiros e visagistas premiados, sempre prontos para entregar o melhor acabamento e consultoria técnica.
+        </p>
+      </div>
+
+      <div class="team-grid">
+        <!-- Profissional 1 -->
+        <div class="team-card reveal-on-scroll reveal-delay-1">
+          <div class="team-image-wrap">
+            <img src="assets/images/barber-alex.jpg" alt="Alexandre Souza - Master Barber" loading="lazy">
+          </div>
+          <div class="team-body">
+            <h3 class="team-name">Alexandre "Alex" Souza</h3>
+            <div class="team-role">Master Barber & Visagista Masculino</div>
+            <span class="team-experience">12 Anos de Experiência</span>
+            <p class="team-specialty">
+              Especialista em cortes clássicos executivos, transição milimétrica na navalha (fade), barboterapia de alta precisão e visagismo.
+            </p>
+            <button class="btn btn-outline-gold btn-full btn-sm" data-whatsapp-team data-team-name="Alexandre Souza" data-team-role="Master Barber">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"/></svg>
+              <span>Agendar com Alex</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Profissional 2 -->
+        <div class="team-card reveal-on-scroll reveal-delay-2">
+          <div class="team-image-wrap">
+            <img src="assets/images/stylist-camila.jpg" alt="Camila Torres - Hair Artist" loading="lazy">
+          </div>
+          <div class="team-body">
+            <h3 class="team-name">Camila Torres</h3>
+            <div class="team-role">Hair Artist & Colorimetrista</div>
+            <span class="team-experience">9 Anos de Experiência</span>
+            <p class="team-specialty">
+              Especialista em balayage personalizada, morena iluminada, corte visagista feminino e recuperação de cabelos sensibilizados.
+            </p>
+            <button class="btn btn-outline-gold btn-full btn-sm" data-whatsapp-team data-team-name="Camila Torres" data-team-role="Hair Artist">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"/></svg>
+              <span>Agendar com Camila</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- ==========================================================================
+       7. SEÇÃO AVALIAÇÕES GOOGLE (DEPOIMENTOS)
+       ========================================================================== -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header reveal-on-scroll">
+        <span class="section-tagline">Avaliações Verificadas</span>
+        <h2 class="section-title">O que dizem os nossos <span class="gold-gradient-text">clientes</span></h2>
+        <p class="section-subtitle">
+          Mais de 350 clientes satisfeitos com nota máxima no Google Meu Negócio.
+        </p>
+      </div>
+
+      <div class="reviews-grid">
+        <div class="review-card reveal-on-scroll reveal-delay-1">
+          <div>
+            <div class="review-header">
+              <div class="review-user-info">
+                <div class="review-avatar">RM</div>
+                <div>
+                  <div class="review-user-name">Rodrigo Miranda</div>
+                  <div class="review-verified">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                    Cliente Verificado • Google
+                  </div>
+                </div>
+              </div>
+              <div class="stars-gold">★★★★★</div>
+            </div>
+            <p class="review-text">
+              "Melhor experiência de barbearia que já tive em São Paulo. O Alex é um artista, o fade ficou impecável e a toalha quente com massagem é surreal. A cerveja artesanal na espera faz toda a diferença!"
+            </p>
+          </div>
+        </div>
+
+        <div class="review-card reveal-on-scroll reveal-delay-2">
+          <div>
+            <div class="review-header">
+              <div class="review-user-info">
+                <div class="review-avatar">LA</div>
+                <div>
+                  <div class="review-user-name">Larissa Albuquerque</div>
+                  <div class="review-verified">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                    Cliente Verificada • Google
+                  </div>
+                </div>
+              </div>
+              <div class="stars-gold">★★★★★</div>
+            </div>
+            <p class="review-text">
+              "Fiz minha balayage com a Camila e meu cabelo ficou simplesmente perfeito, super sedoso e natural. O salão tem um ambiente refinado e o agendamento pelo WhatsApp foi super ágil."
+            </p>
+          </div>
+        </div>
+
+        <div class="review-card reveal-on-scroll reveal-delay-3">
+          <div>
+            <div class="review-header">
+              <div class="review-user-info">
+                <div class="review-avatar">GS</div>
+                <div>
+                  <div class="review-user-name">Gustavo Silveira</div>
+                  <div class="review-verified">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                    Cliente Verificado • Google
+                  </div>
+                </div>
+              </div>
+              <div class="stars-gold">★★★★★</div>
+            </div>
+            <p class="review-text">
+              "Atendimento no horário exato, sem enrolação. O espaço é muito confortável e o cuidado com a higiene e detalhes é de outro nível. Virei cliente fiel!"
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- ==========================================================================
+       8. SEÇÃO LOCALIZAÇÃO, HORÁRIOS & GOOGLE MAPS
+       ========================================================================== -->
+  <section class="section location-section" id="localizacao">
+    <div class="container">
+      <div class="section-header reveal-on-scroll">
+        <span class="section-tagline">Venha nos Visitar</span>
+        <h2 class="section-title">Localização & <span class="gold-gradient-text">Horários de Atendimento</span></h2>
+        <p class="section-subtitle">
+          Fácil acesso no coração da cidade com estacionamento conveniado e manobrista.
+        </p>
+      </div>
+
+      <div class="location-grid">
+        <!-- Mapa Interativo do Google Maps -->
+        <div class="map-container reveal-on-scroll reveal-delay-1">
+          <iframe 
+            class="map-iframe" 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.106696296001!2d-46.65657118447545!3d-23.561081184682977!2m3!1f0!2f0!3f0!3m2!1i1024!2f768!4f13.1!3m3!1m2!1s0x94ce59c8da0aa315%3A0xd59f9431f2c9776a!2sAv.%20Paulista%2C%201578%20-%20Bela%20Vista%2C%20S%C3%A3o%20Paulo%20-%20SP%2C%2001310-200!5e0!3m2!1spt-BR!2sbr!4v1692800000000!5m2!1spt-BR!2sbr" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Localização da Barbearia e Hair Studio no Google Maps">
+          </iframe>
+        </div>
+
+        <!-- Informações e Horários em Tempo Real -->
+        <div class="location-info-card reveal-on-scroll reveal-delay-2">
+          <div class="location-details-list">
+            <div class="location-detail-item">
+              <div class="location-detail-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              </div>
+              <div class="location-detail-text">
+                <h5>Endereço Principal</h5>
+                <p>Av. Paulista, 1578 - Bela Vista, São Paulo - SP</p>
+                <p style="font-size: 0.8rem; color: var(--gold-400); margin-top: 0.2rem;">(Em frente ao metrô Trianon-MASP • Valet cortesia)</p>
+              </div>
+            </div>
+
+            <div class="location-detail-item">
+              <div class="location-detail-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+              </div>
+              <div class="location-detail-text">
+                <h5>Contato Direto</h5>
+                <p>WhatsApp: (11) 99999-9999</p>
+                <p>Telefone: (11) 3333-3333</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tabela de Horários com 'Hoje' Dinâmico -->
+          <div class="schedule-table-wrap">
+            <div class="schedule-title">
+              <span>📅 Horários de Funcionamento</span>
+              <div class="live-status-badge status-open" style="font-size: 0.725rem; padding: 0.2rem 0.65rem;">
+                <span class="status-pulse-dot"></span>
+                <span class="status-text">Aberto agora</span>
+              </div>
+            </div>
+            
+            <div id="schedule-list">
+              <!-- Renderizado dinamicamente pelo app.js -->
+            </div>
+          </div>
+
+          <div style="margin-top: 1.5rem; display: flex; gap: 1rem; flex-wrap: wrap;">
+            <a href="https://maps.google.com/?q=Av.+Paulista,+1578+-+Bela+Vista,+São+Paulo+-+SP" target="_blank" rel="noopener noreferrer" class="btn btn-gold btn-full">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg>
+              <span>Abrir Rota no Google Maps</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- ==========================================================================
+       9. SEÇÃO PERGUNTAS FREQUENTES (FAQ)
+       ========================================================================== -->
+  <section class="section" id="faq">
+    <div class="container">
+      <div class="section-header reveal-on-scroll">
+        <span class="section-tagline">Tire suas Dúvidas</span>
+        <h2 class="section-title">Perguntas <span class="gold-gradient-text">Frequentes</span></h2>
+        <p class="section-subtitle">
+          Tudo o que você precisa saber sobre nossos agendamentos, formas de pagamento e serviços.
+        </p>
+      </div>
+
+      <div class="faq-container reveal-on-scroll">
+        <div class="faq-item active">
+          <button class="faq-question">
+            <span>Preciso agendar com antecedência ou atendem por ordem de chegada?</span>
+            <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              Recomendamos fortemente o agendamento prévio via WhatsApp para garantir o seu horário exclusivo sem espera. No entanto, também atendemos clientes que chegam sem agendamento havendo encaixe disponível na bancada.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Quais são as formas de pagamento aceitas?</span>
+            <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              Aceitamos Pix (com confirmação instantânea), todos os cartões de crédito e débito (Visa, Mastercard, Elo, American Express), além de Apple Pay, Google Pay e dinheiro.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>As bebidas do lounge e open bar são realmente gratuitas?</span>
+            <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              Sim! Todos os nossos clientes em atendimento têm direito a cafés expressos especiais, água saborizada, sucos e um chope artesanal ou cerveja gelada como cortesia da casa.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Como funciona a Barboterapia com Toalha Quente?</span>
+            <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              É um procedimento relaxante e higiênico. Aplicamos vapor de ozônio para higienização e abertura dos poros, seguido de esfoliação suave, toalha aquecida com óleo essencial de eucalipto, corte do contorno na navalha descartável e aplicação de bálsamo calmante anti-foliculite.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Possuem pacotes para Noivos, Padrinhos ou Eventos?</span>
+            <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              Sim! Temos pacotes VIP personalizados para o "Dia do Noivo" e preparação de noivas/madrinhas, com fechamento exclusivo do lounge, massagem, banho, charutos, buffet especial e fotografia. Consulte-nos pelo WhatsApp para uma proposta personalizada.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- ==========================================================================
+       10. SEÇÃO FORMULÁRIO DE CONTATO & WHATSAPP
+       ========================================================================== -->
+  <section class="section" id="contato">
+    <div class="container">
+      <div class="contact-section-grid">
+        <div class="reveal-on-scroll">
+          <span class="section-tagline">Atendimento Personalizado</span>
+          <h2 class="section-title">Tem alguma dúvida ou pedido <span class="gold-gradient-text">especial</span>?</h2>
+          <p class="section-subtitle" style="margin-bottom: 2rem;">
+            Preencha o formulário rápido ao lado e nossa equipe receberá sua mensagem diretamente no WhatsApp para um retorno instantâneo.
+          </p>
+
+          <div style="display: flex; flex-direction: column; gap: 1.25rem;">
+            <div style="display: flex; align-items: center; gap: 1rem;">
+              <div style="width: 40px; height: 40px; border-radius: 50%; background: rgba(37, 211, 102, 0.15); color: #25d366; display: flex; align-items: center; justify-content: center;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"/></svg>
+              </div>
+              <div>
+                <strong style="color: #fff; font-size: 0.95rem;">WhatsApp Oficial:</strong>
+                <p style="color: var(--text-muted); font-size: 0.9rem;">(11) 99999-9999</p>
+              </div>
+            </div>
+
+            <div style="display: flex; align-items: center; gap: 1rem;">
+              <div style="width: 40px; height: 40px; border-radius: 50%; background: rgba(197, 160, 89, 0.15); color: var(--gold-400); display: flex; align-items: center; justify-content: center;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+              </div>
+              <div>
+                <strong style="color: #fff; font-size: 0.95rem;">E-mail:</strong>
+                <p style="color: var(--text-muted); font-size: 0.9rem;">contato@lumencobarber.com.br</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-card-box reveal-on-scroll reveal-delay-2">
+          <h3 style="font-family: var(--font-display); font-size: 1.4rem; color: #fff; margin-bottom: 0.5rem;">Enviar Mensagem Direta</h3>
+          <p style="font-size: 0.875rem; color: var(--text-muted); margin-bottom: 1.5rem;">Fale diretamente com nossa recepção</p>
+
+          <form id="contact-whatsapp-form" style="display: flex; flex-direction: column; gap: 1rem;">
+            <div class="form-group">
+              <label for="contact-name" class="form-label">Seu Nome</label>
+              <input type="text" id="contact-name" class="form-input" placeholder="Ex: Carlos Eduardo" required>
+            </div>
+
+            <div class="form-group">
+              <label for="contact-phone" class="form-label">Seu Telefone / WhatsApp</label>
+              <input type="tel" id="contact-phone" class="form-input" placeholder="Ex: (11) 98765-4321">
+            </div>
+
+            <div class="form-group">
+              <label for="contact-service" class="form-label">Assunto / Serviço</label>
+              <input type="text" id="contact-service" class="form-input" placeholder="Ex: Informações sobre Dia do Noivo ou Agendamento">
+            </div>
+
+            <div class="form-group">
+              <label for="contact-message" class="form-label">Sua Mensagem</label>
+              <textarea id="contact-message" class="form-input" rows="3" placeholder="Como podemos te ajudar hoje?" style="resize: vertical;"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-whatsapp btn-full btn-lg">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"/></svg>
+              <span>Enviar para o WhatsApp</span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       11. RODAPÉ (FOOTER)
+       ========================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a href="#inicio" class="brand-logo" style="margin-bottom: 1rem;">
+            <div class="logo-symbol">L</div>
+            <span>LUMEN<span class="gold-gradient-text">&CO.</span></span>
+          </a>
+          <p class="footer-desc">
+            A união perfeita entre a tradição da barbearia clássica e o requinte do moderno hair studio. Cuidando da sua imagem com maestria.
+          </p>
+          <div class="footer-social-links">
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-icon-link" aria-label="Instagram">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+            </a>
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="social-icon-link" aria-label="Facebook">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+            </a>
+            <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" class="social-icon-link" aria-label="Google Maps">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Navegação</h4>
+          <ul class="footer-links-list">
+            <li><a href="#experiencia" class="footer-link">Experiência VIP</a></li>
+            <li><a href="#servicos" class="footer-link">Serviços & Preços</a></li>
+            <li><a href="#galeria" class="footer-link">Galeria de Cortes</a></li>
+            <li><a href="#equipe" class="footer-link">Nossos Especialistas</a></li>
+            <li><a href="#faq" class="footer-link">Perguntas Frequentes</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Serviços Populares</h4>
+          <ul class="footer-links-list">
+            <li><a href="#servicos" class="footer-link">Corte Signature & Fade</a></li>
+            <li><a href="#servicos" class="footer-link">Barboterapia com Toalha Quente</a></li>
+            <li><a href="#servicos" class="footer-link">Combo Royal Executivo</a></li>
+            <li><a href="#servicos" class="footer-link">Balayage & Mechas Glow</a></li>
+            <li><a href="#servicos" class="footer-link">Spa Capilar & Nutrição</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Onde Estamos</h4>
+          <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 0.75rem;">
+            Av. Paulista, 1578 - Bela Vista<br>
+            São Paulo - SP • CEP 01310-200
+          </p>
+          <div class="live-status-badge status-open" style="margin-bottom: 1rem;">
+            <span class="status-pulse-dot"></span>
+            <span class="status-text">Aberto agora</span>
+          </div>
+          <a href="#localizacao" class="btn btn-outline-gold btn-sm btn-full">
+            <span>Ver no Google Maps</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2026 LUMEN & CO. Barber & Studio. Todos os direitos reservados.</p>
+        <p style="color: var(--text-dim);">Template modelo de alta conversão para Barbearias e Cabeleireiros</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       12. BOTÃO FLUTUANTE WHATSAPP & ASSISTENTE DE CHAT
+       ========================================================================== -->
+  <div class="whatsapp-floating-wrapper">
+    <!-- Modal do Chat Rápido -->
+    <div class="whatsapp-chat-modal" id="whatsapp-chat-modal">
+      <div class="wa-modal-header">
+        <div class="wa-modal-profile">
+          <div class="wa-modal-avatar">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"/></svg>
+          </div>
+          <div>
+            <div class="wa-modal-title">Lumen & Co. Barber</div>
+            <div class="wa-modal-status">🟢 Online • Responde em instantes</div>
+          </div>
+        </div>
+        <button class="close-chat-modal" id="close-chat-modal" aria-label="Fechar assistente">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+
+      <div class="wa-modal-body">
+        <div class="wa-balloon-msg">
+          👋 Olá! Seja bem-vindo(a) à <strong>LUMEN & CO.</strong> Como podemos te atender hoje?
+        </div>
+
+        <div class="wa-quick-options">
+          <button class="wa-quick-btn" data-wa-quick-prompt="Gostaria de saber os horários disponíveis para hoje">
+            📅 Horários disponíveis hoje
+          </button>
+          <button class="wa-quick-btn" data-wa-quick-prompt="Quero agendar um Corte + Barboterapia">
+            ✂️ Agendar Corte + Barba
+          </button>
+          <button class="wa-quick-btn" data-wa-quick-prompt="Gostaria de saber a tabela completa de valores">
+            💰 Tabela completa de preços
+          </button>
+          <button class="wa-quick-btn" data-wa-quick-prompt="Gostaria de falar diretamente com um atendente">
+            💬 Falar com a recepção
+          </button>
+        </div>
+      </div>
+
+      <div class="wa-modal-footer">
+        <form class="wa-input-form" id="wa-modal-input-form">
+          <input type="text" id="wa-modal-text" class="wa-input-text" placeholder="Digite sua mensagem..." required>
+          <button type="submit" class="wa-send-btn" aria-label="Enviar mensagem no WhatsApp">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Botão Flutuante Circular -->
+    <button class="whatsapp-floating-btn" id="whatsapp-floating-btn" aria-label="Abrir WhatsApp da Barbearia">
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"/>
+      </svg>
+      <span class="wa-badge-pulse">1</span>
+    </button>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/config.js"></script>
+  <script src="js/whatsapp.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

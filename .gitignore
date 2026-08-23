@@ -1,0 +1,67 @@
+# Dependências
+/node_modules
+/.pnp
+.pnp.js
+.yarn/install-state.gz
+
+# Build e Produção do Next.js
+/.next/
+/out/
+/build
+/dist
+
+# Arquivos de Ambiente e Chaves Confidenciais (NUNCA SUBIR)
+.env
+.env*.local
+.env.development.local
+.env.test.local
+.env.production.local
+*.pem
+*.key
+*.cert
+*.crt
+*.pfx
+*.p12
+
+# Logs de Erros e Depuração
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+.pnpm-debug.log*
+*.log
+
+# Diagnósticos do TypeScript e Vercel
+*.tsbuildinfo
+next-env.d.ts
+.vercel
+
+# Arquivos de Sistema Operacional e Editores
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# IDEs e Ferramentas de Desenvolvimento
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+*.bak
+*.tmp
+.agents/
+.system_generated/
+
+# Cobertura de Testes
+/coverage
+/.nyc_output
