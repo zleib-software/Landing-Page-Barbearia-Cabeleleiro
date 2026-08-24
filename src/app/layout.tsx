@@ -3,14 +3,35 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://lumencobarber.com.br"),
-  title: "LUMEN & CO. | Barbearia & Hair Studio de Luxo",
-  description: "Barbearia premium e hair salon de alto padrão. Cortes masculinos e femininos, barboterapia, mechas, tratamentos e atendimento VIP com agendamento via WhatsApp.",
-  keywords: ["barbearia", "cabeleireiro", "hair salon", "salão de beleza", "barboterapia", "corte masculino", "fade", "balayage", "agendamento whatsapp", "recife", "são paulo"],
+  title: "Lumen & Co. | Barbearia Premium na Av. Paulista",
+  description: "Barbearia premium na Bela Vista, São Paulo. Cortes, barba, visagismo e tratamentos capilares. Agende seu horário pelo WhatsApp com atendimento exclusivo.",
+  keywords: [
+    "barbearia bela vista",
+    "barbearia paulista",
+    "barbearia av paulista",
+    "corte de cabelo masculino são paulo",
+    "barboterapia são paulo",
+    "visagismo masculino",
+    "lumen and co"
+  ],
   authors: [{ name: "LUMEN & CO." }],
+  alternates: {
+    canonical: "https://lumencobarber.com.br",
+  },
   openGraph: {
-    title: "LUMEN & CO. | Barbearia & Hair Studio de Luxo",
-    description: "A arte do estilo e cuidado pessoal em alto padrão. Agende seu horário direto no WhatsApp.",
-    images: ["/images/hero-bg.jpg"],
+    title: "Lumen & Co. | Barbearia Premium na Av. Paulista",
+    description: "Barbearia premium na Bela Vista, São Paulo. Cortes, barba e visagismo. Agende seu horário pelo WhatsApp.",
+    url: "https://lumencobarber.com.br",
+    siteName: "Lumen & Co. Barber & Studio",
+    images: [
+      {
+        url: "/images/hero-bg.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Barbearia Lumen & Co. na Av. Paulista"
+      }
+    ],
+    locale: "pt_BR",
     type: "website",
   },
   icons: {
@@ -25,11 +46,13 @@ export default function RootLayout({
 }>) {
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "HairSalon",
+    "@type": "BarberShop",
     "name": "LUMEN & CO. Barber & Studio",
     "image": "https://lumencobarber.com.br/images/hero-bg.jpg",
+    "url": "https://lumencobarber.com.br",
     "telephone": "+5511999999999",
     "priceRange": "$$",
+    "description": "Barbearia premium na Bela Vista, São Paulo. Cortes, barba, visagismo e tratamentos capilares.",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "Av. Paulista, 1578",
@@ -46,15 +69,37 @@ export default function RootLayout({
     "openingHoursSpecification": [
       {
         "@type": "OpeningHoursSpecification",
-        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday"],
         "opens": "09:00",
         "closes": "20:00"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Thursday"],
+        "opens": "09:00",
+        "closes": "21:00"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Friday"],
+        "opens": "08:30",
+        "closes": "21:30"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Saturday"],
+        "opens": "08:30",
+        "closes": "20:00"
       }
+    ],
+    "sameAs": [
+      "https://instagram.com",
+      "https://facebook.com"
     ],
     "aggregateRating": {
       "@type": "AggregateRating",
       "ratingValue": "4.9",
-      "reviewCount": "348"
+      "reviewCount": "350"
     }
   };
 

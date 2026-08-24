@@ -9,7 +9,7 @@ const reviews = [
     name: "Rodrigo Miranda",
     verified: "Cliente Verificado • Google",
     comment:
-      "Melhor experiência de barbearia que já tive! O Alex é um artista, o fade ficou impecável e a toalha quente com massagem é surreal. A cerveja artesanal na espera faz toda a diferença!",
+      "Melhor experiência de barbearia que já tive! O Alex é um artista, o fade ficou impecável e a toalha quente com massagem é surreal. O café espresso na espera e a pontualidade fazem toda a diferença!",
   },
   {
     initials: "LA",

@@ -54,9 +54,10 @@ const SITE_CONFIG = {
       category: "barber",
       price: "R$ 85",
       duration: "45 min",
-      description: "Lavagem com massagem capilar, corte milimétrico na tesoura ou máquina, acabamento com navalha e finalização com pomada matte premium.",
+      description: "Corte de precisão na tesoura ou máquina, lavagem relaxante, acabamento na navalha e finalização matte.",
       image: "assets/images/service-haircut.jpg",
-      popular: true
+      popular: true,
+      badge: "Mais Escolhido"
     },
     {
       id: "barboterapia-spa",
@@ -64,9 +65,9 @@ const SITE_CONFIG = {
       category: "barber",
       price: "R$ 75",
       duration: "40 min",
-      description: "Esfoliação facial, vapor de ozônio, óleos essenciais relaxantes, toalha quente, navalhete descartável e pós-barba hidratante calmante.",
+      description: "Vapor de ozônio, toalha aquecida com óleos essenciais, navalhete descartável e hidratação pós-barba calmante.",
       image: "assets/images/service-beard.jpg",
-      popular: true
+      popular: false
     },
     {
       id: "combo-executivo",
@@ -74,9 +75,10 @@ const SITE_CONFIG = {
       category: "barber",
       price: "R$ 145",
       duration: "1h 20m",
-      description: "Experiência completa masculina: corte personalizado, barboterapia relaxante, alinhamento de sobrancelhas e uma cerveja artesanal ou café expresso cortesia.",
+      description: "Corte personalizado + barboterapia completa + alinhamento de sobrancelhas com café espresso cortesia.",
       image: "assets/images/service-haircut.jpg",
-      popular: true
+      popular: true,
+      badge: "🔥 Melhor Custo-Benefício"
     },
     {
       id: "escova-balayage",
@@ -84,9 +86,10 @@ const SITE_CONFIG = {
       category: "salon",
       price: "A partir de R$ 380",
       duration: "3h 30m",
-      description: "Técnica francesa personalizada de iluminação dos fios, matização com pigmentos nobres, teste de mecha e tratamento anti-danos.",
+      description: "Iluminação personalizada dos fios, matização com pigmentos nobres e tratamento anti-danos profundo.",
       image: "assets/images/gallery-balayage.jpg",
-      popular: true
+      popular: true,
+      badge: "Destaque Studio"
     },
     {
       id: "corte-feminino-styling",
@@ -94,7 +97,7 @@ const SITE_CONFIG = {
       category: "salon",
       price: "R$ 160",
       duration: "1h 00m",
-      description: "Análise visagista de traços do rosto e estilo de vida, lavagem relaxante com produtos importados, corte e escova modelada.",
+      description: "Análise visagista de traços do rosto, lavagem especial com produtos importados e escova modelada.",
       image: "assets/images/service-salon.jpg",
       popular: false
     },
@@ -104,7 +107,7 @@ const SITE_CONFIG = {
       category: "spa",
       price: "R$ 190",
       duration: "1h 15m",
-      description: "Desintoxicação do couro cabeludo, reposição lipídica e hídrica profunda, ozonioterapia e massagem revigorante craniana.",
+      description: "Desintoxicação do couro cabeludo, reposição lipídica e hidratação profunda com massagem craniana.",
       image: "assets/images/service-salon.jpg",
       popular: false
     }

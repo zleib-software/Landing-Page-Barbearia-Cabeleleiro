@@ -98,7 +98,7 @@ export function Contact() {
                   type="tel"
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
-                  placeholder="Ex: (81) 98765-4321"
+                  placeholder="Ex: (11) 98765-4321"
                   className="w-full bg-white dark:bg-dark-900/90 border border-light-300 dark:border-white/15 focus:border-gold-500 rounded-xl px-4 py-3 text-sm text-light-950 dark:text-white focus:outline-none focus:ring-2 focus:ring-gold-500/20 transition-all placeholder:text-light-400 dark:placeholder:text-gray-600 shadow-sm"
                 />
               </div>

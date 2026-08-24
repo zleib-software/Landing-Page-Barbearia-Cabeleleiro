@@ -1,20 +1,33 @@
-# LUMEN & CO. | Barbearia & Hair Studio de Luxo 💈✂️
+# Lumen & Co. — Premium Barbershop Landing Page 💈✂️
 
-Landing page de altíssima conversão e posicionamento premium para Barbearias, Hair Studios e Salões de Beleza. Desenvolvida com Next.js 15, React 19, Tailwind CSS e Framer Motion.
+> **Landing page de alta conversão para barbearias e hair studios de alto padrão.**  
+> Desenvolvida com foco obsessivo em **UX, velocidade de carregamento, conversão direta via WhatsApp, Acessibilidade e SEO Local**.
 
 ---
 
-## 🌟 Principais Recursos
+## 🎯 Visão Geral do Projeto
 
-- 🌓 **Modo Claro & Escuro Inteligente**: Detecção automática da preferência do sistema operacional (`prefers-color-scheme`) e botão de alternância rápida no cabeçalho com persistência em `localStorage`.
-- 📲 **Integração Completa com WhatsApp**:
-  - **Widget de Reserva Express** no Hero com mensagem formatada e limpa (sem caracteres corrompidos).
-  - Botão flutuante animado com popup de assistente e atalhos de agendamento.
-  - Agendamento direto por procedimento e com profissional específico.
-- 💎 **Design System de Luxo**: Efeitos de Glassmorphism, gradientes em ouro nobre, tipografia refinada (*Cinzel* e *Plus Jakarta Sans*) e animações fluidas.
-- 🕒 **Horário e Status em Tempo Real**: Badge dinâmico (*Aberto agora / Fechado*) que calcula automaticamente com base no relógio do visitante.
-- 📍 **Google Maps & Localização**: Mapa interativo integrado, tabela de horários da semana com destaque para o dia de "Hoje" e botão de rota.
-- ⚡ **SEO e Performance**: Metadados Open Graph otimizados e Schema.org JSON-LD do tipo `HairSalon`.
+Este projeto foi desenhado para eliminar a fricção típica de agendamentos em barbearias de luxo, combinando uma identidade visual refinada (Glassmorphism, tons ouro nobre e Dark/Light mode) com um fluxo direto de conversão: **visitou → gostou → agendou**.
+
+### 🏆 Destaques Técnicos & de Produto
+- ⚡ **Conversão em Poucos Cliques**: Hero agressivo com CTA direto para WhatsApp e seletor rápido com pré-formatação de mensagem sem fricção.
+- 📱 **Mobile-First & WhatsApp Flutuante**: Barra fixa inteligente no mobile disparada por scroll para conversão imediata sem precisar voltar ao topo.
+- 🕒 **Horário Dinâmico em Tempo Real**: Cálculo em tempo real do status de funcionamento (`Aberto agora · Fecha às XX:XX` / `Fechado agora`).
+- 🌓 **Sistema Dual Theme (Dark / Light / Auto)**: Suporte completo a tema escuro/claro com detecção de preferência de sistema (`prefers-color-scheme`) e persistência no `localStorage`.
+- 🔍 **SEO Local & Schema.org**: Marcação estruturada em JSON-LD (`BarberShop`), GeoCoordinates (Av. Paulista), metadados Open Graph e Canonical URLs.
+- ♿ **Acessibilidade (WCAG)**: Contraste rigoroso, semântica HTML5 completa (`<header>`, `<main>`, `<section>`, `<footer>`), foco visível acessível (`:focus-visible`) e navegação completa por teclado.
+- 🖼️ **Galeria de Resultados & Filtros**: Grid visual com fotos de resultados reais e filtros dinâmicos por categoria (Fade, Barba, Mechas).
+
+---
+
+## 🛠️ Tech Stack
+
+- **Framework**: [Next.js 15](https://nextjs.org/) (App Router)
+- **Biblioteca UI**: [React 19](https://react.dev/)
+- **Linguagem**: [TypeScript](https://www.typescriptlang.org/)
+- **Estilização**: [Tailwind CSS](https://tailwindcss.com/) & Vanilla CSS custom tokens
+- **Animações**: [Framer Motion](https://www.framer.com/motion/)
+- **Ícones**: [Lucide React](https://lucide.dev/)
 
 ---
 
@@ -26,18 +39,18 @@ git clone https://github.com/SEU_USUARIO/SEU_REPOSITORIO.git
 cd SEU_REPOSITORIO
 ```
 
-### 2. Instalar as dependências
+### 2. Instalar dependências
 ```bash
 npm install
 ```
 
-### 3. Iniciar o servidor de desenvolvimento
+### 3. Rodar em ambiente de desenvolvimento
 ```bash
 npm run dev
 ```
-Acesse [http://localhost:3000](http://localhost:3000) no seu navegador.
+Acesse [http://localhost:3000](http://localhost:3000).
 
-### 4. Build de Produção
+### 4. Build de produção & Testes
 ```bash
 npm run build
 npm start
@@ -45,17 +58,17 @@ npm start
 
 ---
 
-## 🛠️ Tecnologias Utilizadas
+## 📊 Métricas Lighthouse Alvo
 
-- **Next.js 15** (App Router)
-- **React 19**
-- **TypeScript**
-- **Tailwind CSS**
-- **Framer Motion**
-- **Lucide React**
+| Categoria | Meta |
+| :--- | :---: |
+| ⚡ Performance | 95+ |
+| ♿ Acessibilidade | 100 |
+| 🛡️ Melhores Práticas | 100 |
+| 🔍 SEO | 100 |
 
 ---
 
 ## 📄 Licença
 
-Este projeto está sob a licença MIT. Sinta-se livre para personalizar e utilizar no seu negócio!
+Distribuído sob a licença MIT. Consulte `LICENSE` para mais detalhes.
