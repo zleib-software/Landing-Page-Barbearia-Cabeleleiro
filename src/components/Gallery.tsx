@@ -2,7 +2,7 @@
 
 import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
-import { Eye, Sparkles } from "lucide-react";
+import { FaEye } from "react-icons/fa6";
 import { useGSAP } from "@gsap/react";
 import { gsap } from "@/utils/gsap";
 
@@ -167,7 +167,7 @@ export function Gallery() {
                   {item.title}
                 </h3>
                 <div className="mt-2 flex items-center gap-1.5 text-xs text-gold-300 font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <Eye className="w-3.5 h-3.5" />
+                  <FaEye className="w-3.5 h-3.5" />
                   <span>Ver resultado</span>
                 </div>
               </div>

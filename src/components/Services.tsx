@@ -2,7 +2,7 @@
 
 import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
-import { MessageCircle, Clock } from "lucide-react";
+import { FaWhatsapp, FaClock } from "react-icons/fa6";
 import { SITE_CONFIG, ServiceItem } from "@/data/siteConfig";
 import { formatServiceMessage, openWhatsApp } from "@/utils/whatsapp";
 import { useGSAP } from "@gsap/react";
@@ -146,7 +146,7 @@ export function Services() {
                     </div>
 
                     <div className="flex items-center gap-1.5 text-xs text-light-600 dark:text-gray-400 mb-3 font-semibold">
-                      <Clock className="w-3.5 h-3.5 text-gold-600 dark:text-gold-400" />
+                      <FaClock className="w-3.5 h-3.5 text-gold-600 dark:text-gold-400" />
                       <span>{service.duration}</span>
                     </div>
 
@@ -159,7 +159,7 @@ export function Services() {
                     onClick={() => handleServiceBooking(service)}
                     className="w-full py-3 rounded-xl bg-wa hover:bg-wa-dark text-white font-bold text-sm shadow-wa-glow flex items-center justify-center gap-2 transition-all hover:scale-[1.02] active:scale-[0.98] btn-shine"
                   >
-                    <MessageCircle className="w-4 h-4 fill-white" />
+                    <FaWhatsapp className="w-4 h-4 text-white" />
                     <span>Agendar este Serviço</span>
                   </button>
                 </div>

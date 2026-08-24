@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useRef } from "react";
-import { MessageCircle, Mail, Send, Smile, X } from "lucide-react";
+import { FaWhatsapp, FaEnvelope, FaPaperPlane, FaFaceSmile, FaXmark } from "react-icons/fa6";
 import { SITE_CONFIG } from "@/data/siteConfig";
 import { openWhatsApp } from "@/utils/whatsapp";
 import { useGSAP } from "@gsap/react";
@@ -80,7 +80,7 @@ export function Contact() {
             <div className="space-y-4">
               <div className="flex items-center gap-4 p-4 rounded-2xl glass-card border border-light-300 dark:border-white/10">
                 <div className="w-12 h-12 rounded-xl bg-wa/15 text-wa flex items-center justify-center">
-                  <MessageCircle className="w-6 h-6 fill-wa" />
+                  <FaWhatsapp className="w-6 h-6 text-wa" />
                 </div>
                 <div>
                   <h4 className="font-bold text-light-950 dark:text-white text-sm">WhatsApp Oficial</h4>
@@ -90,7 +90,7 @@ export function Contact() {
 
               <div className="flex items-center gap-4 p-4 rounded-2xl glass-card border border-light-300 dark:border-white/10">
                 <div className="w-12 h-12 rounded-xl bg-gold-500/15 text-gold-600 dark:text-gold-400 flex items-center justify-center">
-                  <Mail className="w-6 h-6" />
+                  <FaEnvelope className="w-5 h-5" />
                 </div>
                 <div>
                   <h4 className="font-bold text-light-950 dark:text-white text-sm">E-mail Corporativo</h4>
@@ -156,16 +156,16 @@ export function Contact() {
                   <button
                     type="button"
                     onClick={() => setShowEmojiPicker(!showEmojiPicker)}
-                    className="inline-flex items-center gap-1 text-xs font-semibold text-gold-700 dark:text-gold-400 hover:text-light-950 dark:hover:text-white transition-colors"
+                    className="inline-flex items-center gap-1.5 text-xs font-semibold text-gold-700 dark:text-gold-400 hover:text-light-950 dark:hover:text-white transition-colors"
                   >
                     {showEmojiPicker ? (
                       <>
-                        <X className="w-3.5 h-3.5" />
+                        <FaXmark className="w-3.5 h-3.5" />
                         <span>Fechar Emojis</span>
                       </>
                     ) : (
                       <>
-                        <Smile className="w-3.5 h-3.5" />
+                        <FaFaceSmile className="w-3.5 h-3.5" />
                         <span>Adicionar Emoji</span>
                       </>
                     )}
@@ -191,7 +191,7 @@ export function Contact() {
                 type="submit"
                 className="w-full py-4 rounded-xl bg-wa hover:bg-wa-dark text-white font-extrabold text-sm shadow-wa-glow flex items-center justify-center gap-2 hover:scale-[1.02] active:scale-[0.98] transition-all btn-shine"
               >
-                <Send className="w-4 h-4" />
+                <FaPaperPlane className="w-4 h-4" />
                 <span>Enviar para o WhatsApp</span>
               </button>
             </form>

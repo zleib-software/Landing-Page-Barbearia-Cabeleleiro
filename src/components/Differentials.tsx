@@ -2,39 +2,39 @@
 
 import { useRef } from "react";
 import Image from "next/image";
-import { Coffee, Sparkles, Clock, Crown, Award, Wifi, ArrowRight } from "lucide-react";
+import { FaMugHot, FaWandMagicSparkles, FaClock, FaCrown, FaAward, FaWifi, FaArrowRight } from "react-icons/fa6";
 import { openWhatsApp } from "@/utils/whatsapp";
 import { useGSAP } from "@gsap/react";
 import { gsap } from "@/utils/gsap";
 
 const differentials = [
   {
-    icon: Coffee,
+    icon: FaMugHot,
     title: "Lounge & Café Premium",
     description: "Café espresso moído na hora, bebidas selecionadas, poltronas confortáveis e ambiente acolhedor.",
   },
   {
-    icon: Sparkles,
+    icon: FaWandMagicSparkles,
     title: "Barboterapia & Toalha Quente",
     description: "Ritual relaxante com vapor de ozônio, toalhas aquecidas e óleos essenciais para a pele.",
   },
   {
-    icon: Clock,
+    icon: FaClock,
     title: "Pontualidade Britânica",
     description: "Atendimento com hora marcada rigorosa para você não perder tempo esperando.",
   },
   {
-    icon: Crown,
+    icon: FaCrown,
     title: "Visagismo Personalizado",
     description: "Alinhamento técnico do corte ao formato do seu rosto e estilo pessoal.",
   },
   {
-    icon: Award,
+    icon: FaAward,
     title: "Cosméticos Nobres",
     description: "Produtos importados de alta performance que tratam e protegem a saúde dos fios.",
   },
   {
-    icon: Wifi,
+    icon: FaWifi,
     title: "Espaço Executivo & Wi-Fi 5G",
     description: "Ambiente 100% climatizado com conexão ultrarrápida para trabalhar com conforto.",
   },
@@ -111,7 +111,7 @@ export function Differentials() {
                 className="diff-card glass-card p-7 sm:p-8 rounded-2xl border border-light-300 dark:border-white/10 hover:border-gold-500/60 hover:shadow-gold-glow-light dark:hover:shadow-gold-glow transition-all group"
               >
                 <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-gold-500/10 border border-gold-500/30 flex items-center justify-center text-gold-600 dark:text-gold-400 mb-5 group-hover:bg-gold-gradient group-hover:text-dark-950 group-hover:shadow-gold-glow transition-all">
-                  <Icon className="w-6 h-6 sm:w-7 sm:h-7" />
+                  <Icon className="w-5 h-5 sm:w-6 sm:h-6" />
                 </div>
                 <h3 className="font-display text-xl font-bold text-light-950 dark:text-white mb-2 group-hover:text-gold-700 dark:group-hover:text-gold-300 transition-colors">
                   {item.title}
@@ -150,7 +150,7 @@ export function Differentials() {
               className="px-7 py-3.5 rounded-xl bg-gold-gradient text-dark-950 font-bold text-sm shadow-gold-glow hover:scale-105 active:scale-95 transition-all inline-flex items-center gap-2 btn-shine"
             >
               <span>Agendar Minha Visita</span>
-              <ArrowRight className="w-4 h-4" />
+              <FaArrowRight className="w-3.5 h-3.5" />
             </button>
           </div>
         </div>

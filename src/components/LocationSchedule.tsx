@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState, useRef } from "react";
-import { MapPin, Phone, ExternalLink, Calendar, Clock } from "lucide-react";
+import { FaLocationDot, FaPhone, FaArrowUpRightFromSquare, FaCalendarDays, FaClock } from "react-icons/fa6";
 import { SITE_CONFIG } from "@/data/siteConfig";
 import { useGSAP } from "@gsap/react";
 import { gsap } from "@/utils/gsap";
@@ -139,13 +139,13 @@ export function LocationSchedule() {
                     {statusText.text}
                   </span>
                 </div>
-                <Clock className="w-4 h-4 text-gold-600 dark:text-gold-400 shrink-0" />
+                <FaClock className="w-4 h-4 text-gold-600 dark:text-gold-400 shrink-0" />
               </div>
 
               <div className="space-y-4 mb-6">
                 <div className="flex items-start gap-3.5">
                   <div className="w-10 h-10 rounded-xl bg-gold-500/10 border border-gold-500/30 flex items-center justify-center text-gold-600 dark:text-gold-400 shrink-0">
-                    <MapPin className="w-5 h-5" />
+                    <FaLocationDot className="w-4 h-4" />
                   </div>
                   <div>
                     <h3 className="font-bold text-light-950 dark:text-white text-sm mb-0.5">Endereço</h3>
@@ -158,7 +158,7 @@ export function LocationSchedule() {
 
                 <div className="flex items-start gap-3.5">
                   <div className="w-10 h-10 rounded-xl bg-gold-500/10 border border-gold-500/30 flex items-center justify-center text-gold-600 dark:text-gold-400 shrink-0">
-                    <Phone className="w-5 h-5" />
+                    <FaPhone className="w-4 h-4" />
                   </div>
                   <div>
                     <h3 className="font-bold text-light-950 dark:text-white text-sm mb-0.5">Contato</h3>
@@ -170,7 +170,7 @@ export function LocationSchedule() {
               {/* Tabela de Horários Escaneável */}
               <div className="bg-light-150/90 dark:bg-dark-950/70 border border-light-300 dark:border-white/10 rounded-2xl p-4 mb-6">
                 <div className="flex items-center gap-2 text-light-950 dark:text-white font-bold text-xs uppercase tracking-wider mb-3">
-                  <Calendar className="w-3.5 h-3.5 text-gold-600 dark:text-gold-400" />
+                  <FaCalendarDays className="w-3.5 h-3.5 text-gold-600 dark:text-gold-400" />
                   <span>Horários de Funcionamento</span>
                 </div>
 
@@ -210,7 +210,7 @@ export function LocationSchedule() {
               rel="noopener noreferrer"
               className="w-full py-3.5 rounded-xl bg-gold-gradient text-dark-950 font-bold text-sm shadow-gold-glow flex items-center justify-center gap-2 hover:scale-105 active:scale-95 transition-all btn-shine"
             >
-              <ExternalLink className="w-4 h-4" />
+              <FaArrowUpRightFromSquare className="w-3.5 h-3.5" />
               <span>Como Chegar no Maps</span>
             </a>
           </div>

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useRef } from "react";
-import { ChevronDown } from "lucide-react";
+import { FaChevronDown } from "react-icons/fa6";
 import { useGSAP } from "@gsap/react";
 import { gsap } from "@/utils/gsap";
 
@@ -98,8 +98,8 @@ export function FAQ() {
                   className="w-full px-6 sm:px-8 py-5 text-left flex items-center justify-between gap-4 font-semibold text-light-950 dark:text-white text-base sm:text-lg"
                 >
                   <span>{item.q}</span>
-                  <ChevronDown
-                    className={`w-5 h-5 text-gold-600 dark:text-gold-400 shrink-0 transition-transform duration-300 ${
+                  <FaChevronDown
+                    className={`w-4 h-4 text-gold-600 dark:text-gold-400 shrink-0 transition-transform duration-300 ${
                       isOpen ? "rotate-180" : ""
                     }`}
                   />

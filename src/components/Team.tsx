@@ -2,7 +2,7 @@
 
 import { useRef } from "react";
 import Image from "next/image";
-import { MessageCircle, Award } from "lucide-react";
+import { FaWhatsapp, FaAward } from "react-icons/fa6";
 import { SITE_CONFIG, TeamMember } from "@/data/siteConfig";
 import { formatTeamMessage, openWhatsApp } from "@/utils/whatsapp";
 import { useGSAP } from "@gsap/react";
@@ -87,7 +87,7 @@ export function Team() {
                   </div>
 
                   <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-light-200 dark:bg-white/5 border border-light-300 dark:border-white/10 text-xs text-light-800 dark:text-gray-300 mb-4 font-semibold">
-                    <Award className="w-3.5 h-3.5 text-gold-600 dark:text-gold-400" />
+                    <FaAward className="w-3.5 h-3.5 text-gold-600 dark:text-gold-400" />
                     <span>{member.experience}</span>
                   </div>
 
@@ -100,7 +100,7 @@ export function Team() {
                   onClick={() => handleTeamBooking(member)}
                   className="w-full py-3.5 rounded-xl bg-gold-gradient text-dark-950 font-bold text-sm shadow-gold-glow flex items-center justify-center gap-2 hover:scale-105 active:scale-95 transition-all btn-shine"
                 >
-                  <MessageCircle className="w-4 h-4 fill-dark-950" />
+                  <FaWhatsapp className="w-4 h-4 text-dark-950" />
                   <span>Agendar com {member.name.split(" ")[0]}</span>
                 </button>
               </div>

@@ -2,17 +2,15 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { MessageCircle, Menu, X, Sun, Moon, Laptop } from "lucide-react";
+import { FaWhatsapp, FaBars, FaXmark } from "react-icons/fa6";
 import { SITE_CONFIG } from "@/data/siteConfig";
 import { openWhatsApp } from "@/utils/whatsapp";
-import { useTheme } from "@/utils/useTheme";
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [isOpenNow, setIsOpenNow] = useState(true);
   const [statusText, setStatusText] = useState("Aberto agora");
-  const { theme, resolvedTheme, toggleTheme, setTheme, mounted } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -70,7 +68,7 @@ export function Header() {
           </Link>
 
           {/* Nav Desktop */}
-          <nav className="hidden lg:flex items-center gap-8">
+          <nav className="hidden lg:flex items-center gap-7 xl:gap-8">
             <Link href="#experiencia" className="text-light-700 hover:text-light-950 dark:text-gray-300 dark:hover:text-white text-sm font-semibold transition-colors">
               Experiência VIP
             </Link>
@@ -91,7 +89,7 @@ export function Header() {
             </Link>
           </nav>
 
-          {/* Status, Theme Toggle & CTA Header */}
+          {/* Status & CTA Header */}
           <div className="flex items-center gap-3 sm:gap-4">
             {/* Live Status Badge */}
             <div
@@ -116,40 +114,12 @@ export function Header() {
               <span>{statusText}</span>
             </div>
 
-            {/* Theme Toggle Button */}
-            <button
-              onClick={toggleTheme}
-              className="p-2.5 rounded-xl bg-light-200/80 dark:bg-white/5 text-light-800 dark:text-gold-300 hover:text-gold-600 dark:hover:text-white border border-light-300 dark:border-white/10 shadow-sm transition-all hover:scale-105 active:scale-95"
-              aria-label={
-                mounted
-                  ? resolvedTheme === "dark"
-                    ? "Mudar para modo claro"
-                    : "Mudar para modo escuro"
-                  : "Alternar tema"
-              }
-              title={
-                mounted
-                  ? `Tema atual: ${theme === "system" ? "Sistema (" + resolvedTheme + ")" : resolvedTheme}. Clique para alternar.`
-                  : "Alternar tema"
-              }
-            >
-              {mounted ? (
-                resolvedTheme === "dark" ? (
-                  <Sun className="w-4 h-4 text-amber-400" />
-                ) : (
-                  <Moon className="w-4 h-4 text-indigo-700" />
-                )
-              ) : (
-                <Sun className="w-4 h-4 text-amber-400 opacity-50" />
-              )}
-            </button>
-
             {/* CTA WhatsApp Button */}
             <button
               onClick={() => openWhatsApp("Olá! Gostaria de agendar um horário na Lumen & Co.")}
               className="hidden md:inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gold-gradient text-dark-950 font-bold text-sm shadow-gold-glow hover:scale-105 active:scale-95 transition-all btn-shine"
             >
-              <MessageCircle className="w-4 h-4 fill-dark-950" />
+              <FaWhatsapp className="w-4 h-4 text-dark-950" />
               <span>Agendar Horário</span>
             </button>
 
@@ -159,7 +129,7 @@ export function Header() {
               className="lg:hidden p-2 rounded-lg bg-light-200/80 dark:bg-white/5 text-light-800 dark:text-gray-200 hover:text-light-950 dark:hover:text-white border border-light-300 dark:border-white/10"
               aria-label="Abrir menu mobile"
             >
-              <Menu className="w-6 h-6" />
+              <FaBars className="w-5 h-5" />
             </button>
           </div>
         </div>
@@ -192,53 +162,8 @@ export function Header() {
               onClick={() => setMobileOpen(false)}
               className="p-1.5 rounded-full bg-light-200 dark:bg-white/5 text-light-700 dark:text-gray-400 hover:text-light-950 dark:hover:text-white"
             >
-              <X className="w-5 h-5" />
+              <FaXmark className="w-5 h-5" />
             </button>
-          </div>
-
-          {/* Theme Selector in Mobile Menu */}
-          <div className="mb-6 p-3 rounded-2xl bg-light-200/70 dark:bg-dark-800 border border-light-300 dark:border-white/10">
-            <div className="text-xs font-bold text-light-600 dark:text-gray-400 mb-2 flex items-center justify-between">
-              <span>Aparência / Tema</span>
-              <span className="text-[10px] uppercase font-bold text-gold-600 dark:text-gold-400">
-                {theme === "system" ? "Automático" : theme === "dark" ? "Escuro" : "Claro"}
-              </span>
-            </div>
-            <div className="grid grid-cols-3 gap-1.5">
-              <button
-                onClick={() => setTheme("light")}
-                className={`py-1.5 px-2 rounded-xl text-xs font-semibold flex items-center justify-center gap-1.5 transition-all ${
-                  theme === "light"
-                    ? "bg-white text-light-950 shadow-sm border border-gold-500/40"
-                    : "text-light-700 dark:text-gray-400 hover:text-light-950 dark:hover:text-white"
-                }`}
-              >
-                <Sun className="w-3.5 h-3.5 text-amber-500" />
-                <span>Claro</span>
-              </button>
-              <button
-                onClick={() => setTheme("dark")}
-                className={`py-1.5 px-2 rounded-xl text-xs font-semibold flex items-center justify-center gap-1.5 transition-all ${
-                  theme === "dark"
-                    ? "bg-dark-900 text-white shadow-sm border border-gold-500/40"
-                    : "text-light-700 dark:text-gray-400 hover:text-light-950 dark:hover:text-white"
-                }`}
-              >
-                <Moon className="w-3.5 h-3.5 text-indigo-400" />
-                <span>Escuro</span>
-              </button>
-              <button
-                onClick={() => setTheme("system")}
-                className={`py-1.5 px-2 rounded-xl text-xs font-semibold flex items-center justify-center gap-1.5 transition-all ${
-                  theme === "system"
-                    ? "bg-gold-gradient text-dark-950 shadow-sm font-bold"
-                    : "text-light-700 dark:text-gray-400 hover:text-light-950 dark:hover:text-white"
-                }`}
-              >
-                <Laptop className="w-3.5 h-3.5" />
-                <span>Auto</span>
-              </button>
-            </div>
           </div>
 
           <nav className="flex flex-col gap-3">
@@ -302,7 +227,7 @@ export function Header() {
             }}
             className="w-full py-3 rounded-xl bg-wa hover:bg-wa-dark text-white font-bold text-sm shadow-wa-glow flex items-center justify-center gap-2"
           >
-            <MessageCircle className="w-5 h-5 fill-white" />
+            <FaWhatsapp className="w-5 h-5 text-white" />
             <span>Agendar pelo WhatsApp</span>
           </button>
           <p className="text-xs text-light-500 dark:text-gray-500 text-center">
@@ -313,4 +238,3 @@ export function Header() {
     </>
   );
 }
-

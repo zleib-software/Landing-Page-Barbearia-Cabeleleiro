@@ -2,7 +2,7 @@
 
 import { useState, useRef } from "react";
 import Image from "next/image";
-import { MessageCircle, Star, Scissors, User, ArrowRight, ShieldCheck, Clock } from "lucide-react";
+import { FaWhatsapp, FaStar, FaScissors, FaUser, FaArrowRight, FaShieldHalved, FaClock } from "react-icons/fa6";
 import { SITE_CONFIG } from "@/data/siteConfig";
 import { formatBookingMessage, openWhatsApp } from "@/utils/whatsapp";
 import { useGSAP } from "@gsap/react";
@@ -92,7 +92,7 @@ export function Hero() {
                 onClick={handleDirectWhatsApp}
                 className="px-8 py-4 rounded-xl bg-wa hover:bg-wa-dark text-white font-black text-base shadow-wa-glow hover:scale-105 active:scale-95 transition-all flex items-center justify-center gap-3 btn-shine"
               >
-                <MessageCircle className="w-5 h-5 fill-white" />
+                <FaWhatsapp className="w-5 h-5 text-white" />
                 <span>Agendar pelo WhatsApp</span>
               </button>
 
@@ -101,15 +101,15 @@ export function Hero() {
                 className="px-7 py-4 rounded-xl bg-white hover:bg-amber-50/50 dark:bg-white/5 text-gray-900 dark:text-gold-300 hover:text-amber-800 dark:hover:text-white border border-gray-300 dark:border-gold-500/30 backdrop-blur-md font-bold text-base transition-all shadow-sm flex items-center justify-center gap-2"
               >
                 <span>Ver Serviços & Preços</span>
-                <ArrowRight className="w-4 h-4" />
+                <FaArrowRight className="w-3.5 h-3.5" />
               </a>
             </div>
 
             {/* Prova Social Imediata abaixo do CTA */}
             <div className="hero-proof flex items-center gap-3 pt-2 mb-10">
-              <div className="flex text-amber-500 dark:text-amber-400">
+              <div className="flex text-amber-500 dark:text-amber-400 gap-0.5">
                 {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-4 h-4 fill-amber-500 dark:fill-amber-400" />
+                  <FaStar key={i} className="w-3.5 h-3.5 text-amber-500 dark:text-amber-400" />
                 ))}
               </div>
               <span className="text-xs sm:text-sm font-extrabold text-gray-900 dark:text-gray-300">
@@ -151,7 +151,7 @@ export function Hero() {
               <form onSubmit={handleBookingSubmit} className="space-y-4">
                 <div>
                   <label className="flex items-center gap-1.5 text-xs font-bold text-gray-900 dark:text-gray-300 mb-1.5">
-                    <Scissors className="w-3.5 h-3.5 text-amber-700 dark:text-gold-400" />
+                    <FaScissors className="w-3.5 h-3.5 text-amber-700 dark:text-gold-400" />
                     1. Escolha o serviço
                   </label>
                   <select
@@ -170,7 +170,7 @@ export function Hero() {
 
                 <div>
                   <label className="flex items-center gap-1.5 text-xs font-bold text-gray-900 dark:text-gray-300 mb-1.5">
-                    <User className="w-3.5 h-3.5 text-amber-700 dark:text-gold-400" />
+                    <FaUser className="w-3.5 h-3.5 text-amber-700 dark:text-gold-400" />
                     2. Escolha o profissional
                   </label>
                   <select
@@ -186,7 +186,7 @@ export function Hero() {
 
                 <div>
                   <label className="flex items-center gap-1.5 text-xs font-bold text-gray-900 dark:text-gray-300 mb-1.5">
-                    <Clock className="w-3.5 h-3.5 text-amber-700 dark:text-gold-400" />
+                    <FaClock className="w-3.5 h-3.5 text-amber-700 dark:text-gold-400" />
                     3. Turno preferido
                   </label>
                   <select
@@ -205,12 +205,12 @@ export function Hero() {
                   type="submit"
                   className="w-full py-4 rounded-xl bg-wa hover:bg-wa-dark text-white font-black text-base shadow-wa-glow flex items-center justify-center gap-3 transition-all hover:scale-[1.02] active:scale-[0.98] btn-shine mt-2"
                 >
-                  <MessageCircle className="w-5 h-5 fill-white" />
+                  <FaWhatsapp className="w-5 h-5 text-white" />
                   <span>Enviar Pedido no WhatsApp</span>
                 </button>
 
                 <div className="flex items-center justify-center gap-2 text-xs text-gray-700 dark:text-gray-400 pt-1 font-semibold">
-                  <ShieldCheck className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
+                  <FaShieldHalved className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
                   <span>Atendimento rápido e confirmação imediata</span>
                 </div>
               </form>

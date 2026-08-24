@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { MessageCircle, X, Send, Smile } from "lucide-react";
+import { FaWhatsapp, FaXmark, FaPaperPlane, FaFaceSmile } from "react-icons/fa6";
 import { SITE_CONFIG } from "@/data/siteConfig";
 import { openWhatsApp } from "@/utils/whatsapp";
 import { EmojiPicker } from "./EmojiPicker";
@@ -61,7 +61,7 @@ export function FloatingWhatsApp() {
           className="w-full py-3.5 px-6 rounded-2xl bg-wa hover:bg-wa-dark text-white font-extrabold text-sm shadow-wa-glow flex items-center justify-center gap-2.5 transition-transform active:scale-95 border border-white/20"
           aria-label="Agendar horário pelo WhatsApp"
         >
-          <MessageCircle className="w-5 h-5 fill-white shrink-0" />
+          <FaWhatsapp className="w-5 h-5 text-white shrink-0" />
           <span>Agendar pelo WhatsApp</span>
         </button>
       </div>
@@ -75,7 +75,7 @@ export function FloatingWhatsApp() {
             <div className="bg-gradient-to-r from-emerald-700 to-emerald-900 p-4 flex items-center justify-between text-white">
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-full bg-white text-emerald-800 flex items-center justify-center font-bold">
-                  <MessageCircle className="w-6 h-6 fill-emerald-800" />
+                  <FaWhatsapp className="w-6 h-6 text-emerald-800" />
                 </div>
                 <div>
                   <h4 className="font-bold text-sm leading-tight">Lumen & Co. Barber</h4>
@@ -90,10 +90,10 @@ export function FloatingWhatsApp() {
                   setIsOpen(false);
                   setShowEmoji(false);
                 }}
-                className="p-1 rounded-full text-white/80 hover:text-white hover:bg-white/10"
+                className="p-1.5 rounded-full text-white/80 hover:text-white hover:bg-white/10"
                 aria-label="Fechar assistente"
               >
-                <X className="w-5 h-5" />
+                <FaXmark className="w-4 h-4" />
               </button>
             </div>
 
@@ -140,7 +140,7 @@ export function FloatingWhatsApp() {
                   className="p-2 rounded-xl text-gray-500 hover:text-gold-600 dark:hover:text-gold-400 hover:bg-light-200 dark:hover:bg-dark-800 transition-colors"
                   aria-label="Selecionar emoji"
                 >
-                  <Smile className="w-4 h-4" />
+                  <FaFaceSmile className="w-4 h-4" />
                 </button>
                 <input
                   type="text"
@@ -154,7 +154,7 @@ export function FloatingWhatsApp() {
                   className="w-9 h-9 rounded-xl bg-wa hover:bg-wa-dark text-white flex items-center justify-center shrink-0 shadow-wa-glow"
                   aria-label="Enviar mensagem"
                 >
-                  <Send className="w-4 h-4" />
+                  <FaPaperPlane className="w-3.5 h-3.5" />
                 </button>
               </form>
             </div>
@@ -167,7 +167,7 @@ export function FloatingWhatsApp() {
           className="w-14 h-14 rounded-full bg-wa hover:bg-wa-light text-white flex items-center justify-center shadow-wa-glow animate-wa-pulse hover:scale-110 active:scale-95 transition-transform relative"
           aria-label="Abrir assistente WhatsApp"
         >
-          <MessageCircle className="w-7 h-7 fill-white" />
+          <FaWhatsapp className="w-7 h-7 text-white" />
           {hasBadge && (
             <span className="absolute top-0 right-0 w-4 h-4 rounded-full bg-red-500 border-2 border-white dark:border-dark-950 text-[9px] font-extrabold flex items-center justify-center text-white">
               1

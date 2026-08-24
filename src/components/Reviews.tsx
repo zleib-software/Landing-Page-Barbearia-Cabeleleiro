@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef } from "react";
-import { Star, CheckCircle } from "lucide-react";
+import { FaStar, FaCircleCheck } from "react-icons/fa6";
 import { useGSAP } from "@gsap/react";
 import { gsap } from "@/utils/gsap";
 
@@ -63,7 +63,7 @@ export function Reviews() {
   );
 
   return (
-    <section ref={containerRef} className="py-20 sm:py-24 relative z-10 bg-light-150/70 dark:bg-dark-950/60 transition-colors duration-300">
+    <section ref={containerRef} className="py-20 sm:py-24 relative z-10 bg-light-150/70 dark:bg-dark-950/60 transition-colors duration-300" id="avaliaçoes">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="reviews-header text-center max-w-3xl mx-auto mb-14">
           <span className="inline-block text-xs uppercase tracking-widest font-bold text-gold-700 dark:text-gold-400 bg-gold-500/10 border border-gold-500/30 px-4 py-1.5 rounded-full mb-4">
@@ -93,15 +93,15 @@ export function Reviews() {
                       <h3 className="font-bold text-light-950 dark:text-white text-sm sm:text-base leading-tight">
                         {rev.name}
                       </h3>
-                      <div className="flex items-center gap-1 text-emerald-600 dark:text-emerald-400 text-xs mt-0.5 font-medium">
-                        <CheckCircle className="w-3 h-3" />
+                      <div className="flex items-center gap-1.5 text-emerald-600 dark:text-emerald-400 text-xs mt-0.5 font-medium">
+                        <FaCircleCheck className="w-3 h-3" />
                         <span>{rev.verified}</span>
                       </div>
                     </div>
                   </div>
-                  <div className="flex text-amber-500 dark:text-amber-400">
+                  <div className="flex text-amber-500 dark:text-amber-400 gap-0.5">
                     {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="w-3.5 h-3.5 fill-amber-500 dark:fill-amber-400" />
+                      <FaStar key={i} className="w-3.5 h-3.5 text-amber-500 dark:text-amber-400" />
                     ))}
                   </div>
                 </div>
