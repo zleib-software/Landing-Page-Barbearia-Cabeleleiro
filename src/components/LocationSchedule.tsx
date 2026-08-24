@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState, useRef } from "react";
-import { FaLocationDot, FaPhone, FaArrowUpRightFromSquare, FaCalendarDays, FaClock, FaChevronDown, FaWhatsapp } from "react-icons/fa6";
+import { FaLocationDot, FaPhone, FaArrowUpRightFromSquare, FaClock, FaChevronDown, FaWhatsapp } from "react-icons/fa6";
 import { SITE_CONFIG } from "@/data/siteConfig";
 import { openWhatsApp } from "@/utils/whatsapp";
 import { useGSAP } from "@gsap/react";
@@ -82,13 +82,13 @@ export function LocationSchedule() {
         const closeFormatted = todayConfig.hours.split("às ")[1] || "20:00";
         setStatusText({
           isOpen: true,
-          text: `Aberto agora · Fecha hoje às ${closeFormatted}`,
+          text: `Aberto agora · Fecha às ${closeFormatted}`,
         });
       } else if (currentHour < todayConfig.openHour) {
         const openFormatted = todayConfig.hours.split(" às")[0] || "09:00";
         setStatusText({
           isOpen: false,
-          text: `Fechado agora · Abre hoje às ${openFormatted}`,
+          text: `Fechado agora · Abre às ${openFormatted}`,
         });
       } else {
         setStatusText({
@@ -105,27 +105,27 @@ export function LocationSchedule() {
   }, []);
 
   return (
-    <section ref={containerRef} className="py-20 sm:py-24 relative z-10 bg-obsidian-950 border-t border-white/5" id="visita">
+    <section ref={containerRef} className="py-20 sm:py-24 relative z-10 bg-midnight-950 border-t border-babyblue-400/10" id="visita">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header do Hub */}
         <div className="concierge-header text-center max-w-2xl mx-auto mb-12">
-          <span className="inline-block text-xs uppercase tracking-widest font-bold text-bronze-400 mb-2">
+          <span className="inline-block text-xs uppercase tracking-widest font-bold text-babyblue-300 mb-2">
             Visita & Concierge
           </span>
           <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight">
-            Localização, Horários & <span className="bronze-text">Atendimento</span>
+            Localização, Horários & <span className="text-babyblue-300">Atendimento</span>
           </h2>
-          <p className="text-sand-400 text-sm sm:text-base mt-2 font-light">
-            Em frente ao MASP, com fácil acesso pelo Metrô Trianon e serviço de manobrista no local.
+          <p className="text-ice-400 text-sm sm:text-base mt-2 font-normal">
+            Em frente ao MASP, a 3 min da Estação Trianon com serviço de manobrista no local.
           </p>
         </div>
 
-        {/* Bento Hub 3 Colunas Integrando Mapa, Horários e FAQ */}
+        {/* Bento Hub */}
         <div className="concierge-bento grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
           
-          {/* Coluna 1: Mapa Interativo (5 Cols) */}
-          <div className="lg:col-span-5 rounded-3xl overflow-hidden border border-bronze-500/20 shadow-2xl min-h-[320px] relative">
+          {/* Coluna 1: Mapa */}
+          <div className="lg:col-span-5 rounded-2xl overflow-hidden border border-babyblue-400/20 shadow-2xl min-h-[320px] relative">
             <iframe
               src={SITE_CONFIG.maps.embedUrl}
               className="w-full h-full min-h-[320px] border-0 grayscale-[40%] contrast-[1.1] hover:grayscale-0 transition-all duration-500"
@@ -136,55 +136,54 @@ export function LocationSchedule() {
             />
           </div>
 
-          {/* Coluna 2: Informações de Horário & Endereço (4 Cols) */}
-          <SpotlightCard className="lg:col-span-4 p-6 flex flex-col justify-between border-white/10">
+          {/* Coluna 2: Informações */}
+          <SpotlightCard className="lg:col-span-4 p-6 flex flex-col justify-between border-babyblue-400/20 bg-midnight-850">
             <div>
-              {/* Status Aberto em Tempo Real */}
-              <div className="mb-4 p-3 rounded-xl bg-obsidian-950 border border-white/10 flex items-center justify-between">
+              <div className="mb-4 p-3 rounded-lg bg-midnight-900 border border-babyblue-400/20 flex items-center justify-between">
                 <div className="flex items-center gap-2">
-                  <span className={`w-2 h-2 rounded-full ${statusText.isOpen ? "bg-emerald-400 animate-pulse" : "bg-red-400"}`} />
-                  <span className="text-xs font-semibold text-white">
+                  <span className={`w-2 h-2 rounded-full ${statusText.isOpen ? "bg-babyblue-300 animate-pulse" : "bg-red-500"}`} />
+                  <span className="text-xs font-bold text-white">
                     {statusText.text}
                   </span>
                 </div>
-                <FaClock className="w-3.5 h-3.5 text-bronze-400 shrink-0" />
+                <FaClock className="w-3.5 h-3.5 text-babyblue-300 shrink-0" />
               </div>
 
               {/* Endereço */}
               <div className="space-y-3 mb-5 text-xs">
                 <div className="flex items-start gap-3">
-                  <div className="w-8 h-8 rounded-lg bg-bronze-500/10 text-bronze-400 flex items-center justify-center shrink-0 border border-bronze-500/20">
+                  <div className="w-8 h-8 rounded bg-babyblue-400/10 text-babyblue-300 flex items-center justify-center shrink-0 border border-babyblue-400/20">
                     <FaLocationDot className="w-3.5 h-3.5" />
                   </div>
                   <div>
                     <h5 className="font-bold text-white mb-0.5">{SITE_CONFIG.contact.address}</h5>
-                    <p className="text-sand-400 font-light">{SITE_CONFIG.contact.addressComplement}</p>
-                    <p className="text-bronze-400 font-medium mt-0.5">{SITE_CONFIG.contact.referencePoint}</p>
+                    <p className="text-ice-400">{SITE_CONFIG.contact.addressComplement}</p>
+                    <p className="text-babyblue-300 font-semibold mt-0.5">{SITE_CONFIG.contact.referencePoint}</p>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-3">
-                  <div className="w-8 h-8 rounded-lg bg-bronze-500/10 text-bronze-400 flex items-center justify-center shrink-0 border border-bronze-500/20">
+                  <div className="w-8 h-8 rounded bg-babyblue-400/10 text-babyblue-300 flex items-center justify-center shrink-0 border border-babyblue-400/20">
                     <FaPhone className="w-3.5 h-3.5" />
                   </div>
                   <div>
                     <h5 className="font-bold text-white mb-0.5">WhatsApp Recepção</h5>
-                    <p className="text-sand-400 font-light">{SITE_CONFIG.contact.phoneFormatted}</p>
+                    <p className="text-ice-300 font-medium">{SITE_CONFIG.contact.phoneFormatted}</p>
                   </div>
                 </div>
               </div>
 
-              {/* Horários da Semana */}
-              <div className="bg-obsidian-950 border border-white/5 rounded-xl p-3 text-xs space-y-1">
+              {/* Horários */}
+              <div className="bg-midnight-900 border border-babyblue-400/10 rounded-lg p-3 text-xs space-y-1">
                 {scheduleList.map((item) => {
                   const isToday = item.isCurrentDay(currentDay);
                   return (
                     <div
                       key={item.label}
-                      className={`flex items-center justify-between px-2 py-1 rounded-md text-[11px] ${
+                      className={`flex items-center justify-between px-2 py-1 rounded text-[11px] ${
                         isToday
-                          ? "bg-bronze-500/15 text-white font-bold border border-bronze-500/30"
-                          : "text-sand-400 font-light"
+                          ? "bg-babyblue-400/20 text-white font-bold border border-babyblue-400/40"
+                          : "text-ice-400"
                       }`}
                     >
                       <span>{item.label}</span>
@@ -199,17 +198,17 @@ export function LocationSchedule() {
               href={SITE_CONFIG.maps.directionsUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-4 w-full py-2.5 rounded-xl bg-bronze-gradient text-obsidian-950 font-bold text-xs uppercase tracking-wider shadow-luxury-glow flex items-center justify-center gap-1.5 hover:scale-105 active:scale-95 transition-all btn-shine"
+              className="btn-solid-primary mt-4 w-full !py-2.5 !text-xs"
             >
-              <FaArrowUpRightFromSquare className="w-3 h-3" />
+              <FaArrowUpRightFromSquare className="w-3 h-3 mr-1.5" />
               <span>Abrir Rota no Maps</span>
             </a>
           </SpotlightCard>
 
-          {/* Coluna 3: FAQ Rápido & WhatsApp Direto (3 Cols) */}
-          <SpotlightCard className="lg:col-span-3 p-6 flex flex-col justify-between border-white/10">
+          {/* Coluna 3: FAQ */}
+          <SpotlightCard className="lg:col-span-3 p-6 flex flex-col justify-between border-babyblue-400/20 bg-midnight-850">
             <div>
-              <span className="text-[10px] uppercase tracking-widest font-bold text-bronze-400 block mb-2">
+              <span className="text-[10px] uppercase tracking-widest font-bold text-babyblue-300 block mb-1">
                 Dúvidas Rápidas
               </span>
               <h4 className="font-display font-bold text-base text-white mb-4">
@@ -220,16 +219,16 @@ export function LocationSchedule() {
                 {compactFaqs.map((faq, i) => {
                   const isOpen = openFaq === i;
                   return (
-                    <div key={i} className="border border-white/5 rounded-xl overflow-hidden bg-obsidian-950">
+                    <div key={i} className="border border-babyblue-400/10 rounded-lg overflow-hidden bg-midnight-900">
                       <button
                         onClick={() => setOpenFaq(isOpen ? null : i)}
-                        className="w-full p-2.5 text-left text-xs font-semibold text-sand-200 hover:text-white flex items-center justify-between gap-2"
+                        className="w-full p-2.5 text-left text-xs font-bold text-ice-200 hover:text-white flex items-center justify-between gap-2"
                       >
                         <span>{faq.q}</span>
-                        <FaChevronDown className={`w-3 h-3 text-bronze-400 shrink-0 transition-transform ${isOpen ? "rotate-180" : ""}`} />
+                        <FaChevronDown className={`w-3 h-3 text-babyblue-300 shrink-0 transition-transform ${isOpen ? "rotate-180" : ""}`} />
                       </button>
                       {isOpen && (
-                        <div className="px-2.5 pb-2.5 pt-1 text-[11px] text-sand-400 font-light leading-relaxed border-t border-white/5">
+                        <div className="px-2.5 pb-2.5 pt-1 text-[11px] text-ice-400 leading-relaxed border-t border-white/5">
                           {faq.a}
                         </div>
                       )}
@@ -241,10 +240,10 @@ export function LocationSchedule() {
 
             <button
               onClick={() => openWhatsApp("Olá! Gostaria de falar com a recepção da Lumen & Co.")}
-              className="mt-4 w-full py-2.5 rounded-xl bg-wa hover:bg-wa-dark text-white font-extrabold text-xs uppercase tracking-wider shadow-wa-glow flex items-center justify-center gap-2 transition-all hover:scale-105 active:scale-95 btn-shine"
+              className="btn-wa-solid mt-4 w-full !py-2.5 !text-xs"
             >
-              <FaWhatsapp className="w-4 h-4 text-white" />
-              <span>WhatsApp Recepção</span>
+              <FaWhatsapp className="w-4 h-4 mr-2" />
+              <span>Falar no WhatsApp</span>
             </button>
           </SpotlightCard>
 

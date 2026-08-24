@@ -1,17 +1,14 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { FaWhatsapp, FaXmark, FaPaperPlane, FaFaceSmile } from "react-icons/fa6";
+import { FaWhatsapp, FaXmark, FaPaperPlane } from "react-icons/fa6";
 import { SITE_CONFIG } from "@/data/siteConfig";
 import { openWhatsApp } from "@/utils/whatsapp";
-import { EmojiPicker } from "./EmojiPicker";
 
 export function FloatingWhatsApp() {
   const [isOpen, setIsOpen] = useState(false);
   const [inputText, setInputText] = useState("");
-  const [hasBadge, setHasBadge] = useState(true);
   const [isVisible, setIsVisible] = useState(false);
-  const [showEmoji, setShowEmoji] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -28,16 +25,11 @@ export function FloatingWhatsApp() {
 
   const handleToggle = () => {
     setIsOpen(!isOpen);
-    if (!isOpen) setHasBadge(false);
   };
 
   const handleQuickOption = (text: string) => {
     openWhatsApp(`Olá! ${text} (${SITE_CONFIG.businessName})`);
     setIsOpen(false);
-  };
-
-  const handleEmojiSelect = (emoji: string) => {
-    setInputText((prev) => prev + emoji);
   };
 
   const handleInputSubmit = (e: React.FormEvent) => {
@@ -46,7 +38,6 @@ export function FloatingWhatsApp() {
       openWhatsApp(`Olá! ${inputText.trim()}`);
       setInputText("");
       setIsOpen(false);
-      setShowEmoji(false);
     }
   };
 
@@ -54,125 +45,93 @@ export function FloatingWhatsApp() {
 
   return (
     <>
-      {/* Botão Fixo de Alta Conversão no Mobile (Bottom Pill) */}
-      <div className="fixed bottom-5 left-4 right-4 z-50 sm:hidden animate-in fade-in slide-in-from-bottom-4 duration-300">
+      {/* Botão Fixo no Mobile */}
+      <div className="fixed bottom-4 left-4 right-4 z-50 sm:hidden">
         <button
-          onClick={() => openWhatsApp("Olá! Gostaria de consultar horários disponíveis hoje na Lumen & Co.")}
-          className="w-full py-3.5 px-6 rounded-2xl bg-wa hover:bg-wa-dark text-white font-extrabold text-sm shadow-wa-glow flex items-center justify-center gap-2.5 transition-transform active:scale-95 border border-white/20"
+          onClick={() => openWhatsApp("Olá! Gostaria de consultar horários disponíveis na Lumen & Co.")}
+          className="btn-wa-solid w-full !py-3.5 !text-xs !shadow-2xl"
           aria-label="Agendar horário pelo WhatsApp"
         >
-          <FaWhatsapp className="w-5 h-5 text-white shrink-0" />
+          <FaWhatsapp className="w-5 h-5 mr-2" />
           <span>Agendar pelo WhatsApp</span>
         </button>
       </div>
 
       {/* Assistente Flutuante no Desktop */}
-      <div className="hidden sm:block fixed bottom-6 right-6 z-50 animate-in fade-in slide-in-from-bottom-5 duration-300">
-        {/* Modal / Popup do Chat Assistente */}
+      <div className="hidden sm:block fixed bottom-6 right-6 z-50">
         {isOpen && (
-          <div className="absolute bottom-20 right-0 w-[350px] bg-white dark:bg-dark-900 border border-gold-500/40 dark:border-gold-500/30 rounded-3xl shadow-2xl overflow-hidden flex flex-col animate-in fade-in slide-in-from-bottom-4 duration-200">
-            {/* Header do Chat */}
-            <div className="bg-gradient-to-r from-emerald-700 to-emerald-900 p-4 flex items-center justify-between text-white">
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-white text-emerald-800 flex items-center justify-center font-bold">
-                  <FaWhatsapp className="w-6 h-6 text-emerald-800" />
+          <div className="absolute bottom-16 right-0 w-[320px] bg-[#121214] border border-white/15 rounded-2xl shadow-2xl overflow-hidden flex flex-col animate-in fade-in slide-in-from-bottom-3 duration-200">
+            {/* Header */}
+            <div className="bg-[#1ea952] p-4 flex items-center justify-between text-white">
+              <div className="flex items-center gap-2.5">
+                <div className="w-8 h-8 rounded-full bg-white text-[#1ea952] flex items-center justify-center font-bold">
+                  <FaWhatsapp className="w-5 h-5" />
                 </div>
                 <div>
-                  <h4 className="font-bold text-sm leading-tight">Lumen & Co. Recepção</h4>
-                  <p className="text-[11px] text-emerald-200 flex items-center gap-1 mt-0.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping" />
-                    Online • Resposta imediata
-                  </p>
+                  <h4 className="font-bold text-xs leading-tight">Recepção Lumen & Co.</h4>
+                  <p className="text-[10px] text-white/80 mt-0.5">Online agora</p>
                 </div>
               </div>
               <button
-                onClick={() => {
-                  setIsOpen(false);
-                  setShowEmoji(false);
-                }}
-                className="p-1.5 rounded-full text-white/80 hover:text-white hover:bg-white/10"
-                aria-label="Fechar assistente"
+                onClick={() => setIsOpen(false)}
+                className="p-1 rounded text-white/80 hover:text-white"
+                aria-label="Fechar"
               >
                 <FaXmark className="w-4 h-4" />
               </button>
             </div>
 
-            {/* Corpo das Mensagens */}
-            <div className="p-4 bg-light-100 dark:bg-dark-950 space-y-3">
-              <div className="bg-white dark:bg-dark-800 border border-light-300 dark:border-white/10 rounded-2xl rounded-tl-none p-3.5 text-xs text-light-900 dark:text-gray-200 leading-relaxed shadow-sm">
-                Olá! Como podemos te ajudar com seu atendimento na <strong>LUMEN & CO.</strong>?
+            {/* Opções */}
+            <div className="p-4 bg-[#0a0a0c] space-y-2.5">
+              <div className="bg-[#18181b] border border-white/10 rounded-xl p-3 text-xs text-neutral-200 leading-relaxed">
+                Olá! Como podemos te ajudar hoje?
               </div>
 
               <div className="space-y-2 pt-1">
                 <button
                   onClick={() => handleQuickOption("Gostaria de agendar um horário para hoje")}
-                  className="w-full text-left p-2.5 rounded-xl bg-gold-500/10 hover:bg-gold-gradient text-gold-800 dark:text-gold-400 hover:text-dark-950 font-semibold text-xs border border-gold-500/30 transition-all shadow-sm"
+                  className="w-full text-left p-2.5 rounded bg-white/5 hover:bg-white/10 text-neutral-200 hover:text-white font-semibold text-xs border border-white/10 transition-all"
                 >
                   Consultar horários para hoje
                 </button>
                 <button
                   onClick={() => handleQuickOption("Quero agendar o Combo Royal (Corte + Barba)")}
-                  className="w-full text-left p-2.5 rounded-xl bg-gold-500/10 hover:bg-gold-gradient text-gold-800 dark:text-gold-400 hover:text-dark-950 font-semibold text-xs border border-gold-500/30 transition-all shadow-sm"
+                  className="w-full text-left p-2.5 rounded bg-white/5 hover:bg-white/10 text-neutral-200 hover:text-white font-semibold text-xs border border-white/10 transition-all"
                 >
                   Agendar Combo Royal
                 </button>
-                <button
-                  onClick={() => handleQuickOption("Gostaria de tirar uma dúvida sobre serviços")}
-                  className="w-full text-left p-2.5 rounded-xl bg-gold-500/10 hover:bg-gold-gradient text-gold-800 dark:text-gold-400 hover:text-dark-950 font-semibold text-xs border border-gold-500/30 transition-all shadow-sm"
-                >
-                  Falar diretamente com a recepção
-                </button>
               </div>
-
-              {showEmoji && (
-                <div className="pt-2 animate-in fade-in zoom-in-95 duration-200">
-                  <EmojiPicker onEmojiSelect={handleEmojiSelect} />
-                </div>
-              )}
             </div>
 
-            {/* Footer do Chat com Input Livre */}
-            <div className="p-3 bg-white dark:bg-dark-900 border-t border-light-300 dark:border-white/10">
+            {/* Input */}
+            <div className="p-3 bg-[#121214] border-t border-white/10">
               <form onSubmit={handleInputSubmit} className="flex items-center gap-2">
-                <button
-                  type="button"
-                  onClick={() => setShowEmoji(!showEmoji)}
-                  className="p-2 rounded-xl text-gray-500 hover:text-gold-600 dark:hover:text-gold-400 hover:bg-light-200 dark:hover:bg-dark-800 transition-colors"
-                  aria-label="Selecionar emoji"
-                >
-                  <FaFaceSmile className="w-4 h-4" />
-                </button>
                 <input
                   type="text"
                   value={inputText}
                   onChange={(e) => setInputText(e.target.value)}
-                  placeholder="Digite sua dúvida..."
-                  className="flex-1 bg-light-100 dark:bg-dark-950 border border-light-300 dark:border-white/15 focus:border-gold-500 rounded-xl px-3 py-2 text-xs text-light-950 dark:text-white focus:outline-none placeholder:text-light-400 dark:placeholder:text-gray-600"
+                  placeholder="Digite sua mensagem..."
+                  className="flex-1 bg-[#0a0a0c] border border-white/15 focus:border-amber-500 rounded-lg px-3 py-2 text-xs text-white focus:outline-none placeholder:text-neutral-600"
                 />
                 <button
                   type="submit"
-                  className="w-9 h-9 rounded-xl bg-wa hover:bg-wa-dark text-white flex items-center justify-center shrink-0 shadow-wa-glow"
-                  aria-label="Enviar mensagem"
+                  className="w-8 h-8 rounded bg-[#1ea952] hover:bg-[#168841] text-white flex items-center justify-center shrink-0"
+                  aria-label="Enviar"
                 >
-                  <FaPaperPlane className="w-3.5 h-3.5" />
+                  <FaPaperPlane className="w-3 h-3" />
                 </button>
               </form>
             </div>
           </div>
         )}
 
-        {/* Botão Flutuante Circular Desktop */}
+        {/* Botão Flutuante */}
         <button
           onClick={handleToggle}
-          className="w-14 h-14 rounded-full bg-wa hover:bg-wa-light text-white flex items-center justify-center shadow-wa-glow animate-wa-pulse hover:scale-110 active:scale-95 transition-transform relative"
-          aria-label="Abrir assistente WhatsApp"
+          className="w-13 h-13 p-3.5 rounded-full bg-[#1ea952] hover:bg-[#168841] text-white flex items-center justify-center shadow-xl hover:scale-105 active:scale-95 transition-transform"
+          aria-label="Abrir WhatsApp"
         >
-          <FaWhatsapp className="w-7 h-7 text-white" />
-          {hasBadge && (
-            <span className="absolute top-0 right-0 w-4 h-4 rounded-full bg-red-500 border-2 border-white dark:border-dark-950 text-[9px] font-extrabold flex items-center justify-center text-white">
-              1
-            </span>
-          )}
+          <FaWhatsapp className="w-6 h-6 text-white" />
         </button>
       </div>
     </>

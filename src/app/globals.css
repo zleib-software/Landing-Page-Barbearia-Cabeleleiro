@@ -10,94 +10,105 @@
   }
 
   body {
-    background-color: #060708;
-    color: #f4f1ea;
+    background-color: #060913;
+    color: #f1f5f9;
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
   }
 
   :focus-visible {
-    outline: 2px solid #c49d68;
+    outline: 2px solid #38bdf8;
     outline-offset: 3px;
-    border-radius: 6px;
+    border-radius: 4px;
   }
 }
 
 @layer utilities {
-  .luxury-glass {
-    background: rgba(16, 19, 23, 0.7);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.07);
+  /* Botão Primário Sólido Azul Bebê (Estilo Hermanos / Modern Minimalist) */
+  .btn-solid-primary {
+    background-color: #38bdf8;
+    color: #060913;
+    font-weight: 800;
+    font-size: 0.8rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 12px 26px;
+    border-radius: 6px;
+    border: 1px solid #38bdf8;
+    transition: all 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    box-shadow: 0 4px 14px rgba(56, 189, 248, 0.2);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
   }
 
-  .luxury-glass-hover {
-    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  .btn-solid-primary:hover {
+    background-color: #7dd3fc;
+    border-color: #7dd3fc;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(56, 189, 248, 0.35);
   }
 
-  .luxury-glass-hover:hover {
-    background: rgba(22, 26, 32, 0.85);
-    border-color: rgba(196, 157, 104, 0.35);
-    box-shadow: 0 12px 35px -10px rgba(0, 0, 0, 0.6), 0 0 25px -5px rgba(196, 157, 104, 0.15);
+  /* Botão Secundário / Outline com Borda Azulada Nítida */
+  .btn-outline-clean {
+    background-color: transparent;
+    color: #f8fafc;
+    font-weight: 700;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 12px 24px;
+    border-radius: 6px;
+    border: 1.5px solid rgba(125, 211, 252, 0.25);
+    transition: all 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
   }
 
-  .bronze-text {
-    background: linear-gradient(135deg, #f4f1ea 0%, #d6b58f 50%, #c49d68 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+  .btn-outline-clean:hover {
+    border-color: #7dd3fc;
+    background-color: rgba(56, 189, 248, 0.08);
+    color: #ffffff;
+    transform: translateY(-2px);
   }
 
-  .gold-gradient-text {
-    background: linear-gradient(135deg, #f4f1ea 0%, #d6b58f 50%, #c49d68 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+  /* Botão WhatsApp Sólido */
+  .btn-wa-solid {
+    background-color: #1ea952;
+    color: #ffffff;
+    font-weight: 800;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 12px 24px;
+    border-radius: 6px;
+    border: 1px solid #1ea952;
+    transition: all 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    box-shadow: 0 4px 14px rgba(30, 169, 82, 0.25);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
   }
 
+  .btn-wa-solid:hover {
+    background-color: #168841;
+    border-color: #168841;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(30, 169, 82, 0.4);
+  }
+
+  /* Glass Nav & Cards Midnight */
   .glass-nav {
-    background: rgba(6, 7, 8, 0.82);
-    backdrop-filter: blur(24px);
-    -webkit-backdrop-filter: blur(24px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    background: rgba(6, 9, 19, 0.88);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(125, 211, 252, 0.1);
   }
 
   .glass-card {
-    background: rgba(16, 19, 23, 0.65);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(255, 255, 255, 0.06);
-  }
-
-  .glass-card-gold {
-    background: rgba(22, 26, 32, 0.75);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(196, 157, 104, 0.25);
-  }
-
-  .btn-shine {
-    position: relative;
-    overflow: hidden;
-  }
-
-  .btn-shine::after {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -60%;
-    width: 30%;
-    height: 200%;
-    background: linear-gradient(
-      60deg,
-      rgba(255, 255, 255, 0) 20%,
-      rgba(255, 255, 255, 0.25) 50%,
-      rgba(255, 255, 255, 0) 80%
-    );
-    transform: rotate(25deg);
-    animation: shine 4s infinite;
-  }
-
-  @keyframes shine {
-    0% { left: -60%; }
-    20% { left: 140%; }
-    100% { left: 140%; }
+    background: rgba(15, 23, 42, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(125, 211, 252, 0.1);
   }
 }

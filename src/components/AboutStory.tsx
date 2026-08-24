@@ -49,30 +49,30 @@ export function AboutStory() {
 
   return (
     <>
-      <section ref={containerRef} className="py-20 sm:py-24 relative z-10 bg-obsidian-950 border-t border-white/5" id="sobre">
+      <section ref={containerRef} className="py-20 sm:py-24 relative z-10 bg-midnight-950 border-t border-babyblue-400/10" id="sobre">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           {/* Header & Manifesto da Casa */}
-          <div className="about-header text-center max-w-3xl mx-auto mb-14">
-            <span className="inline-block text-xs uppercase tracking-widest font-bold text-bronze-400 mb-3">
+          <div className="about-header text-center max-w-3xl mx-auto mb-12">
+            <span className="inline-block text-xs uppercase tracking-widest font-bold text-babyblue-300 mb-2">
               O Ateliê & Corpo Técnico
             </span>
             <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight">
-              A precisão do ofício conduzida por quem <span className="bronze-text">fundou a casa</span>
+              A precisão do ofício conduzida por quem <span className="text-babyblue-300">fundou a casa</span>
             </h2>
-            <p className="text-sand-300 text-sm sm:text-base leading-relaxed font-light mt-4">
-              Fundada em 2021 na Av. Paulista, a <strong>Lumen & Co.</strong> reúne a tradição da alfaiataria capilar na tesoura à técnica contemporânea de visagismo e colorimetria segura. Atendimento exclusivo conduzido diretamente pelos fundadores.
+            <p className="text-ice-300 text-sm sm:text-base leading-relaxed font-normal mt-3">
+              Fundada em 2021 na Av. Paulista, a <strong>Lumen & Co.</strong> reúne a tradição da alfaiataria capilar na tesoura à técnica contemporânea de visagismo e colorimetria segura. Atendimento individualizado conduzido diretamente pelos fundadores.
             </p>
           </div>
 
-          {/* Cards dos Fundadores / Mestres Lado a Lado */}
-          <div className="about-founders-grid grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+          {/* Cards dos Fundadores */}
+          <div className="about-founders-grid grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto items-stretch">
             {SITE_CONFIG.team.map((member) => (
               <SpotlightCard
                 key={member.id}
-                className="flex flex-col justify-between group hover:border-bronze-500/40 transition-all duration-300"
+                className="group hover:border-babyblue-400/40 transition-all duration-300 bg-midnight-850"
               >
-                <div className="relative h-72 sm:h-80 w-full overflow-hidden">
+                <div className="relative h-72 sm:h-80 w-full overflow-hidden shrink-0">
                   <Image
                     src={member.photo}
                     alt={member.name}
@@ -80,38 +80,38 @@ export function AboutStory() {
                     className="object-cover object-top group-hover:scale-105 transition-transform duration-700"
                     loading="lazy"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-obsidian-950 via-obsidian-950/20 to-transparent" />
-                  <div className="absolute bottom-5 left-5 right-5">
+                  <div className="absolute inset-0 bg-gradient-to-t from-midnight-950 via-midnight-950/20 to-transparent" />
+                  <div className="absolute bottom-4 left-4 right-4">
                     <h3 className="font-display text-xl sm:text-2xl font-bold text-white mb-0.5">
                       {member.name}
                     </h3>
-                    <p className="text-bronze-400 text-xs font-semibold">
+                    <p className="text-babyblue-300 text-xs font-bold uppercase tracking-wider">
                       {member.role}
                     </p>
                   </div>
                 </div>
 
-                <div className="p-6 flex flex-col flex-grow justify-between">
-                  <div>
-                    <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs text-sand-300 mb-3 font-light">
-                      <FaAward className="w-3.5 h-3.5 text-bronze-400" />
+                <div className="p-6 flex flex-col flex-1 justify-between">
+                  <div className="flex flex-col flex-1 mb-6">
+                    <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-midnight-900 border border-babyblue-400/20 text-xs text-ice-300 mb-3 font-semibold self-start">
+                      <FaAward className="w-3.5 h-3.5 text-babyblue-300" />
                       <span>{member.experience}</span>
                     </div>
 
-                    <p className="text-sand-200 text-xs sm:text-sm font-medium leading-relaxed mb-2">
+                    <p className="text-white text-xs sm:text-sm font-semibold leading-relaxed mb-2">
                       {member.specialty}
                     </p>
 
-                    <p className="text-sand-400 text-xs leading-relaxed mb-5 font-light">
+                    <p className="text-ice-400 text-xs leading-relaxed font-normal flex-1">
                       {member.bio}
                     </p>
                   </div>
 
                   <button
                     onClick={() => handleBooking(member)}
-                    className="w-full py-3 rounded-xl bg-bronze-gradient text-obsidian-950 font-bold text-xs uppercase tracking-wider shadow-luxury-glow flex items-center justify-center gap-2 hover:scale-105 active:scale-95 transition-all btn-shine"
+                    className="btn-solid-primary w-full mt-auto shrink-0"
                   >
-                    <FaCalendarDays className="w-3.5 h-3.5 text-obsidian-950" />
+                    <FaCalendarDays className="w-3.5 h-3.5 mr-2" />
                     <span>Agendar com {member.name.split(" ")[0]}</span>
                   </button>
                 </div>

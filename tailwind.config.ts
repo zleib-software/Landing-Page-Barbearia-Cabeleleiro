@@ -10,79 +10,41 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        obsidian: {
-          950: "#060708",
-          900: "#0b0d10",
-          850: "#101317",
-          800: "#161a20",
-          700: "#222731",
-          600: "#323946",
+        midnight: {
+          950: "#060913", // Profundo absoluto
+          900: "#0b1120", // Fundo principal
+          850: "#0f172a", // Cards base
+          800: "#1e293b", // Superfícies elevadas
+          700: "#334155", // Bordas
+          600: "#475569", // Textos secundários
         },
-        sand: {
-          50: "#faf9f6",
-          100: "#f4f1ea",
-          200: "#e8e3d7",
-          300: "#d6cebe",
-          400: "#a99f8d",
-          500: "#7d7463",
-          600: "#5a5345",
-          700: "#3d382e",
+        babyblue: {
+          50: "#f0f9ff",
+          100: "#e0f2fe",
+          200: "#bae6fd", // Azul bebê suave
+          300: "#7dd3fc", // Azul bebê vibrante
+          400: "#38bdf8", // Azul bebê destaque
+          500: "#0ea5e9", // Acento
+          600: "#0284c7",
+          700: "#0369a1",
         },
-        bronze: {
-          300: "#e5cbb0",
-          400: "#d6b58f",
-          500: "#c49d68",
-          600: "#a67f49",
-          700: "#7c5c2d",
-        },
-        emeraldAction: {
-          DEFAULT: "#1e8e5a",
-          hover: "#177247",
+        ice: {
+          50: "#f8fafc",
+          100: "#f1f5f9",
+          200: "#e2e8f0",
+          300: "#cbd5e1",
+          400: "#94a3b8",
+          500: "#64748b",
         },
         wa: {
           DEFAULT: "#1ea952",
           dark: "#168841",
           light: "#25d366",
         },
-        gold: {
-          300: "#fae0a2",
-          400: "#e9be6a",
-          500: "#c49d68",
-          600: "#a67f49",
-          700: "#7c5c2d",
-        },
-        dark: {
-          950: "#060708",
-          900: "#0b0d10",
-          850: "#101317",
-          800: "#161a20",
-          700: "#222731",
-        },
-        light: {
-          50: "#faf9f6",
-          100: "#f4f1ea",
-          150: "#ebe5d8",
-          200: "#e0d8c7",
-          300: "#cfc4b0",
-          400: "#a99f8d",
-          600: "#5a5345",
-          700: "#3d382e",
-          800: "#23201a",
-          900: "#14120e",
-          950: "#0a0907",
-        }
       },
       fontFamily: {
         display: ["var(--font-display)", "Playfair Display", "Georgia", "serif"],
         sans: ["var(--font-sans)", "Plus Jakarta Sans", "system-ui", "sans-serif"],
-      },
-      boxShadow: {
-        "luxury-glow": "0 0 35px -8px rgba(196, 157, 104, 0.25)",
-        "soft-card": "0 10px 30px -10px rgba(0,0,0,0.5)",
-      },
-      backgroundImage: {
-        "bronze-gradient": "linear-gradient(135deg, #d6b58f 0%, #c49d68 50%, #9e7640 100%)",
-        "radial-spotlight": "radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(196, 157, 104, 0.12), transparent 40%)",
       },
     },
   },

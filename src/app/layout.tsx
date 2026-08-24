@@ -52,7 +52,7 @@ export const metadata: Metadata = {
     type: "website",
   },
   icons: {
-    icon: "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23c5a059'><path d='M6 3h12v2H6zm0 16h12v2H6zm2-8h8v2H8zm-4 4h16v2H4zm0-8h16v2H4z'/></svg>",
+    icon: "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%2338bdf8'><path d='M6 3h12v2H6zm0 16h12v2H6zm2-8h8v2H8zm-4 4h16v2H4zm0-8h16v2H4z'/></svg>",
   },
 };
 
@@ -128,7 +128,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="font-sans antialiased selection:bg-bronze-500 selection:text-white bg-obsidian-950 text-sand-100 overflow-x-hidden">
+      <body className="font-sans antialiased selection:bg-babyblue-400 selection:text-midnight-950 bg-midnight-950 text-ice-100 overflow-x-hidden">
         <SmoothScroll>{children}</SmoothScroll>
       </body>
     </html>

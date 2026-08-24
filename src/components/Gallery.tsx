@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef, useCallback } from "react";
+import { useRef, useCallback } from "react";
 import Image from "next/image";
 import useEmblaCarousel from "embla-carousel-react";
 import { FaChevronLeft, FaChevronRight, FaStar, FaCircleCheck, FaArrowUpRightFromSquare } from "react-icons/fa6";
@@ -108,19 +108,19 @@ export function Gallery() {
   );
 
   return (
-    <section ref={containerRef} className="py-20 sm:py-24 relative z-10 bg-obsidian-950 border-t border-white/5" id="galeria">
+    <section ref={containerRef} className="py-20 sm:py-24 relative z-10 bg-midnight-950 border-t border-babyblue-400/10" id="galeria">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header com controles de carrossel */}
         <div className="portfolio-header flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
           <div>
-            <span className="inline-block text-xs uppercase tracking-widest font-bold text-bronze-400 mb-2">
+            <span className="inline-block text-xs uppercase tracking-widest font-bold text-babyblue-300 mb-2">
               Portfólio & Prova Social
             </span>
             <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight">
-              Resultados Reais & <span className="bronze-text">Experiências</span>
+              Resultados Reais & <span className="text-babyblue-300">Experiências</span>
             </h2>
-            <p className="text-sand-400 text-sm sm:text-base mt-2 font-light max-w-xl">
+            <p className="text-ice-400 text-sm sm:text-base mt-2 font-normal max-w-xl">
               Registros fotográficos dos atendimentos combinados a depoimentos de clientes frequentes.
             </p>
           </div>
@@ -128,14 +128,14 @@ export function Gallery() {
           <div className="flex items-center gap-3">
             <button
               onClick={scrollPrev}
-              className="w-11 h-11 rounded-full bg-white/5 hover:bg-bronze-500/20 border border-white/10 hover:border-bronze-500/40 text-sand-300 hover:text-white flex items-center justify-center transition-all"
+              className="w-11 h-11 rounded bg-midnight-850 hover:bg-babyblue-400/15 border border-babyblue-400/20 text-ice-300 hover:text-babyblue-200 flex items-center justify-center transition-all"
               aria-label="Item anterior"
             >
               <FaChevronLeft className="w-4 h-4" />
             </button>
             <button
               onClick={scrollNext}
-              className="w-11 h-11 rounded-full bg-white/5 hover:bg-bronze-500/20 border border-white/10 hover:border-bronze-500/40 text-sand-300 hover:text-white flex items-center justify-center transition-all"
+              className="w-11 h-11 rounded bg-midnight-850 hover:bg-babyblue-400/15 border border-babyblue-400/20 text-ice-300 hover:text-babyblue-200 flex items-center justify-center transition-all"
               aria-label="Próximo item"
             >
               <FaChevronRight className="w-4 h-4" />
@@ -143,7 +143,7 @@ export function Gallery() {
           </div>
         </div>
 
-        {/* Embla Carousel Viewport unindo Fotos e Relatos */}
+        {/* Embla Carousel Viewport */}
         <div className="portfolio-carousel overflow-hidden mb-10" ref={emblaRef}>
           <div className="flex gap-6">
             
@@ -153,7 +153,7 @@ export function Gallery() {
                 key={item.id}
                 className="flex-[0_0_80%] sm:flex-[0_0_42%] lg:flex-[0_0_28%] min-w-0"
               >
-                <div className="relative h-[340px] sm:h-[380px] rounded-3xl overflow-hidden border border-white/10 group shadow-2xl">
+                <div className="relative h-[340px] sm:h-[380px] rounded-2xl overflow-hidden border border-babyblue-400/20 group shadow-2xl">
                   <Image
                     src={item.image}
                     alt={item.title}
@@ -161,14 +161,14 @@ export function Gallery() {
                     className="object-cover group-hover:scale-105 transition-transform duration-700"
                     loading="lazy"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-obsidian-950/95 via-obsidian-950/20 to-transparent flex flex-col justify-end p-5">
-                    <span className="text-[10px] uppercase tracking-widest font-bold text-bronze-400 bg-obsidian-950/70 border border-bronze-500/30 px-2.5 py-0.5 rounded-full self-start mb-1.5 backdrop-blur-md">
+                  <div className="absolute inset-0 bg-gradient-to-t from-midnight-950 via-midnight-950/20 to-transparent flex flex-col justify-end p-5">
+                    <span className="text-[10px] uppercase tracking-widest font-extrabold text-babyblue-300 bg-midnight-900/85 border border-babyblue-400/30 px-2.5 py-0.5 rounded self-start mb-1.5 backdrop-blur-md">
                       {item.tag}
                     </span>
                     <h4 className="font-display font-bold text-white text-base leading-snug mb-1">
                       {item.title}
                     </h4>
-                    <p className="text-xs text-sand-400 line-clamp-2 font-light">
+                    <p className="text-xs text-ice-300 line-clamp-2 font-light">
                       {item.technique}
                     </p>
                   </div>
@@ -176,26 +176,26 @@ export function Gallery() {
               </div>
             ))}
 
-            {/* Cards de Depoimento Integrados no Carrossel */}
+            {/* Cards de Depoimento */}
             {SITE_CONFIG.reviews.map((rev) => (
               <div
                 key={rev.id}
                 className="flex-[0_0_80%] sm:flex-[0_0_42%] lg:flex-[0_0_28%] min-w-0"
               >
-                <SpotlightCard className="p-6 h-[340px] sm:h-[380px] flex flex-col justify-between border-white/10">
+                <SpotlightCard className="p-6 h-[340px] sm:h-[380px] flex flex-col justify-between border-babyblue-400/20 bg-midnight-850">
                   <div>
                     <div className="flex items-center justify-between mb-4">
-                      <div className="flex text-amber-400 gap-0.5">
+                      <div className="flex text-babyblue-300 gap-0.5">
                         {[...Array(rev.rating)].map((_, i) => (
                           <FaStar key={i} className="w-3.5 h-3.5" />
                         ))}
                       </div>
-                      <span className="text-[11px] text-sand-500 font-light">
+                      <span className="text-[11px] text-ice-500 font-light">
                         {rev.date}
                       </span>
                     </div>
 
-                    <p className="text-sand-200 text-xs sm:text-sm leading-relaxed font-light italic">
+                    <p className="text-ice-200 text-xs sm:text-sm leading-relaxed font-normal italic">
                       "{rev.text}"
                     </p>
                   </div>
@@ -205,11 +205,11 @@ export function Gallery() {
                       <h5 className="font-display font-bold text-white text-xs sm:text-sm">
                         {rev.name}
                       </h5>
-                      <p className="text-[11px] text-sand-400 font-light">
+                      <p className="text-[11px] text-ice-400 font-light">
                         {rev.context}
                       </p>
                     </div>
-                    <span className="text-[9px] uppercase font-bold text-bronze-400 bg-bronze-500/10 px-2 py-0.5 rounded-md border border-bronze-500/20">
+                    <span className="text-[9px] uppercase font-bold text-babyblue-300 bg-babyblue-400/10 px-2 py-0.5 rounded border border-babyblue-400/20">
                       {rev.serviceUsed}
                     </span>
                   </div>
@@ -226,7 +226,7 @@ export function Gallery() {
             href={SITE_CONFIG.contact.googleReviewsUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-xs font-medium text-sand-300 hover:text-bronze-400 transition-colors underline decoration-dotted"
+            className="inline-flex items-center gap-2 text-xs font-medium text-ice-300 hover:text-babyblue-200 transition-colors underline decoration-dotted"
           >
             <FaCircleCheck className="w-4 h-4 text-emerald-500" />
             <span>Ver todas as 350+ avaliações no Google Meu Negócio</span>
