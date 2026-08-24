@@ -60,7 +60,7 @@ export function FloatingWhatsApp() {
       {/* Assistente Flutuante no Desktop */}
       <div className="hidden sm:block fixed bottom-6 right-6 z-50">
         {isOpen && (
-          <div className="absolute bottom-16 right-0 w-[320px] bg-midnight-900 border border-babyblue-400/20 rounded-2xl shadow-2xl overflow-hidden flex flex-col animate-in fade-in slide-in-from-bottom-3 duration-200">
+          <div className="absolute bottom-16 right-0 w-[320px] bg-midnight-900 border border-teal-500/30 rounded-2xl shadow-2xl overflow-hidden flex flex-col animate-in fade-in slide-in-from-bottom-3 duration-200">
             {/* Header */}
             <div className="bg-[#1ea952] p-4 flex items-center justify-between text-white">
               <div className="flex items-center gap-2.5">
@@ -69,7 +69,7 @@ export function FloatingWhatsApp() {
                 </div>
                 <div>
                   <h4 className="font-bold text-xs leading-tight">Recepção Zleib Barber</h4>
-                  <p className="text-[10px] text-white/80 mt-0.5">Online agora</p>
+                  <p className="text-[10px] text-white/80 mt-0.5">Online • Av. Paulista</p>
                 </div>
               </div>
               <button
@@ -83,20 +83,20 @@ export function FloatingWhatsApp() {
 
             {/* Opções */}
             <div className="p-4 bg-midnight-950 space-y-2.5">
-              <div className="bg-midnight-850 border border-babyblue-400/10 rounded-xl p-3 text-xs text-ice-200 leading-relaxed">
+              <div className="bg-midnight-850 border border-teal-500/10 rounded-xl p-3 text-xs text-ice-200 leading-relaxed">
                 Olá! Como podemos te ajudar hoje?
               </div>
 
               <div className="space-y-2 pt-1">
                 <button
-                  onClick={() => handleQuickOption("Gostaria de agendar um horário para hoje")}
-                  className="w-full text-left p-2.5 rounded bg-midnight-900 hover:bg-babyblue-400/15 text-ice-200 hover:text-babyblue-200 font-semibold text-xs border border-babyblue-400/20 transition-all"
+                  onClick={() => handleQuickOption("Gostaria de consultar os horários disponíveis para hoje")}
+                  className="w-full text-left p-2.5 rounded-lg bg-midnight-900 hover:bg-teal-500/15 text-ice-200 hover:text-teal-200 font-semibold text-xs border border-teal-500/20 transition-all"
                 >
                   Consultar horários para hoje
                 </button>
                 <button
-                  onClick={() => handleQuickOption("Quero agendar o Combo Royal (Corte + Barba)")}
-                  className="w-full text-left p-2.5 rounded bg-midnight-900 hover:bg-babyblue-400/15 text-ice-200 hover:text-babyblue-200 font-semibold text-xs border border-babyblue-400/20 transition-all"
+                  onClick={() => handleQuickOption("Gostaria de agendar o Combo Royal (Cabelo + Barba Completa)")}
+                  className="w-full text-left p-2.5 rounded-lg bg-midnight-900 hover:bg-teal-500/15 text-ice-200 hover:text-teal-200 font-semibold text-xs border border-teal-500/20 transition-all"
                 >
                   Agendar Combo Royal
                 </button>
@@ -104,18 +104,18 @@ export function FloatingWhatsApp() {
             </div>
 
             {/* Input */}
-            <div className="p-3 bg-midnight-900 border-t border-babyblue-400/10">
+            <div className="p-3 bg-midnight-900 border-t border-teal-500/10">
               <form onSubmit={handleInputSubmit} className="flex items-center gap-2">
                 <input
                   type="text"
                   value={inputText}
                   onChange={(e) => setInputText(e.target.value)}
                   placeholder="Digite sua mensagem..."
-                  className="flex-1 bg-midnight-950 border border-babyblue-400/20 focus:border-babyblue-400 rounded-lg px-3 py-2 text-xs text-white focus:outline-none placeholder:text-ice-500"
+                  className="flex-1 bg-midnight-950 border border-teal-500/20 focus:border-teal-400 rounded-lg px-3 py-2 text-xs text-white focus:outline-none placeholder:text-ice-500"
                 />
                 <button
                   type="submit"
-                  className="w-8 h-8 rounded bg-[#1ea952] hover:bg-[#168841] text-white flex items-center justify-center shrink-0"
+                  className="w-8 h-8 rounded-lg bg-[#1ea952] hover:bg-[#168841] text-white flex items-center justify-center shrink-0"
                   aria-label="Enviar"
                 >
                   <FaPaperPlane className="w-3 h-3" />

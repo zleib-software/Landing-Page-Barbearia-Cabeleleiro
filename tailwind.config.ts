@@ -11,22 +11,31 @@ const config: Config = {
     extend: {
       colors: {
         midnight: {
-          950: "#060913", // Profundo absoluto
-          900: "#0b1120", // Fundo principal
-          850: "#0f172a", // Cards base
-          800: "#1e293b", // Superfícies elevadas
-          700: "#334155", // Bordas
-          600: "#475569", // Textos secundários
+          950: "#05080e", // Preto carvão profundo
+          900: "#0a101d", // Fundo principal das seções
+          850: "#0e1726", // Cards base e containers
+          800: "#172338", // Superfícies elevadas
+          700: "#243552", // Bordas nítidas
+          600: "#3d5175", // Bordas secundárias
         },
-        babyblue: {
-          50: "#f0f9ff",
-          100: "#e0f2fe",
-          200: "#bae6fd", // Azul bebê suave
-          300: "#7dd3fc", // Azul bebê vibrante
-          400: "#38bdf8", // Azul bebê destaque
-          500: "#0ea5e9", // Acento
-          600: "#0284c7",
-          700: "#0369a1",
+        teal: {
+          50: "#f0fdfa",
+          100: "#ccfbf1",
+          200: "#99f6e4",
+          300: "#5eead4",
+          400: "#2dd4bf", // Destaque teal vivo
+          500: "#14b8a6", // Cor de assinatura do ateliê
+          600: "#0d9488",
+          700: "#0f766e",
+          800: "#115e59",
+          900: "#134e4a",
+          950: "#042f2e",
+        },
+        terracotta: {
+          300: "#fdba74",
+          400: "#fb923c",
+          500: "#f97316",
+          600: "#ea580c",
         },
         ice: {
           50: "#f8fafc",
@@ -43,8 +52,12 @@ const config: Config = {
         },
       },
       fontFamily: {
-        display: ["var(--font-display)", "Playfair Display", "Georgia", "serif"],
+        display: ["var(--font-display)", "Cormorant Garamond", "Playfair Display", "Georgia", "serif"],
         sans: ["var(--font-sans)", "Plus Jakarta Sans", "system-ui", "sans-serif"],
+      },
+      backgroundImage: {
+        "teal-gradient": "linear-gradient(135deg, #14b8a6 0%, #2dd4bf 100%)",
+        "radial-subtle": "radial-gradient(circle at 50% 0%, rgba(20, 184, 166, 0.12) 0%, transparent 70%)",
       },
     },
   },

@@ -13,7 +13,7 @@ A **Zleib Barber** é uma casa de cuidados pessoais e alfaiataria capilar locali
 - 🏛️ **Narrativa de Marca & Origem**: Seção autoral com manifesto de ofício manual na tesoura e história dos fundadores.
 - 📸 **Fotografia 100% Exclusiva**: Imagens dedicadas para cada procedimento e trabalho da galeria (zero fotos duplicadas).
 - ⚡ **Conversão Transparente**: Fluxo de solicitação de horário com hora marcada e direcionamento contextual para o WhatsApp.
-- ☕ **Fatos & Rituais Verificáveis**: Rituais com navalhetes japonesas Feather, toalhas a 90°C com eucalipto glóbulus e café espresso de microlote do Sul de Minas.
+- ☕ **Fatos & Rituais Verificáveis**: Rituais com navalhetes japonesas Feather, toalhas a 90°C com eucalipto glóbulus e café espresso de microlonpm run devte do Sul de Minas.
 - 📱 **Mobile-First & Barra Fixa**: Acesso ágil no smartphone com barra inferior contextual disparada por rolagem.
 - 🕒 **Horário Dinâmico em Tempo Real**: Cálculo preciso de abertura e fechamento diário (`Aberto agora · Fecha às XX:XX`).
 - 🔍 **SEO Local & Schema.org**: JSON-LD estruturado (`BarberShop` e catálogo de ofertas), GeoCoordinates e Open Graph completo.

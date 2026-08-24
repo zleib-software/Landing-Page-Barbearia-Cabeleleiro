@@ -17,6 +17,7 @@ export interface TeamMember {
   role: string;
   specialty: string;
   experience: string;
+  quote: string;
   bio: string;
   photo: string;
   rating: number;
@@ -57,15 +58,15 @@ export const SITE_CONFIG = {
   contact: {
     phoneFormatted: "(11) 99999-9999",
     phoneLandline: "(11) 3284-5500",
-    email: "recepcao@zleibbarber.com.br",
+    email: "contato@zleibbarber.com.br",
     address: "Av. Paulista, 1578 - Bela Vista",
     addressComplement: "Edifício Barão de Iguape • 1º Andar",
     cityState: "São Paulo - SP",
     cep: "01310-200",
     referencePoint: "A 150m do MASP e a 3 min a pé da Estação Trianon-MASP",
     instagram: "@zleibbarber",
-    instagramUrl: "https://instagram.com",
-    facebookUrl: "https://facebook.com",
+    instagramUrl: "https://instagram.com/zleibbarber",
+    facebookUrl: "https://facebook.com/zleibbarber",
     googleReviewsUrl: "https://maps.google.com/?q=Av.+Paulista,+1578+-+Bela+Vista,+São+Paulo+-+SP",
   },
 
@@ -84,7 +85,7 @@ export const SITE_CONFIG = {
     { day: "Domingo",       dayIndex: 0, open: "10:00", close: "16:00", isOpen: false, note: "Fechado para atendimentos privativos e noivos" }
   ] as ScheduleItem[],
 
-  // Serviços factuais com fotos reais
+  // Serviços factuais com fotos e durações reais
   services: [
     {
       id: "corte-signature",
@@ -92,11 +93,11 @@ export const SITE_CONFIG = {
       category: "barber",
       price: "R$ 85",
       duration: "45 min",
-      description: "Diagnóstico de formato facial, corte milimétrico na tesoura japonesa ou máquina, lavagem com shampoo mentolado e acabamento na navalha descartável.",
+      description: "Diagnóstico de proporção cranial, corte milimétrico na tesoura japonesa de aço cobalto, lavagem com shampoo mentolado Keune 1922 e finalização na lâmina descartável Feather.",
       image: "/images/service-haircut.jpg",
       popular: false,
-      badge: "Assinatura Masculina",
-      highlights: ["Lavagem com massagem", "Finalização pomada matte", "Acabamento na navalha"]
+      badge: "Tesoura Japonesa",
+      highlights: ["Lavagem com massagem capilar", "Finalização pomada matte Keune", "Contorno na lâmina Feather"]
     },
     {
       id: "barboterapia-spa",
@@ -104,11 +105,11 @@ export const SITE_CONFIG = {
       category: "barber",
       price: "R$ 75",
       duration: "40 min",
-      description: "Emoliência com vapor de ozônio, toalha aquecida a 90°C com óleo essencial de eucalipto, corte com lâmina Feather e bálsamo pós-barba de arnica.",
+      description: "Emoliência profunda com vapor de ozônio, toalha aquecida a 90°C com óleo essencial puro de eucalipto glóbulus, barbear com lâmina japonesa e bálsamo calmante de arnica.",
       image: "/images/service-beard.jpg",
       popular: false,
-      badge: "Ritual Clássico",
-      highlights: ["Óleo essencial puro", "Toalha aquecida", "Navalhete esterilizado"]
+      badge: "Vapor & Toalha Quente",
+      highlights: ["Óleo essencial puro eucalipto", "Toalha a 90°C esterilizada", "Bálsamo anti-irritação"]
     },
     {
       id: "combo-royal",
@@ -116,11 +117,11 @@ export const SITE_CONFIG = {
       category: "barber",
       price: "R$ 145",
       duration: "1h 20m",
-      description: "Atendimento completo na mesma bancada. Corte visagista + ritual de barboterapia com toalha aquecida, limpeza de contorno e espresso especial no lounge.",
+      description: "Atendimento completo na mesma bancada sem pressa. Corte visagista na tesoura + ritual completo de barboterapia, com espresso especial do Sul de Minas servido durante a pausa.",
       image: "/images/service-combo.jpg",
       popular: true,
-      badge: "Procedimento Completo",
-      highlights: ["Corte + Barba completa", "Espresso microlote cortesia", "Alinhamento facial"]
+      badge: "Atendimento Integrado",
+      highlights: ["Corte + Barboterapia completa", "Espresso arábica cortesia", "Alinhamento milimétrico"]
     },
     {
       id: "balayage-glow",
@@ -128,11 +129,11 @@ export const SITE_CONFIG = {
       category: "salon",
       price: "A partir de R$ 380",
       duration: "3h 30m",
-      description: "Técnica francesa de mechas à mão livre em tons avelã e caramelo. Preserva a raiz natural, inclui teste de mecha prévio, tonalização e plex antiquebra.",
+      description: "Técnica francesa de clareamento à mão livre em degradê avelã e caramelo. Preserva a raiz virgem, inclui teste de mecha prévio, tonalização Wella e plex antiquebra.",
       image: "/images/gallery-balayage.jpg",
       popular: true,
-      badge: "Especialidade Studio",
-      highlights: ["Teste de mecha incluso", "Plex protetor da fibra", "Matização personalizada"]
+      badge: "Colorimetria Wella",
+      highlights: ["Teste de mecha obrigatório", "Plex antiquebra incluso", "Matização personalizada"]
     },
     {
       id: "corte-feminino",
@@ -140,11 +141,11 @@ export const SITE_CONFIG = {
       category: "salon",
       price: "R$ 160",
       duration: "1h 00m",
-      description: "Estudo de proporção, corte texturizado para caimento natural, lavagem com protocolo de hidratação e escova modelada com proteção térmica.",
+      description: "Estudo de caimento e proporção, corte texturizado para movimento natural dos fios, higienização com protocolo de nutrição profunda e escova modelada com termoproteção.",
       image: "/images/service-womancut.jpg",
       popular: false,
-      badge: "Design em Camadas",
-      highlights: ["Consultoria de caimento", "Escova modelada", "Tratamento de brilho"]
+      badge: "Design Estruturado",
+      highlights: ["Consultoria de proporção facial", "Escova modelada duradoura", "Proteção térmica de luxo"]
     },
     {
       id: "spa-capilar",
@@ -152,11 +153,11 @@ export const SITE_CONFIG = {
       category: "spa",
       price: "R$ 190",
       duration: "1h 15m",
-      description: "Peeling suave no couro cabeludo, vapor de ozônio para desobstrução folicular, reposição lipídica profunda e massagem craniana com aromaterapia.",
+      description: "Peeling suave no couro cabeludo com argila verde, vapor de ozônio para desobstrução dos folículos, reposição lipídica profunda e massagem craniana com aromaterapia.",
       image: "/images/service-spatreatment.jpg",
       popular: false,
-      badge: "Saúde do Couro Cabeludo",
-      highlights: ["Desintoxicação folicular", "Massagem craniana", "Recuperação da fibra"]
+      badge: "Protocolo Tricológico",
+      highlights: ["Desintoxicação folicular", "Massagem craniana relaxante", "Repositor lipídico puro"]
     }
   ] as (ServiceItem & { badge?: string; highlights?: string[] })[],
 
@@ -167,7 +168,8 @@ export const SITE_CONFIG = {
       role: "Mestre Barbeiro & Cofundador",
       specialty: "Cortes clássicos na tesoura e barboterapia tradicional com toalha aquecida",
       experience: "14 anos de bancada",
-      bio: "Formado pela Academia Pivot Point e com passagem por barbearias tradicionais de São Paulo, Alexandre comanda a ala clássica da Zleib Barber com foco rigoroso em pontualidade e caimento natural do cabelo.",
+      quote: "O corte perfeito não é aquele que fica bonito só na cadeira, mas o que cresce com caimento impecável por 30 dias.",
+      bio: "Formado pela Academia Pivot Point com especialização em visagismo masculino pela Menspire Academy de Londres. Alexandre comanda a ala clássica com rigor técnico e foco em fidelidade de horário.",
       photo: "/images/barber-alex.jpg",
       rating: 4.9,
       instagram: "@alexandresouza.barber"
@@ -178,7 +180,8 @@ export const SITE_CONFIG = {
       role: "Hair Artist & Colorista",
       specialty: "Visagismo feminino, mechas Morena Iluminada e corte em camadas texturizadas",
       experience: "11 anos de experiência",
-      bio: "Especialista em visagismo e colorimetria avançada com certificação internacional Wella e L'Oréal. Cria cortes e clareamentos que respeitam a textura natural e a saúde capilar.",
+      quote: "Minha obsessão é iluminar o cabelo preservando 100% da integridade da fibra capilar. Se o teste de mecha não der sinal verde, não fazemos química.",
+      bio: "Especialista em colorimetria avançada certificada pela Wella Professionals e L'Oréal Professionnel. Desenvolve técnicas de clareamento sem marcas de raiz que respeitam a textura original.",
       photo: "/images/stylist-camila.jpg",
       rating: 4.9,
       instagram: "@camilatorres.hair"
@@ -189,29 +192,39 @@ export const SITE_CONFIG = {
     {
       id: "rev-1",
       name: "Rodrigo Mendonça",
-      context: "Cliente há 2 anos • Executivo",
-      text: "Pontualidade britânica. Agendo às 14h e às 14h em ponto estou na cadeira do Alexandre. O espresso de entrada e a toalha aquecida com óleo de eucalipto são impecáveis.",
+      context: "Cliente frequente • Diretor de Operações",
+      text: "Pontualidade britânica real. Meu horário era 14h, e às 14h em ponto eu já estava na cadeira. O corte na tesoura do Alexandre não tem comparação na região da Paulista.",
       rating: 5,
-      date: "Avaliado no Google há 2 semanas",
+      date: "Há 2 semanas no Google",
       serviceUsed: "Combo Royal"
     },
     {
       id: "rev-2",
       name: "Juliana Peixoto",
-      context: "Cliente frequente • Arquiteta",
-      text: "A Camila acertou perfeitamente o tom da minha morena iluminada sem agredir meu cabelo. O espaço é calmo, sem barulho e sem aquela muvuca de salão comum.",
+      context: "Primeira visita • Arquiteta",
+      text: "Fiz o teste de mecha com a Camila na terça e realizamos a morena iluminada na quinta. O tom avelã ficou super natural e o cabelo não ficou nem um pouco ressecado. Espaço silencioso, perfeito para quem quer fugir da loucura da Paulista.",
       rating: 5,
-      date: "Avaliado no Google há 1 mês",
+      date: "Há 1 mês no Google",
       serviceUsed: "Balayage Autoral"
     },
     {
       id: "rev-3",
       name: "Henrique Farias",
-      context: "Cliente mensal • Advogado",
-      text: "O corte na tesoura do Alexandre tem caimento perfeito que dura o mês inteiro sem perder a forma. Estacionamento com valet no prédio facilita muito.",
+      context: "Cliente há 1 ano • Advogado",
+      text: "O valet cortesia no próprio prédio economiza 20 minutos de estacionamento na Paulista. A toalha quente com eucalipto na barba é o melhor ritual pós-expediente.",
       rating: 5,
-      date: "Avaliado no Google há 3 semanas",
-      serviceUsed: "Corte Signature"
+      date: "Há 3 semanas no Google",
+      serviceUsed: "Barboterapia Tradicional"
+    },
+    {
+      id: "rev-4",
+      name: "Mariana Siqueira",
+      context: "Cliente mensal • Designer",
+      text: "Fiz o corte em camadas com a Camila. Ela entendeu exatamente o que eu queria sem tirar comprimento demais. O espresso moído na hora servido no lounge é excelente.",
+      rating: 5,
+      date: "Há 5 dias no Google",
+      serviceUsed: "Corte Feminino"
     }
   ] as ReviewItem[]
 };
+

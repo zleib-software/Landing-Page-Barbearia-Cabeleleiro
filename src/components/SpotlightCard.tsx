@@ -11,7 +11,7 @@ interface SpotlightCardProps {
 export function SpotlightCard({
   children,
   className = "",
-  spotlightColor = "rgba(56, 189, 248, 0.1)",
+  spotlightColor = "rgba(20, 184, 166, 0.12)",
 }: SpotlightCardProps) {
   const divRef = useRef<HTMLDivElement>(null);
   const [position, setPosition] = useState<{ x: number; y: number }>({ x: 0, y: 0 });
@@ -32,7 +32,7 @@ export function SpotlightCard({
       onMouseMove={handleMouseMove}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      className={`relative overflow-hidden rounded-xl bg-midnight-850 border border-white/10 transition-colors duration-300 h-full flex flex-col ${className}`}
+      className={`relative overflow-hidden rounded-2xl bg-midnight-850 border border-white/10 transition-colors duration-300 h-full flex flex-col ${className}`}
     >
       <div
         className="pointer-events-none absolute -inset-px transition-opacity duration-300"

@@ -8,24 +8,24 @@ import { SpotlightCard } from "./SpotlightCard";
 
 const faqData = [
   {
-    q: "Como funciona o agendamento e qual a antecedência recomendada?",
-    a: "Trabalhamos prioritariamente com hora marcada para garantir que você sente na cadeira exatamente no minuto combinado. Para atendimentos em horários nobres (almoço, após as 18h e sábados), recomendamos agendar com 1 a 2 dias de antecedência.",
+    q: "Como funciona a pontualidade da hora marcada?",
+    a: "Trabalhamos com intervalos de 15 minutos entre cada cliente. Isso significa que, se você marcou às 14h, às 14h em ponto o profissional estará te esperando com a bancada pronta. Se você tiver compromisso logo em seguida, pode vir tranquilo que o tempo estimado é cumprido à risca.",
   },
   {
-    q: "O café e as bebidas do lounge têm custo adicional?",
-    a: "Não. Todos os cafés expressos especiais de microlote, águas e bebidas selecionadas servidas no lounge são cortesias oferecidas a todos os clientes durante o atendimento.",
+    q: "O café espresso e as bebidas do lounge são cortesia?",
+    a: "Sim, 100% por nossa conta! Moemos grãos especiais 100% arábica do Sul de Minas na hora para você degustar com calma antes ou depois do atendimento. Também temos águas aromatizadas e chás no lounge.",
   },
   {
-    q: "Como funciona a garantia do teste de mecha na Balayage?",
-    a: "Antes de qualquer química, a Camila realiza uma mecha de teste para avaliar a resistência da fibra e a saúde dos fios. Se houver qualquer fragilidade, propomos um protocolo de reconstrução prévio.",
+    q: "Como funciona o teste de mecha para mechas e balayage?",
+    a: "Antes de aplicar qualquer química clareadora, a Camila faz um teste em uma mecha discreta para checar a elasticidade e resistência do fio. Se o cabelo estiver sensibilizado por químicas anteriores, nós avisamos com total transparência e recomendamos primeiro um tratamento de reconstrução.",
   },
   {
-    q: "Vocês atendem noivos ou grupos para produções especiais?",
-    a: "Sim. Temos a opção de reserva privativa da bancada e do lounge para o Dia do Noivo, padrinhos ou celebrações. Os pacotes são estruturados sob medida pela nossa recepção.",
+    q: "Atendem noivos ou pequenos grupos para eventos?",
+    a: "Com certeza. Podemos reservar o lounge e as bancadas com exclusividade para você e seus padrinhos ou convidados se prepararem com calma, tomando café ou brindando sem pressa. É só mandar uma mensagem no WhatsApp que organizamos os horários em conjunto.",
   },
   {
-    q: "Onde estacionar e quais as formas de pagamento aceitas?",
-    a: "Oferecemos serviço de valet cortesia no próprio edifício para clientes em atendimento. Aceitamos Pix, cartões de crédito (Visa, Mastercard, Elo, Amex) e débito.",
+    q: "Onde estacionar e quais formas de pagamento são aceitas?",
+    a: "Temos valet com manobrista cortesia no subsolo do próprio Edifício Barão de Iguape (Av. Paulista, 1578). Aceitamos Pix, cartões de crédito (Visa, Mastercard, Elo, Amex) e débito.",
   },
 ];
 
@@ -68,18 +68,18 @@ export function FAQ() {
   };
 
   return (
-    <section ref={containerRef} className="py-24 sm:py-32 relative z-10 bg-obsidian-950 border-t border-white/5" id="faq">
+    <section ref={containerRef} className="py-24 sm:py-32 relative z-10 bg-midnight-950 border-t border-teal-500/10" id="faq">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        <div className="faq-header text-center max-w-2xl mx-auto mb-14">
-          <span className="inline-block text-xs uppercase tracking-widest font-bold text-bronze-400 mb-3">
+        <div className="faq-header text-center max-w-2xl mx-auto mb-16">
+          <span className="inline-block text-xs uppercase tracking-widest font-semibold text-teal-400 mb-2.5">
             Dúvidas Frequentes
           </span>
           <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight">
-            Informações sobre o <span className="bronze-text">Atendimento</span>
+            Tudo o que você precisa <span className="text-teal-400 font-light italic">saber antes da visita</span>
           </h2>
-          <p className="text-sand-400 text-base sm:text-lg mt-3 font-light">
-            Respostas sobre política de horário, produtos utilizados e estrutura do ateliê.
+          <p className="text-ice-400 text-sm sm:text-base mt-3 font-normal">
+            Respostas diretas sobre dinâmica de agendamento, produtos, valet e protocolos de atendimento.
           </p>
         </div>
 
@@ -89,17 +89,17 @@ export function FAQ() {
             return (
               <SpotlightCard
                 key={index}
-                className={`faq-item overflow-hidden transition-all duration-300 border-white/10 ${
-                  isOpen ? "border-bronze-500/40" : ""
+                className={`faq-item overflow-hidden transition-all duration-300 border-teal-500/20 bg-midnight-850 ${
+                  isOpen ? "border-teal-500/40" : ""
                 }`}
               >
                 <button
                   onClick={() => toggleIndex(index)}
-                  className="w-full px-6 sm:px-8 py-5 text-left flex items-center justify-between gap-4 font-display font-bold text-white text-base sm:text-lg hover:text-bronze-300 transition-colors"
+                  className="w-full px-6 sm:px-8 py-5 text-left flex items-center justify-between gap-4 font-display font-bold text-white text-base sm:text-lg hover:text-teal-300 transition-colors"
                 >
                   <span>{item.q}</span>
                   <FaChevronDown
-                    className={`w-4 h-4 text-bronze-400 shrink-0 transition-transform duration-300 ${
+                    className={`w-4 h-4 text-teal-400 shrink-0 transition-transform duration-300 ${
                       isOpen ? "rotate-180" : ""
                     }`}
                   />
@@ -111,7 +111,7 @@ export function FAQ() {
                   }`}
                 >
                   <div className="overflow-hidden">
-                    <div className="px-6 sm:px-8 pb-6 text-sand-300 text-sm sm:text-base leading-relaxed border-t border-white/5 pt-4 font-light">
+                    <div className="px-6 sm:px-8 pb-6 text-ice-300 text-xs sm:text-sm leading-relaxed border-t border-white/5 pt-4 font-normal">
                       {item.a}
                     </div>
                   </div>

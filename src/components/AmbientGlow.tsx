@@ -35,7 +35,7 @@ export function AmbientGlow() {
       className="fixed pointer-events-none z-10 w-[500px] h-[500px] rounded-full transition-transform duration-100 ease-out"
       style={{
         transform: `translate(${position.x - 250}px, ${position.y - 250}px)`,
-        background: "radial-gradient(circle, rgba(56, 189, 248, 0.04) 0%, transparent 70%)",
+        background: "radial-gradient(circle, rgba(20, 184, 166, 0.06) 0%, transparent 70%)",
       }}
     />
   );

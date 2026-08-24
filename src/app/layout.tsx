@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
-import { Playfair_Display, Plus_Jakarta_Sans } from "next/font/google";
+import { Cormorant_Garamond, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import { SmoothScroll } from "@/components/SmoothScroll";
 
-const playfair = Playfair_Display({
+const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
   variable: "--font-display",
   display: "swap",
-  weight: ["400", "500", "600", "700", "800", "900"],
+  weight: ["400", "500", "600", "700"],
 });
 
 const jakarta = Plus_Jakarta_Sans({
@@ -19,8 +19,8 @@ const jakarta = Plus_Jakarta_Sans({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://zleibbarber.com.br"),
-  title: "Zleib Barber | Barbearia Clássica & Hair Studio na Av. Paulista",
-  description: "Ateliê de cuidados pessoais na Bela Vista, a 150m do MASP. Cortes de precisão na tesoura, barboterapia com toalha aquecida e visagismo autoral com hora marcada.",
+  title: "Zleib Barber • Ateliê de Barbearia & Hair Studio na Av. Paulista",
+  description: "Ateliê de cuidados capilares na Bela Vista, a 150m do MASP. Cortes milimétricos na tesoura, barboterapia tradicional com toalha aquecida e visagismo autoral com hora marcada.",
   keywords: [
     "zleib barber",
     "barbearia paulista",
@@ -36,8 +36,8 @@ export const metadata: Metadata = {
     canonical: "https://zleibbarber.com.br",
   },
   openGraph: {
-    title: "Zleib Barber | Barbearia Clássica & Hair Studio na Av. Paulista",
-    description: "Ateliê de cuidados pessoais na Bela Vista, a 150m do MASP. Cortes de precisão, barboterapia e visagismo autoral.",
+    title: "Zleib Barber • Ateliê de Barbearia & Hair Studio na Av. Paulista",
+    description: "Ateliê de cuidados capilares na Bela Vista, a 150m do MASP. Cortes de precisão, barboterapia e visagismo autoral.",
     url: "https://zleibbarber.com.br",
     siteName: "Zleib Barber • Ateliê & Hair Studio",
     images: [
@@ -52,7 +52,7 @@ export const metadata: Metadata = {
     type: "website",
   },
   icons: {
-    icon: "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%2338bdf8'><text x='50%' y='55%' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-weight='900' font-size='18' fill='%23060913'>Z</text></svg>",
+    icon: "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%2314b8a6'><text x='50%' y='55%' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-weight='900' font-size='18' fill='%2305080e'>Z</text></svg>",
   },
 };
 
@@ -69,7 +69,7 @@ export default function RootLayout({
     "url": "https://zleibbarber.com.br",
     "telephone": "+5511999999999",
     "priceRange": "$$",
-    "description": "Ateliê de cuidados pessoais na Bela Vista, a 150m do MASP. Cortes de precisão na tesoura, barboterapia com toalha aquecida e visagismo autoral.",
+    "description": "Ateliê de cuidados capilares na Bela Vista, a 150m do MASP. Cortes de precisão na tesoura, barboterapia com toalha aquecida e visagismo autoral.",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "Av. Paulista, 1578 - 1º Andar",
@@ -110,8 +110,8 @@ export default function RootLayout({
       }
     ],
     "sameAs": [
-      "https://instagram.com",
-      "https://facebook.com"
+      "https://instagram.com/zleibbarber",
+      "https://facebook.com/zleibbarber"
     ],
     "aggregateRating": {
       "@type": "AggregateRating",
@@ -121,14 +121,14 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="pt-BR" className={`${playfair.variable} ${jakarta.variable} dark`} suppressHydrationWarning>
+    <html lang="pt-BR" className={`${cormorant.variable} ${jakarta.variable} dark`} suppressHydrationWarning>
       <head>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="font-sans antialiased selection:bg-babyblue-400 selection:text-midnight-950 bg-midnight-950 text-ice-100 overflow-x-hidden">
+      <body className="font-sans antialiased selection:bg-teal-500 selection:text-midnight-950 bg-midnight-950 text-ice-100 overflow-x-hidden">
         <SmoothScroll>{children}</SmoothScroll>
       </body>
     </html>
