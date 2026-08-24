@@ -132,7 +132,7 @@ export function LocationSchedule() {
               allowFullScreen
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              title="Localização do Ateliê Lumen & Co."
+              title="Localização do Ateliê Zleib Barber"
             />
           </div>
 
@@ -239,7 +239,7 @@ export function LocationSchedule() {
             </div>
 
             <button
-              onClick={() => openWhatsApp("Olá! Gostaria de falar com a recepção da Lumen & Co.")}
+              onClick={() => openWhatsApp("Olá! Gostaria de falar com a recepção da Zleib Barber.")}
               className="btn-wa-solid mt-4 w-full !py-2.5 !text-xs"
             >
               <FaWhatsapp className="w-4 h-4 mr-2" />

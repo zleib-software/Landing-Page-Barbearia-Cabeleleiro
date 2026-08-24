@@ -1,13 +1,13 @@
-# Lumen & Co. — Barbearia Clássica & Hair Studio Autoral
+# Zleib Barber — Barbearia Clássica & Hair Studio Autoral
 
-> **Presença digital de alta conversão para o ateliê Lumen & Co. na Avenida Paulista, São Paulo.**  
+> **Presença digital de alta conversão para o ateliê Zleib Barber na Avenida Paulista, São Paulo.**  
 > Desenvolvida com foco em **narrativa de marca autoral, fotografia exclusiva por procedimento, copy factual, acessibilidade WCAG, performance e conversão via WhatsApp**.
 
 ---
 
 ## 🎯 Identidade & Posicionamento
 
-A **Lumen & Co.** é uma casa de cuidados pessoais e alfaiataria capilar localizada na Av. Paulista, 1578 (Bela Vista, a 150m do MASP), fundada por **Alexandre Souza** (Mestre Barbeiro) e **Camila Torres** (Hair Artist & Colorimetrista).
+A **Zleib Barber** é uma casa de cuidados pessoais e alfaiataria capilar localizada na Av. Paulista, 1578 (Bela Vista, a 150m do MASP), fundada por **Alexandre Souza** (Mestre Barbeiro) e **Camila Torres** (Hair Artist & Colorimetrista).
 
 ### 🏆 Destaques Técnicos & de Experiência
 - 🏛️ **Narrativa de Marca & Origem**: Seção autoral com manifesto de ofício manual na tesoura e história dos fundadores.
@@ -26,10 +26,12 @@ A **Lumen & Co.** é uma casa de cuidados pessoais e alfaiataria capilar localiz
 - **Framework**: [Next.js 15](https://nextjs.org/) (App Router)
 - **Biblioteca UI**: [React 19](https://react.dev/)
 - **Linguagem**: [TypeScript](https://www.typescriptlang.org/)
-- **Estilização**: [Tailwind CSS](https://tailwindcss.com/) & Tokens CSS autorais
+- **Estilização**: [Tailwind CSS](https://tailwindcss.com/) & Tokens CSS autorais (Paleta Baby Blue & Midnight Navy)
 - **Animações**: [GSAP 3 & ScrollTrigger](https://gsap.com/)
+- **Scroll Suave**: [Lenis](https://lenis.darkroom.engineering/)
+- **Componentes Acessíveis**: [@radix-ui/react-dialog](https://www.radix-ui.com/), [@radix-ui/react-tabs](https://www.radix-ui.com/)
+- **Carrossel Físico**: [Embla Carousel](https://www.embla-carousel.com/)
 - **Ícones**: [FontAwesome 6 via React Icons](https://react-icons.github.io/react-icons/icons/fa6/)
-- **Seletor de Emojis**: [Emoji Mart v5](https://github.com/missive/emoji-mart)
 
 ---
 
@@ -37,8 +39,8 @@ A **Lumen & Co.** é uma casa de cuidados pessoais e alfaiataria capilar localiz
 
 ### 1. Clonar o repositório
 ```bash
-git clone https://github.com/SEU_USUARIO/SEU_REPOSITORIO.git
-cd SEU_REPOSITORIO
+git clone https://github.com/zleib-software/Landing-Page-Barbearia-Cabeleleiro.git
+cd Landing-Page-Barbearia-Cabeleleiro
 ```
 
 ### 2. Instalar dependências

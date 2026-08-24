@@ -18,41 +18,41 @@ const jakarta = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://lumencobarber.com.br"),
-  title: "Lumen & Co. | Barbearia Clássica & Hair Studio na Av. Paulista",
+  metadataBase: new URL("https://zleibbarber.com.br"),
+  title: "Zleib Barber | Barbearia Clássica & Hair Studio na Av. Paulista",
   description: "Ateliê de cuidados pessoais na Bela Vista, a 150m do MASP. Cortes de precisão na tesoura, barboterapia com toalha aquecida e visagismo autoral com hora marcada.",
   keywords: [
+    "zleib barber",
     "barbearia paulista",
     "barbearia bela vista",
     "barbearia av paulista",
     "hair studio sp",
     "corte de cabelo na tesoura sp",
     "barboterapia toalha quente",
-    "morena iluminada paulista",
-    "lumen and co"
+    "morena iluminada paulista"
   ],
-  authors: [{ name: "LUMEN & CO. Barber & Studio" }],
+  authors: [{ name: "ZLEIB BARBER • Ateliê & Hair Studio" }],
   alternates: {
-    canonical: "https://lumencobarber.com.br",
+    canonical: "https://zleibbarber.com.br",
   },
   openGraph: {
-    title: "Lumen & Co. | Barbearia Clássica & Hair Studio na Av. Paulista",
+    title: "Zleib Barber | Barbearia Clássica & Hair Studio na Av. Paulista",
     description: "Ateliê de cuidados pessoais na Bela Vista, a 150m do MASP. Cortes de precisão, barboterapia e visagismo autoral.",
-    url: "https://lumencobarber.com.br",
-    siteName: "Lumen & Co. Barber & Studio",
+    url: "https://zleibbarber.com.br",
+    siteName: "Zleib Barber • Ateliê & Hair Studio",
     images: [
       {
         url: "/images/about-atelier.jpg",
         width: 1200,
         height: 630,
-        alt: "Ateliê Lumen & Co. na Av. Paulista"
+        alt: "Ateliê Zleib Barber na Av. Paulista"
       }
     ],
     locale: "pt_BR",
     type: "website",
   },
   icons: {
-    icon: "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%2338bdf8'><path d='M6 3h12v2H6zm0 16h12v2H6zm2-8h8v2H8zm-4 4h16v2H4zm0-8h16v2H4z'/></svg>",
+    icon: "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%2338bdf8'><text x='50%' y='55%' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-weight='900' font-size='18' fill='%23060913'>Z</text></svg>",
   },
 };
 
@@ -64,9 +64,9 @@ export default function RootLayout({
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "BarberShop",
-    "name": "LUMEN & CO. Barber & Studio",
-    "image": "https://lumencobarber.com.br/images/about-atelier.jpg",
-    "url": "https://lumencobarber.com.br",
+    "name": "Zleib Barber • Ateliê & Hair Studio",
+    "image": "https://zleibbarber.com.br/images/about-atelier.jpg",
+    "url": "https://zleibbarber.com.br",
     "telephone": "+5511999999999",
     "priceRange": "$$",
     "description": "Ateliê de cuidados pessoais na Bela Vista, a 150m do MASP. Cortes de precisão na tesoura, barboterapia com toalha aquecida e visagismo autoral.",

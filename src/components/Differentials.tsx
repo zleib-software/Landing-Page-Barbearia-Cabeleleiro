@@ -132,25 +132,19 @@ export function Differentials() {
           <div className="lg:col-span-6 relative h-64 sm:h-80 lg:h-full min-h-[320px]">
             <Image
               src="/images/experience-lounge.jpg"
-              alt="Lounge de espera da Lumen & Co. na Avenida Paulista"
+              alt="Lounge de espera da Zleib Barber na Avenida Paulista"
               fill
-              className="object-cover object-center"
+              className="object-cover group-hover:scale-105 transition-transform duration-500"
               loading="lazy"
             />
-          </div>
-          <div className="lg:col-span-6 p-8 sm:p-10 lg:p-12 space-y-4">
-            <span className="inline-block text-xs uppercase tracking-widest font-bold text-bronze-400">
-              Área de Descompressão
-            </span>
-            <h3 className="font-display text-2xl sm:text-3xl font-bold text-white">
-              Lounge Executivo & Bar de Café
-            </h3>
-            <p className="text-sand-300 text-sm sm:text-base leading-relaxed font-light">
-              Chegue 15 minutos antes do seu horário para apreciar um café espresso de microlote moído na hora, recarregar seus dispositivos ou alinhar compromissos em um ambiente reservado.
-            </p>
-            <div className="pt-2">
+            <div className="absolute inset-0 bg-gradient-to-t from-obsidian-950 via-obsidian-950/20 to-transparent flex flex-col justify-end p-6">
+              <span className="text-bronze-400 text-xs font-bold uppercase tracking-wider mb-1">Espaço & Recepção</span>
+              <h3 className="font-display text-xl font-bold text-white mb-2">Hospitalidade Sem Pressa</h3>
+              <p className="text-sand-400 text-xs sm:text-sm max-w-md font-light mb-4">
+                Enquanto aguarda seu horário, aprecie cafés especiais moídos na hora, seleção de cervejas artesanais ou destilados selecionados.
+              </p>
               <button
-                onClick={() => openWhatsApp("Olá! Gostaria de consultar horários disponíveis na Lumen & Co.")}
+                onClick={() => openWhatsApp("Olá! Gostaria de consultar horários disponíveis na Zleib Barber.")}
                 className="px-7 py-3.5 rounded-xl bg-bronze-gradient text-obsidian-950 font-bold text-xs uppercase tracking-wider shadow-luxury-glow hover:scale-105 active:scale-95 transition-all inline-flex items-center gap-2 btn-shine"
               >
                 <span>Consultar Agenda da Recepção</span>

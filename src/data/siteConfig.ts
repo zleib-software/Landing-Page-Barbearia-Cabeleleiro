@@ -15,16 +15,17 @@ export interface TeamMember {
   id: string;
   name: string;
   role: string;
-  experience: string;
   specialty: string;
+  experience: string;
   bio: string;
   photo: string;
+  rating: number;
   instagram: string;
 }
 
 export interface ScheduleItem {
   day: string;
-  dayIndex: number; // 0 = Domingo, 1 = Segunda, ..., 6 = Sábado
+  dayIndex: number;
   open: string;
   close: string;
   isOpen: boolean;
@@ -43,26 +44,26 @@ export interface ReviewItem {
 }
 
 export const SITE_CONFIG = {
-  businessName: "LUMEN & CO. Barber & Studio",
+  businessName: "ZLEIB BARBER • Ateliê & Hair Studio",
   tagline: "Ateliê de Barbearia Clássica & Hair Studio Autoral",
   slogan: "Cortes de precisão na tesoura, barboterapia tradicional com toalha aquecida e visagismo contemporâneo a 150m do MASP.",
   
   // WhatsApp de contato padrão
   whatsapp: {
     phoneNumber: "5511999999999",
-    defaultMessage: "Olá! Gostaria de consultar horários disponíveis na Lumen & Co.",
+    defaultMessage: "Olá! Gostaria de consultar horários disponíveis na Zleib Barber.",
   },
 
   contact: {
     phoneFormatted: "(11) 99999-9999",
     phoneLandline: "(11) 3284-5500",
-    email: "recepcao@lumencobarber.com.br",
+    email: "recepcao@zleibbarber.com.br",
     address: "Av. Paulista, 1578 - Bela Vista",
     addressComplement: "Edifício Barão de Iguape • 1º Andar",
     cityState: "São Paulo - SP",
     cep: "01310-200",
     referencePoint: "A 150m do MASP e a 3 min a pé da Estação Trianon-MASP",
-    instagram: "@lumencobarber",
+    instagram: "@zleibbarber",
     instagramUrl: "https://instagram.com",
     facebookUrl: "https://facebook.com",
     googleReviewsUrl: "https://maps.google.com/?q=Av.+Paulista,+1578+-+Bela+Vista,+São+Paulo+-+SP",
@@ -83,7 +84,7 @@ export const SITE_CONFIG = {
     { day: "Domingo",       dayIndex: 0, open: "10:00", close: "16:00", isOpen: false, note: "Fechado para atendimentos privativos e noivos" }
   ] as ScheduleItem[],
 
-  // Serviços com dados factuais e 100% de imagens exclusivas
+  // Serviços factuais com fotos reais
   services: [
     {
       id: "corte-signature",
@@ -162,57 +163,55 @@ export const SITE_CONFIG = {
   team: [
     {
       id: "alex-souza",
-      name: "Alexandre 'Alex' Souza",
+      name: "Alexandre Souza",
       role: "Mestre Barbeiro & Cofundador",
-      experience: "12 anos de bancada na região central de SP",
-      specialty: "Cortes clássicos executivos na tesoura, degradê navalhado (fade) e alinhamento anatômico de barba.",
-      bio: "Formado pela Academia Pivot Point e com passagem por barbearias tradicionais de São Paulo, Alexandre comanda a ala clássica da Lumen & Co. com foco rigoroso em pontualidade e caimento natural do cabelo.",
+      specialty: "Cortes clássicos na tesoura e barboterapia tradicional com toalha aquecida",
+      experience: "14 anos de bancada",
+      bio: "Formado pela Academia Pivot Point e com passagem por barbearias tradicionais de São Paulo, Alexandre comanda a ala clássica da Zleib Barber com foco rigoroso em pontualidade e caimento natural do cabelo.",
       photo: "/images/barber-alex.jpg",
-      instagram: "@alex_barberluxe"
+      rating: 4.9,
+      instagram: "@alexandresouza.barber"
     },
     {
       id: "camila-torres",
       name: "Camila Torres",
-      role: "Hair Artist, Colorimetrista & Cofundadora",
-      experience: "9 anos de experiência em visagismo e química segura",
-      specialty: "Morena iluminada, balayage sem marcação, corte em camadas com movimento e transição capilar.",
-      bio: "Especialista em colorimetria de baixo impacto, Camila desenvolveu o método de iluminação progressiva do ateliê, garantindo tons luminosos sem comprometer a saúde e elasticidade da fibra capilar.",
+      role: "Hair Artist & Colorista",
+      specialty: "Visagismo feminino, mechas Morena Iluminada e corte em camadas texturizadas",
+      experience: "11 anos de experiência",
+      bio: "Especialista em visagismo e colorimetria avançada com certificação internacional Wella e L'Oréal. Cria cortes e clareamentos que respeitam a textura natural e a saúde capilar.",
       photo: "/images/stylist-camila.jpg",
-      instagram: "@camila.hairstudio"
+      rating: 4.9,
+      instagram: "@camilatorres.hair"
     }
   ] as TeamMember[],
 
-  // Depoimentos desiguais, orgânicos e com contextos reais
   reviews: [
     {
-      id: "r1",
-      name: "Rodrigo Miranda",
-      context: "Executivo no Edifício Nações Unidas",
-      role: "Cliente quinzenal desde 2022",
-      text: "Cortei pro meu casamento no sábado com o Alex e o resultado foi cirúrgico. Hoje faço o Combo Royal a cada 15 dias. O maior mérito deles é a pontualidade: se marco às 12h, às 12h estou na cadeira, o que pra quem trabalha aqui na Paulista é fundamental.",
+      id: "rev-1",
+      name: "Rodrigo Mendonça",
+      context: "Cliente há 2 anos • Executivo",
+      text: "Pontualidade britânica. Agendo às 14h e às 14h em ponto estou na cadeira do Alexandre. O espresso de entrada e a toalha aquecida com óleo de eucalipto são impecáveis.",
       rating: 5,
-      date: "Há 2 semanas",
+      date: "Avaliado no Google há 2 semanas",
       serviceUsed: "Combo Royal"
     },
     {
-      id: "r2",
-      name: "Larissa Albuquerque",
-      context: "Bela Vista, São Paulo",
-      role: "Cliente do Hair Studio",
-      text: "A Camila salvou meu cabelo depois de uma descoloração malsucedida em outro lugar. Fez o teste de mecha com calma, explicou cada etapa e a morena iluminada ficou exatamente no tom avelã que eu queria, sem ressecar as pontas.",
+      id: "rev-2",
+      name: "Juliana Peixoto",
+      context: "Cliente frequente • Arquiteta",
+      text: "A Camila acertou perfeitamente o tom da minha morena iluminada sem agredir meu cabelo. O espaço é calmo, sem barulho e sem aquela muvuca de salão comum.",
       rating: 5,
-      date: "Há 1 mês",
-      serviceUsed: "Balayage & Corte"
+      date: "Avaliado no Google há 1 mês",
+      serviceUsed: "Balayage Autoral"
     },
     {
-      id: "r3",
-      name: "Gustavo Silveira",
-      context: "Advogado na Alameda Santos",
-      role: "Cliente de Barboterapia",
-      text: "Minha pele sempre irritava com gilete por causa de foliculite. O protocolo da toalha quente com o vapor de ozônio aqui mudou isso. O café espresso do lounge também é excelente.",
+      id: "rev-3",
+      name: "Henrique Farias",
+      context: "Cliente mensal • Advogado",
+      text: "O corte na tesoura do Alexandre tem caimento perfeito que dura o mês inteiro sem perder a forma. Estacionamento com valet no prédio facilita muito.",
       rating: 5,
-      date: "Há 3 semanas",
-      serviceUsed: "Barboterapia Tradicional"
+      date: "Avaliado no Google há 3 semanas",
+      serviceUsed: "Corte Signature"
     }
   ] as ReviewItem[]
 };

@@ -61,7 +61,7 @@ export function AboutStory() {
               A precisão do ofício conduzida por quem <span className="text-babyblue-300">fundou a casa</span>
             </h2>
             <p className="text-ice-300 text-sm sm:text-base leading-relaxed font-normal mt-3">
-              Fundada em 2021 na Av. Paulista, a <strong>Lumen & Co.</strong> reúne a tradição da alfaiataria capilar na tesoura à técnica contemporânea de visagismo e colorimetria segura. Atendimento individualizado conduzido diretamente pelos fundadores.
+              Fundada em 2021 na Av. Paulista, a <strong>Zleib Barber</strong> reúne a tradição da alfaiataria capilar na tesoura à técnica contemporânea de visagismo e colorimetria segura. Atendimento individualizado conduzido diretamente pelos fundadores.
             </p>
           </div>
 

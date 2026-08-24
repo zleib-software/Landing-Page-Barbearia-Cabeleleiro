@@ -14,10 +14,10 @@ export function Footer() {
           <div className="lg:col-span-5 space-y-3">
             <Link href="#inicio" className="flex items-center gap-2.5 inline-flex">
               <div className="w-8 h-8 rounded bg-babyblue-400 flex items-center justify-center text-midnight-950 font-black text-base shadow-md">
-                L
+                Z
               </div>
               <span className="font-display font-bold text-xl text-white tracking-wider">
-                LUMEN<span className="text-babyblue-300">&CO.</span>
+                ZLEIB<span className="text-babyblue-300">BARBER</span>
               </span>
             </Link>
             <p className="text-ice-400 text-xs sm:text-sm max-w-sm leading-relaxed font-light">
@@ -103,7 +103,7 @@ export function Footer() {
         {/* Linha Inferior */}
         <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] text-ice-500 font-light">
           <p>
-            © {currentYear} Lumen & Co. Barber & Studio. CNPJ 42.189.304/0001-82.
+            © {currentYear} Zleib Barber • Ateliê & Hair Studio. CNPJ 42.189.304/0001-82.
           </p>
           <p className="text-ice-500 text-center sm:text-right">
             Av. Paulista, 1578 • Bela Vista, São Paulo - SP

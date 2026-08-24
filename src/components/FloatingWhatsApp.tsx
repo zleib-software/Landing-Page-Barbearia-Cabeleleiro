@@ -28,7 +28,7 @@ export function FloatingWhatsApp() {
   };
 
   const handleQuickOption = (text: string) => {
-    openWhatsApp(`Olá! ${text} (${SITE_CONFIG.businessName})`);
+    openWhatsApp(`Olá! ${text} (Zleib Barber)`);
     setIsOpen(false);
   };
 
@@ -48,7 +48,7 @@ export function FloatingWhatsApp() {
       {/* Botão Fixo no Mobile */}
       <div className="fixed bottom-4 left-4 right-4 z-50 sm:hidden">
         <button
-          onClick={() => openWhatsApp("Olá! Gostaria de consultar horários disponíveis na Lumen & Co.")}
+          onClick={() => openWhatsApp("Olá! Gostaria de consultar horários disponíveis na Zleib Barber.")}
           className="btn-wa-solid w-full !py-3.5 !text-xs !shadow-2xl"
           aria-label="Agendar horário pelo WhatsApp"
         >
@@ -60,7 +60,7 @@ export function FloatingWhatsApp() {
       {/* Assistente Flutuante no Desktop */}
       <div className="hidden sm:block fixed bottom-6 right-6 z-50">
         {isOpen && (
-          <div className="absolute bottom-16 right-0 w-[320px] bg-[#121214] border border-white/15 rounded-2xl shadow-2xl overflow-hidden flex flex-col animate-in fade-in slide-in-from-bottom-3 duration-200">
+          <div className="absolute bottom-16 right-0 w-[320px] bg-midnight-900 border border-babyblue-400/20 rounded-2xl shadow-2xl overflow-hidden flex flex-col animate-in fade-in slide-in-from-bottom-3 duration-200">
             {/* Header */}
             <div className="bg-[#1ea952] p-4 flex items-center justify-between text-white">
               <div className="flex items-center gap-2.5">
@@ -68,7 +68,7 @@ export function FloatingWhatsApp() {
                   <FaWhatsapp className="w-5 h-5" />
                 </div>
                 <div>
-                  <h4 className="font-bold text-xs leading-tight">Recepção Lumen & Co.</h4>
+                  <h4 className="font-bold text-xs leading-tight">Recepção Zleib Barber</h4>
                   <p className="text-[10px] text-white/80 mt-0.5">Online agora</p>
                 </div>
               </div>
@@ -82,21 +82,21 @@ export function FloatingWhatsApp() {
             </div>
 
             {/* Opções */}
-            <div className="p-4 bg-[#0a0a0c] space-y-2.5">
-              <div className="bg-[#18181b] border border-white/10 rounded-xl p-3 text-xs text-neutral-200 leading-relaxed">
+            <div className="p-4 bg-midnight-950 space-y-2.5">
+              <div className="bg-midnight-850 border border-babyblue-400/10 rounded-xl p-3 text-xs text-ice-200 leading-relaxed">
                 Olá! Como podemos te ajudar hoje?
               </div>
 
               <div className="space-y-2 pt-1">
                 <button
                   onClick={() => handleQuickOption("Gostaria de agendar um horário para hoje")}
-                  className="w-full text-left p-2.5 rounded bg-white/5 hover:bg-white/10 text-neutral-200 hover:text-white font-semibold text-xs border border-white/10 transition-all"
+                  className="w-full text-left p-2.5 rounded bg-midnight-900 hover:bg-babyblue-400/15 text-ice-200 hover:text-babyblue-200 font-semibold text-xs border border-babyblue-400/20 transition-all"
                 >
                   Consultar horários para hoje
                 </button>
                 <button
                   onClick={() => handleQuickOption("Quero agendar o Combo Royal (Corte + Barba)")}
-                  className="w-full text-left p-2.5 rounded bg-white/5 hover:bg-white/10 text-neutral-200 hover:text-white font-semibold text-xs border border-white/10 transition-all"
+                  className="w-full text-left p-2.5 rounded bg-midnight-900 hover:bg-babyblue-400/15 text-ice-200 hover:text-babyblue-200 font-semibold text-xs border border-babyblue-400/20 transition-all"
                 >
                   Agendar Combo Royal
                 </button>
@@ -104,14 +104,14 @@ export function FloatingWhatsApp() {
             </div>
 
             {/* Input */}
-            <div className="p-3 bg-[#121214] border-t border-white/10">
+            <div className="p-3 bg-midnight-900 border-t border-babyblue-400/10">
               <form onSubmit={handleInputSubmit} className="flex items-center gap-2">
                 <input
                   type="text"
                   value={inputText}
                   onChange={(e) => setInputText(e.target.value)}
                   placeholder="Digite sua mensagem..."
-                  className="flex-1 bg-[#0a0a0c] border border-white/15 focus:border-amber-500 rounded-lg px-3 py-2 text-xs text-white focus:outline-none placeholder:text-neutral-600"
+                  className="flex-1 bg-midnight-950 border border-babyblue-400/20 focus:border-babyblue-400 rounded-lg px-3 py-2 text-xs text-white focus:outline-none placeholder:text-ice-500"
                 />
                 <button
                   type="submit"

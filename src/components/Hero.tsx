@@ -105,7 +105,7 @@ export function Hero() {
               <div className="relative h-[360px] sm:h-[420px] rounded-2xl overflow-hidden border border-babyblue-400/20 shadow-2xl group">
                 <Image
                   src="/images/about-atelier.jpg"
-                  alt="Interior sofisticado da Lumen & Co. na Paulista"
+                  alt="Interior sofisticado da Zleib Barber na Paulista"
                   fill
                   priority
                   className="object-cover object-center group-hover:scale-105 transition-transform duration-700"

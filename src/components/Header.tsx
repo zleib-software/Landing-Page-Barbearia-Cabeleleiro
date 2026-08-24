@@ -58,13 +58,13 @@ export function Header() {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
           
-          {/* Logo Minimalista em Azul Bebê */}
+          {/* Logo Minimalista ZLEIB BARBER */}
           <Link href="#inicio" className="flex items-center gap-2.5 group">
-            <div className="w-8 h-8 rounded bg-babyblue-400 flex items-center justify-center text-midnight-950 font-black text-sm group-hover:scale-105 transition-transform shadow-md">
-              L
+            <div className="w-8 h-8 rounded bg-babyblue-400 flex items-center justify-center text-midnight-950 font-black text-base group-hover:scale-105 transition-transform shadow-md">
+              Z
             </div>
             <span className="font-display font-bold text-lg sm:text-xl text-white tracking-wider">
-              LUMEN<span className="text-babyblue-300">&CO.</span>
+              ZLEIB<span className="text-babyblue-300">BARBER</span>
             </span>
           </Link>
 
@@ -127,11 +127,11 @@ export function Header() {
         <div>
           <div className="flex items-center justify-between pb-4 border-b border-babyblue-400/10 mb-6">
             <div className="flex items-center gap-2">
-              <div className="w-7 h-7 rounded bg-babyblue-400 flex items-center justify-center text-midnight-950 font-black text-xs">
-                L
+              <div className="w-7 h-7 rounded bg-babyblue-400 flex items-center justify-center text-midnight-950 font-black text-sm">
+                Z
               </div>
               <span className="font-display font-bold text-base text-white">
-                LUMEN<span className="text-babyblue-300">&CO.</span>
+                ZLEIB<span className="text-babyblue-300">BARBER</span>
               </span>
             </div>
             <button
