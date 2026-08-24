@@ -1,15 +1,17 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { MessageCircle, X, Send } from "lucide-react";
+import { MessageCircle, X, Send, Smile } from "lucide-react";
 import { SITE_CONFIG } from "@/data/siteConfig";
 import { openWhatsApp } from "@/utils/whatsapp";
+import { EmojiPicker } from "./EmojiPicker";
 
 export function FloatingWhatsApp() {
   const [isOpen, setIsOpen] = useState(false);
   const [inputText, setInputText] = useState("");
   const [hasBadge, setHasBadge] = useState(true);
   const [isVisible, setIsVisible] = useState(false);
+  const [showEmoji, setShowEmoji] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -34,12 +36,17 @@ export function FloatingWhatsApp() {
     setIsOpen(false);
   };
 
+  const handleEmojiSelect = (emoji: string) => {
+    setInputText((prev) => prev + emoji);
+  };
+
   const handleInputSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (inputText.trim()) {
       openWhatsApp(`Olá! ${inputText.trim()}`);
       setInputText("");
       setIsOpen(false);
+      setShowEmoji(false);
     }
   };
 
@@ -79,7 +86,10 @@ export function FloatingWhatsApp() {
                 </div>
               </div>
               <button
-                onClick={() => setIsOpen(false)}
+                onClick={() => {
+                  setIsOpen(false);
+                  setShowEmoji(false);
+                }}
                 className="p-1 rounded-full text-white/80 hover:text-white hover:bg-white/10"
                 aria-label="Fechar assistente"
               >
@@ -113,16 +123,30 @@ export function FloatingWhatsApp() {
                   💬 Falar com atendente
                 </button>
               </div>
+
+              {showEmoji && (
+                <div className="pt-2 animate-in fade-in zoom-in-95 duration-200">
+                  <EmojiPicker onEmojiSelect={handleEmojiSelect} />
+                </div>
+              )}
             </div>
 
             {/* Footer do Chat com Input Livre */}
             <div className="p-3 bg-white dark:bg-dark-900 border-t border-light-300 dark:border-white/10">
-              <form onSubmit={handleInputSubmit} className="flex gap-2">
+              <form onSubmit={handleInputSubmit} className="flex items-center gap-2">
+                <button
+                  type="button"
+                  onClick={() => setShowEmoji(!showEmoji)}
+                  className="p-2 rounded-xl text-gray-500 hover:text-gold-600 dark:hover:text-gold-400 hover:bg-light-200 dark:hover:bg-dark-800 transition-colors"
+                  aria-label="Selecionar emoji"
+                >
+                  <Smile className="w-4 h-4" />
+                </button>
                 <input
                   type="text"
                   value={inputText}
                   onChange={(e) => setInputText(e.target.value)}
-                  placeholder="Digite sua dúvida..."
+                  placeholder="Digite sua mensagem..."
                   className="flex-1 bg-light-100 dark:bg-dark-950 border border-light-300 dark:border-white/15 focus:border-gold-500 rounded-xl px-3 py-2 text-xs text-light-950 dark:text-white focus:outline-none placeholder:text-light-400 dark:placeholder:text-gray-600"
                 />
                 <button

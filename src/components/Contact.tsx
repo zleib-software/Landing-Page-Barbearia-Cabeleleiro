@@ -1,11 +1,12 @@
 "use client";
 
 import { useState, useRef } from "react";
-import { MessageCircle, Mail, Send } from "lucide-react";
+import { MessageCircle, Mail, Send, Smile, X } from "lucide-react";
 import { SITE_CONFIG } from "@/data/siteConfig";
 import { openWhatsApp } from "@/utils/whatsapp";
 import { useGSAP } from "@gsap/react";
 import { gsap } from "@/utils/gsap";
+import { EmojiPicker } from "./EmojiPicker";
 
 export function Contact() {
   const containerRef = useRef<HTMLElement>(null);
@@ -13,6 +14,7 @@ export function Contact() {
   const [phone, setPhone] = useState("");
   const [subject, setSubject] = useState("");
   const [message, setMessage] = useState("");
+  const [showEmojiPicker, setShowEmojiPicker] = useState(false);
 
   useGSAP(
     () => {
@@ -42,6 +44,10 @@ export function Contact() {
     },
     { scope: containerRef }
   );
+
+  const handleEmojiSelect = (emoji: string) => {
+    setMessage((prev) => prev + emoji);
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -95,7 +101,7 @@ export function Contact() {
           </div>
 
           {/* Formulário */}
-          <div className="contact-form-card lg:col-span-6 glass-card-gold p-7 sm:p-10 rounded-3xl border border-gold-500/40 dark:border-gold-500/30">
+          <div className="contact-form-card lg:col-span-6 glass-card-gold p-7 sm:p-10 rounded-3xl border border-gold-500/40 dark:border-gold-500/30 relative">
             <h3 className="font-display text-2xl font-bold text-light-950 dark:text-white mb-2">
               Enviar Mensagem Direta
             </h3>
@@ -142,15 +148,41 @@ export function Contact() {
                 />
               </div>
 
-              <div>
-                <label className="block text-xs font-semibold text-light-800 dark:text-gray-300 mb-1.5">
-                  Sua Mensagem
-                </label>
+              <div className="relative">
+                <div className="flex items-center justify-between mb-1.5">
+                  <label className="block text-xs font-semibold text-light-800 dark:text-gray-300">
+                    Sua Mensagem
+                  </label>
+                  <button
+                    type="button"
+                    onClick={() => setShowEmojiPicker(!showEmojiPicker)}
+                    className="inline-flex items-center gap-1 text-xs font-semibold text-gold-700 dark:text-gold-400 hover:text-light-950 dark:hover:text-white transition-colors"
+                  >
+                    {showEmojiPicker ? (
+                      <>
+                        <X className="w-3.5 h-3.5" />
+                        <span>Fechar Emojis</span>
+                      </>
+                    ) : (
+                      <>
+                        <Smile className="w-3.5 h-3.5" />
+                        <span>Adicionar Emoji</span>
+                      </>
+                    )}
+                  </button>
+                </div>
+
+                {showEmojiPicker && (
+                  <div className="mb-3 animate-in fade-in zoom-in-95 duration-200">
+                    <EmojiPicker onEmojiSelect={handleEmojiSelect} />
+                  </div>
+                )}
+
                 <textarea
                   rows={3}
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
-                  placeholder="Como podemos te ajudar hoje?"
+                  placeholder="Como podemos te ajudar hoje? 💈✂️"
                   className="w-full bg-white dark:bg-dark-900/90 border border-light-300 dark:border-white/15 focus:border-gold-500 rounded-xl px-4 py-3 text-sm text-light-950 dark:text-white focus:outline-none focus:ring-2 focus:ring-gold-500/20 transition-all placeholder:text-light-400 dark:placeholder:text-gray-600 resize-none shadow-sm"
                 />
               </div>

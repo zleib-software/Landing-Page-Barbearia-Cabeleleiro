@@ -2,7 +2,7 @@
 
 import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
-import { Eye } from "lucide-react";
+import { Eye, Sparkles } from "lucide-react";
 import { useGSAP } from "@gsap/react";
 import { gsap } from "@/utils/gsap";
 
@@ -12,7 +12,6 @@ interface GalleryItem {
   category: "fade" | "beard" | "hair";
   tag: string;
   title: string;
-  featured?: boolean;
 }
 
 const galleryItems: GalleryItem[] = [
@@ -21,36 +20,42 @@ const galleryItems: GalleryItem[] = [
     image: "/images/service-haircut.jpg",
     category: "fade",
     tag: "Fade de Alta Precisão",
-    title: "Skin Fade Degradê com Navalha e Pompadour",
-    featured: true,
+    title: "Skin Fade Degradê & Pompadour",
   },
   {
     id: "g2",
     image: "/images/service-beard.jpg",
     category: "beard",
     tag: "Barboterapia Spa",
-    title: "Alinhamento de Barba com Vapor de Ozônio",
+    title: "Alinhamento de Barba & Vapor de Ozônio",
   },
   {
     id: "g3",
     image: "/images/gallery-balayage.jpg",
     category: "hair",
     tag: "Hair Studio",
-    title: "Balayage Glow & Mechas Morena Iluminada",
+    title: "Balayage Glow & Mechas Iluminadas",
   },
   {
     id: "g4",
     image: "/images/service-salon.jpg",
     category: "hair",
     tag: "Visagismo Feminino",
-    title: "Corte em Camadas com Tratamento de Brilho",
+    title: "Corte em Camadas & Tratamento de Brilho",
   },
   {
     id: "g5",
     image: "/images/barber-alex.jpg",
     category: "fade",
     tag: "Corte Executivo",
-    title: "Corte Clássico na Tesoura & Styling Matte",
+    title: "Corte Clássico na Tesoura & Finalização Matte",
+  },
+  {
+    id: "g6",
+    image: "/images/stylist-camila.jpg",
+    category: "hair",
+    tag: "Colorimetria & Estilo",
+    title: "Morena Iluminada & Ondas Naturais",
   },
 ];
 
@@ -97,8 +102,8 @@ export function Gallery() {
     if (containerRef.current) {
       gsap.fromTo(
         containerRef.current.querySelectorAll(".gallery-card"),
-        { opacity: 0, scale: 0.97 },
-        { opacity: 1, scale: 1, duration: 0.35, stagger: 0.04, ease: "power2.out" }
+        { opacity: 0, scale: 0.96 },
+        { opacity: 1, scale: 1, duration: 0.3, stagger: 0.04, ease: "power2.out" }
       );
     }
   }, [filter]);
@@ -108,23 +113,23 @@ export function Gallery() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="gallery-header text-center max-w-3xl mx-auto mb-10">
           <span className="inline-block text-xs uppercase tracking-widest font-bold text-gold-700 dark:text-gold-400 bg-gold-500/10 border border-gold-500/30 px-4 py-1.5 rounded-full mb-4">
-            Prova do Trabalho
+            Portfólio & Resultados
           </span>
           <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-light-950 dark:text-white mb-4">
-            Galeria de <span className="gold-gradient-text">Resultados Reais</span>
+            Galeria de <span className="gold-gradient-text">Transformações</span>
           </h2>
           <p className="text-light-600 dark:text-gray-400 text-base sm:text-lg">
-            Veja as transformações, alinhamentos e finalizações executadas no nosso estúdio.
+            Confira as produções, alinhamentos e finalizações reais executadas no nosso estúdio.
           </p>
         </div>
 
         {/* Filtros da Galeria */}
         <div className="flex justify-center gap-2 sm:gap-3 flex-wrap mb-10">
           {[
-            { id: "all", label: "Todos os Trabalhos" },
-            { id: "fade", label: "Fade & Cortes Masculinos" },
-            { id: "beard", label: "Design de Barba" },
-            { id: "hair", label: "Hair Studio & Iluminação" },
+            { id: "all", label: "✨ Todos os Trabalhos" },
+            { id: "fade", label: "💈 Fade & Cortes Masculinos" },
+            { id: "beard", label: "✂️ Design de Barba" },
+            { id: "hair", label: "💇 Hair Studio & Iluminação" },
           ].map((tab) => (
             <button
               key={tab.id}
@@ -140,46 +145,34 @@ export function Gallery() {
           ))}
         </div>
 
-        {/* Layout Visualmente Dominante */}
-        <div className="gallery-grid grid grid-cols-1 md:grid-cols-12 gap-6 items-stretch">
-          {filteredItems.map((item, idx) => {
-            const isDominant = filter === "all" && idx === 0;
-
-            return (
-              <div
-                key={item.id}
-                className={`gallery-card relative rounded-3xl overflow-hidden border border-light-300 dark:border-white/10 group shadow-elevation-light dark:shadow-elevation ${
-                  isDominant
-                    ? "md:col-span-7 min-h-[380px] sm:min-h-[440px]"
-                    : filter === "all"
-                    ? "md:col-span-5 min-h-[220px] sm:min-h-[240px]"
-                    : "md:col-span-6 lg:col-span-4 min-h-[300px]"
-                }`}
-              >
-                <Image
-                  src={item.image}
-                  alt={item.title}
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-700"
-                  loading="lazy"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-dark-950/95 via-dark-950/40 to-transparent flex flex-col justify-end p-6 sm:p-8 opacity-90 group-hover:opacity-100 transition-opacity">
-                  <div className="flex items-center gap-2 mb-2">
-                    <span className="text-xs uppercase tracking-wider font-extrabold text-gold-400 bg-gold-500/20 px-2.5 py-0.5 rounded-full border border-gold-500/30">
-                      {item.tag}
-                    </span>
-                  </div>
-                  <h3 className={`font-display font-bold text-white leading-tight ${isDominant ? "text-xl sm:text-2xl" : "text-base sm:text-lg"}`}>
-                    {item.title}
-                  </h3>
-                  <div className="mt-3 flex items-center gap-2 text-xs text-gray-300 font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <Eye className="w-4 h-4 text-gold-400" />
-                    <span>Ver resultado detalhado</span>
-                  </div>
+        {/* Grid Equilibrado e Harmônico (3 Colunas) */}
+        <div className="gallery-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {filteredItems.map((item) => (
+            <div
+              key={item.id}
+              className="gallery-card relative h-80 sm:h-96 rounded-3xl overflow-hidden border border-light-300 dark:border-white/10 group shadow-elevation-light dark:shadow-elevation"
+            >
+              <Image
+                src={item.image}
+                alt={item.title}
+                fill
+                className="object-cover group-hover:scale-105 transition-transform duration-700"
+                loading="lazy"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-dark-950/90 via-dark-950/30 to-transparent flex flex-col justify-end p-6 opacity-95 group-hover:opacity-100 transition-opacity">
+                <span className="text-[11px] uppercase tracking-wider font-extrabold text-gold-400 bg-gold-500/20 px-2.5 py-0.5 rounded-full border border-gold-500/30 self-start mb-2">
+                  {item.tag}
+                </span>
+                <h3 className="font-display font-bold text-white text-base sm:text-lg leading-snug">
+                  {item.title}
+                </h3>
+                <div className="mt-2 flex items-center gap-1.5 text-xs text-gold-300 font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <Eye className="w-3.5 h-3.5" />
+                  <span>Ver resultado</span>
                 </div>
               </div>
-            );
-          })}
+            </div>
+          ))}
         </div>
       </div>
     </section>
