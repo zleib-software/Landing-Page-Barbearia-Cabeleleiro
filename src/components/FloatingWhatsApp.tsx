@@ -57,7 +57,7 @@ export function FloatingWhatsApp() {
       {/* Botão Fixo de Alta Conversão no Mobile (Bottom Pill) */}
       <div className="fixed bottom-5 left-4 right-4 z-50 sm:hidden animate-in fade-in slide-in-from-bottom-4 duration-300">
         <button
-          onClick={() => openWhatsApp("Olá! Vim pelo site da Lumen & Co. e gostaria de agendar um horário hoje.")}
+          onClick={() => openWhatsApp("Olá! Gostaria de consultar horários disponíveis hoje na Lumen & Co.")}
           className="w-full py-3.5 px-6 rounded-2xl bg-wa hover:bg-wa-dark text-white font-extrabold text-sm shadow-wa-glow flex items-center justify-center gap-2.5 transition-transform active:scale-95 border border-white/20"
           aria-label="Agendar horário pelo WhatsApp"
         >
@@ -78,7 +78,7 @@ export function FloatingWhatsApp() {
                   <FaWhatsapp className="w-6 h-6 text-emerald-800" />
                 </div>
                 <div>
-                  <h4 className="font-bold text-sm leading-tight">Lumen & Co. Barber</h4>
+                  <h4 className="font-bold text-sm leading-tight">Lumen & Co. Recepção</h4>
                   <p className="text-[11px] text-emerald-200 flex items-center gap-1 mt-0.5">
                     <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping" />
                     Online • Resposta imediata
@@ -100,7 +100,7 @@ export function FloatingWhatsApp() {
             {/* Corpo das Mensagens */}
             <div className="p-4 bg-light-100 dark:bg-dark-950 space-y-3">
               <div className="bg-white dark:bg-dark-800 border border-light-300 dark:border-white/10 rounded-2xl rounded-tl-none p-3.5 text-xs text-light-900 dark:text-gray-200 leading-relaxed shadow-sm">
-                👋 Olá! Como podemos te atender hoje na <strong>LUMEN & CO.</strong>?
+                Olá! Como podemos te ajudar com seu atendimento na <strong>LUMEN & CO.</strong>?
               </div>
 
               <div className="space-y-2 pt-1">
@@ -108,19 +108,19 @@ export function FloatingWhatsApp() {
                   onClick={() => handleQuickOption("Gostaria de agendar um horário para hoje")}
                   className="w-full text-left p-2.5 rounded-xl bg-gold-500/10 hover:bg-gold-gradient text-gold-800 dark:text-gold-400 hover:text-dark-950 font-semibold text-xs border border-gold-500/30 transition-all shadow-sm"
                 >
-                  📅 Agendar horário para hoje
+                  Consultar horários para hoje
                 </button>
                 <button
                   onClick={() => handleQuickOption("Quero agendar o Combo Royal (Corte + Barba)")}
                   className="w-full text-left p-2.5 rounded-xl bg-gold-500/10 hover:bg-gold-gradient text-gold-800 dark:text-gold-400 hover:text-dark-950 font-semibold text-xs border border-gold-500/30 transition-all shadow-sm"
                 >
-                  ✂️ Agendar Combo Royal
+                  Agendar Combo Royal
                 </button>
                 <button
                   onClick={() => handleQuickOption("Gostaria de tirar uma dúvida sobre serviços")}
                   className="w-full text-left p-2.5 rounded-xl bg-gold-500/10 hover:bg-gold-gradient text-gold-800 dark:text-gold-400 hover:text-dark-950 font-semibold text-xs border border-gold-500/30 transition-all shadow-sm"
                 >
-                  💬 Falar com atendente
+                  Falar diretamente com a recepção
                 </button>
               </div>
 
@@ -146,7 +146,7 @@ export function FloatingWhatsApp() {
                   type="text"
                   value={inputText}
                   onChange={(e) => setInputText(e.target.value)}
-                  placeholder="Digite sua mensagem..."
+                  placeholder="Digite sua dúvida..."
                   className="flex-1 bg-light-100 dark:bg-dark-950 border border-light-300 dark:border-white/15 focus:border-gold-500 rounded-xl px-3 py-2 text-xs text-light-950 dark:text-white focus:outline-none placeholder:text-light-400 dark:placeholder:text-gray-600"
                 />
                 <button

@@ -1,10 +1,13 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useCallback } from "react";
 import Image from "next/image";
-import { FaEye } from "react-icons/fa6";
+import useEmblaCarousel from "embla-carousel-react";
+import { FaChevronLeft, FaChevronRight, FaStar, FaCircleCheck, FaArrowUpRightFromSquare } from "react-icons/fa6";
+import { SITE_CONFIG } from "@/data/siteConfig";
 import { useGSAP } from "@gsap/react";
 import { gsap } from "@/utils/gsap";
+import { SpotlightCard } from "./SpotlightCard";
 
 interface GalleryItem {
   id: string;
@@ -12,64 +15,72 @@ interface GalleryItem {
   category: "fade" | "beard" | "hair";
   tag: string;
   title: string;
+  technique: string;
 }
 
 const galleryItems: GalleryItem[] = [
   {
     id: "g1",
-    image: "/images/service-haircut.jpg",
+    image: "/images/gallery-fade.jpg",
     category: "fade",
-    tag: "Fade de Alta Precisão",
-    title: "Skin Fade Degradê & Pompadour",
+    tag: "Degradê de Precisão",
+    title: "Mid Skin Fade com Textura Natural",
+    technique: "Transição suave com lâmina de precisão e acabamento sem linha marcada",
   },
   {
     id: "g2",
     image: "/images/service-beard.jpg",
     category: "beard",
-    tag: "Barboterapia Spa",
-    title: "Alinhamento de Barba & Vapor de Ozônio",
+    tag: "Barboterapia",
+    title: "Alinhamento de Barba com Lâmina Feather",
+    technique: "Vapor de ozônio, toalha a 90°C com eucalipto e hidratação calmante",
   },
   {
     id: "g3",
     image: "/images/gallery-balayage.jpg",
     category: "hair",
-    tag: "Hair Studio",
-    title: "Balayage Glow & Mechas Iluminadas",
+    tag: "Colorimetria Autoral",
+    title: "Balayage Morena Iluminada",
+    technique: "Mechas à mão livre sem pó descolorante na raiz e com plex protetor",
   },
   {
     id: "g4",
     image: "/images/service-salon.jpg",
     category: "hair",
     tag: "Visagismo Feminino",
-    title: "Corte em Camadas & Tratamento de Brilho",
+    title: "Corte em Camadas Médias",
+    technique: "Estruturação de caimento em ângulo de 45° para leveza e volume",
   },
   {
     id: "g5",
-    image: "/images/barber-alex.jpg",
+    image: "/images/service-haircut.jpg",
     category: "fade",
-    tag: "Corte Executivo",
-    title: "Corte Clássico na Tesoura & Finalização Matte",
-  },
-  {
-    id: "g6",
-    image: "/images/stylist-camila.jpg",
-    category: "hair",
-    tag: "Colorimetria & Estilo",
-    title: "Morena Iluminada & Ondas Naturais",
+    tag: "Alfaiataria Capilar",
+    title: "Corte Clássico na Tesoura",
+    technique: "Fio laser de aço cobalto com pomada à base de água matte",
   },
 ];
 
 export function Gallery() {
   const containerRef = useRef<HTMLElement>(null);
-  const [filter, setFilter] = useState<string>("all");
+  
+  const [emblaRef, emblaApi] = useEmblaCarousel({
+    align: "start",
+    loop: false,
+    dragFree: true,
+  });
 
-  const filteredItems = filter === "all"
-    ? galleryItems
-    : galleryItems.filter(item => item.category === filter);
+  const scrollPrev = useCallback(() => {
+    if (emblaApi) emblaApi.scrollPrev();
+  }, [emblaApi]);
+
+  const scrollNext = useCallback(() => {
+    if (emblaApi) emblaApi.scrollNext();
+  }, [emblaApi]);
 
   useGSAP(
     () => {
-      gsap.from(".gallery-header", {
+      gsap.from(".portfolio-header", {
         scrollTrigger: {
           trigger: containerRef.current,
           start: "top 85%",
@@ -81,99 +92,148 @@ export function Gallery() {
         ease: "power2.out",
       });
 
-      gsap.from(".gallery-card", {
+      gsap.from(".portfolio-carousel", {
         scrollTrigger: {
-          trigger: ".gallery-grid",
+          trigger: ".portfolio-carousel",
           start: "top 85%",
           once: true,
         },
         opacity: 0,
         y: 20,
-        stagger: 0.08,
-        duration: 0.5,
+        duration: 0.6,
         ease: "power2.out",
       });
     },
     { scope: containerRef }
   );
 
-  // Transição suave ao trocar de filtro
-  useEffect(() => {
-    if (containerRef.current) {
-      gsap.fromTo(
-        containerRef.current.querySelectorAll(".gallery-card"),
-        { opacity: 0, scale: 0.96 },
-        { opacity: 1, scale: 1, duration: 0.3, stagger: 0.04, ease: "power2.out" }
-      );
-    }
-  }, [filter]);
-
   return (
-    <section ref={containerRef} className="py-20 sm:py-24 relative z-10 bg-light-150/70 dark:bg-dark-950/60 transition-colors duration-300" id="galeria">
+    <section ref={containerRef} className="py-20 sm:py-24 relative z-10 bg-obsidian-950 border-t border-white/5" id="galeria">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="gallery-header text-center max-w-3xl mx-auto mb-10">
-          <span className="inline-block text-xs uppercase tracking-widest font-bold text-gold-700 dark:text-gold-400 bg-gold-500/10 border border-gold-500/30 px-4 py-1.5 rounded-full mb-4">
-            Portfólio & Resultados
-          </span>
-          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-light-950 dark:text-white mb-4">
-            Galeria de <span className="gold-gradient-text">Transformações</span>
-          </h2>
-          <p className="text-light-600 dark:text-gray-400 text-base sm:text-lg">
-            Confira as produções, alinhamentos e finalizações reais executadas no nosso estúdio.
-          </p>
-        </div>
+        
+        {/* Header com controles de carrossel */}
+        <div className="portfolio-header flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
+          <div>
+            <span className="inline-block text-xs uppercase tracking-widest font-bold text-bronze-400 mb-2">
+              Portfólio & Prova Social
+            </span>
+            <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight">
+              Resultados Reais & <span className="bronze-text">Experiências</span>
+            </h2>
+            <p className="text-sand-400 text-sm sm:text-base mt-2 font-light max-w-xl">
+              Registros fotográficos dos atendimentos combinados a depoimentos de clientes frequentes.
+            </p>
+          </div>
 
-        {/* Filtros da Galeria */}
-        <div className="flex justify-center gap-2 sm:gap-3 flex-wrap mb-10">
-          {[
-            { id: "all", label: "✨ Todos os Trabalhos" },
-            { id: "fade", label: "💈 Fade & Cortes Masculinos" },
-            { id: "beard", label: "✂️ Design de Barba" },
-            { id: "hair", label: "💇 Hair Studio & Iluminação" },
-          ].map((tab) => (
+          <div className="flex items-center gap-3">
             <button
-              key={tab.id}
-              onClick={() => setFilter(tab.id)}
-              className={`px-4 sm:px-5 py-2 rounded-full text-xs sm:text-sm font-semibold transition-all ${
-                filter === tab.id
-                  ? "bg-gold-gradient text-dark-950 shadow-gold-glow font-bold scale-105"
-                  : "bg-light-200/90 dark:bg-dark-800 text-light-700 dark:text-gray-400 hover:text-light-950 dark:hover:text-white border border-light-300 dark:border-white/10 hover:border-gold-500/40"
-              }`}
+              onClick={scrollPrev}
+              className="w-11 h-11 rounded-full bg-white/5 hover:bg-bronze-500/20 border border-white/10 hover:border-bronze-500/40 text-sand-300 hover:text-white flex items-center justify-center transition-all"
+              aria-label="Item anterior"
             >
-              {tab.label}
+              <FaChevronLeft className="w-4 h-4" />
             </button>
-          ))}
+            <button
+              onClick={scrollNext}
+              className="w-11 h-11 rounded-full bg-white/5 hover:bg-bronze-500/20 border border-white/10 hover:border-bronze-500/40 text-sand-300 hover:text-white flex items-center justify-center transition-all"
+              aria-label="Próximo item"
+            >
+              <FaChevronRight className="w-4 h-4" />
+            </button>
+          </div>
         </div>
 
-        {/* Grid Equilibrado e Harmônico (3 Colunas) */}
-        <div className="gallery-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredItems.map((item) => (
-            <div
-              key={item.id}
-              className="gallery-card relative h-80 sm:h-96 rounded-3xl overflow-hidden border border-light-300 dark:border-white/10 group shadow-elevation-light dark:shadow-elevation"
-            >
-              <Image
-                src={item.image}
-                alt={item.title}
-                fill
-                className="object-cover group-hover:scale-105 transition-transform duration-700"
-                loading="lazy"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-dark-950/90 via-dark-950/30 to-transparent flex flex-col justify-end p-6 opacity-95 group-hover:opacity-100 transition-opacity">
-                <span className="text-[11px] uppercase tracking-wider font-extrabold text-gold-400 bg-gold-500/20 px-2.5 py-0.5 rounded-full border border-gold-500/30 self-start mb-2">
-                  {item.tag}
-                </span>
-                <h3 className="font-display font-bold text-white text-base sm:text-lg leading-snug">
-                  {item.title}
-                </h3>
-                <div className="mt-2 flex items-center gap-1.5 text-xs text-gold-300 font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <FaEye className="w-3.5 h-3.5" />
-                  <span>Ver resultado</span>
+        {/* Embla Carousel Viewport unindo Fotos e Relatos */}
+        <div className="portfolio-carousel overflow-hidden mb-10" ref={emblaRef}>
+          <div className="flex gap-6">
+            
+            {/* Fotos de Portfólio */}
+            {galleryItems.map((item) => (
+              <div
+                key={item.id}
+                className="flex-[0_0_80%] sm:flex-[0_0_42%] lg:flex-[0_0_28%] min-w-0"
+              >
+                <div className="relative h-[340px] sm:h-[380px] rounded-3xl overflow-hidden border border-white/10 group shadow-2xl">
+                  <Image
+                    src={item.image}
+                    alt={item.title}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-700"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-obsidian-950/95 via-obsidian-950/20 to-transparent flex flex-col justify-end p-5">
+                    <span className="text-[10px] uppercase tracking-widest font-bold text-bronze-400 bg-obsidian-950/70 border border-bronze-500/30 px-2.5 py-0.5 rounded-full self-start mb-1.5 backdrop-blur-md">
+                      {item.tag}
+                    </span>
+                    <h4 className="font-display font-bold text-white text-base leading-snug mb-1">
+                      {item.title}
+                    </h4>
+                    <p className="text-xs text-sand-400 line-clamp-2 font-light">
+                      {item.technique}
+                    </p>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+
+            {/* Cards de Depoimento Integrados no Carrossel */}
+            {SITE_CONFIG.reviews.map((rev) => (
+              <div
+                key={rev.id}
+                className="flex-[0_0_80%] sm:flex-[0_0_42%] lg:flex-[0_0_28%] min-w-0"
+              >
+                <SpotlightCard className="p-6 h-[340px] sm:h-[380px] flex flex-col justify-between border-white/10">
+                  <div>
+                    <div className="flex items-center justify-between mb-4">
+                      <div className="flex text-amber-400 gap-0.5">
+                        {[...Array(rev.rating)].map((_, i) => (
+                          <FaStar key={i} className="w-3.5 h-3.5" />
+                        ))}
+                      </div>
+                      <span className="text-[11px] text-sand-500 font-light">
+                        {rev.date}
+                      </span>
+                    </div>
+
+                    <p className="text-sand-200 text-xs sm:text-sm leading-relaxed font-light italic">
+                      "{rev.text}"
+                    </p>
+                  </div>
+
+                  <div className="pt-3 border-t border-white/5 flex items-center justify-between">
+                    <div>
+                      <h5 className="font-display font-bold text-white text-xs sm:text-sm">
+                        {rev.name}
+                      </h5>
+                      <p className="text-[11px] text-sand-400 font-light">
+                        {rev.context}
+                      </p>
+                    </div>
+                    <span className="text-[9px] uppercase font-bold text-bronze-400 bg-bronze-500/10 px-2 py-0.5 rounded-md border border-bronze-500/20">
+                      {rev.serviceUsed}
+                    </span>
+                  </div>
+                </SpotlightCard>
+              </div>
+            ))}
+
+          </div>
         </div>
+
+        {/* Link Verificado Google */}
+        <div className="text-center">
+          <a
+            href={SITE_CONFIG.contact.googleReviewsUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 text-xs font-medium text-sand-300 hover:text-bronze-400 transition-colors underline decoration-dotted"
+          >
+            <FaCircleCheck className="w-4 h-4 text-emerald-500" />
+            <span>Ver todas as 350+ avaliações no Google Meu Negócio</span>
+            <FaArrowUpRightFromSquare className="w-3 h-3" />
+          </a>
+        </div>
+
       </div>
     </section>
   );

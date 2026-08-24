@@ -4,27 +4,28 @@ import { useState, useRef } from "react";
 import { FaChevronDown } from "react-icons/fa6";
 import { useGSAP } from "@gsap/react";
 import { gsap } from "@/utils/gsap";
+import { SpotlightCard } from "./SpotlightCard";
 
 const faqData = [
   {
-    q: "Preciso agendar com antecedência ou atendem por ordem de chegada?",
-    a: "Recomendamos fortemente o agendamento prévio via WhatsApp para garantir o seu horário exclusivo sem espera. No entanto, também atendemos clientes que chegam sem agendamento havendo bancada disponível.",
+    q: "Como funciona o agendamento e qual a antecedência recomendada?",
+    a: "Trabalhamos prioritariamente com hora marcada para garantir que você sente na cadeira exatamente no minuto combinado. Para atendimentos em horários nobres (almoço, após as 18h e sábados), recomendamos agendar com 1 a 2 dias de antecedência.",
   },
   {
-    q: "Quais são as formas de pagamento aceitas?",
-    a: "Aceitamos Pix (com confirmação instantânea), todos os cartões de crédito e débito (Visa, Mastercard, Elo, American Express), além de Apple Pay, Google Pay e dinheiro.",
+    q: "O café e as bebidas do lounge têm custo adicional?",
+    a: "Não. Todos os cafés expressos especiais de microlote, águas e bebidas selecionadas servidas no lounge são cortesias oferecidas a todos os clientes durante o atendimento.",
   },
   {
-    q: "As bebidas do lounge & café são cortesia?",
-    a: "Sim! Todos os nossos clientes em atendimento têm direito a cafés expressos especiais moídos na hora, água mineral, sucos e bebidas selecionadas como cortesia da casa.",
+    q: "Como funciona a garantia do teste de mecha na Balayage?",
+    a: "Antes de qualquer química, a Camila realiza uma mecha de teste para avaliar a resistência da fibra e a saúde dos fios. Se houver qualquer fragilidade, propomos um protocolo de reconstrução prévio.",
   },
   {
-    q: "Como funciona a Barboterapia com Toalha Quente?",
-    a: "É um procedimento relaxante e higiênico. Aplicamos vapor de ozônio para higienização e abertura dos poros, seguido de esfoliação suave, toalha aquecida com óleo essencial de eucalipto, corte do contorno na navalha descartável e aplicação de bálsamo calmante anti-foliculite.",
+    q: "Vocês atendem noivos ou grupos para produções especiais?",
+    a: "Sim. Temos a opção de reserva privativa da bancada e do lounge para o Dia do Noivo, padrinhos ou celebrações. Os pacotes são estruturados sob medida pela nossa recepção.",
   },
   {
-    q: "Possuem pacotes para Noivos, Padrinhos ou Eventos?",
-    a: "Sim! Temos pacotes VIP personalizados para o 'Dia do Noivo' e preparação especial, com fechamento exclusivo do lounge, massagem, banho, buffet especial e fotografia. Consulte-nos pelo WhatsApp para uma proposta personalizada.",
+    q: "Onde estacionar e quais as formas de pagamento aceitas?",
+    a: "Oferecemos serviço de valet cortesia no próprio edifício para clientes em atendimento. Aceitamos Pix, cartões de crédito (Visa, Mastercard, Elo, Amex) e débito.",
   },
 ];
 
@@ -67,17 +68,18 @@ export function FAQ() {
   };
 
   return (
-    <section ref={containerRef} className="py-20 sm:py-24 relative z-10 bg-light-150/70 dark:bg-dark-950/60 transition-colors duration-300" id="faq">
+    <section ref={containerRef} className="py-24 sm:py-32 relative z-10 bg-obsidian-950 border-t border-white/5" id="faq">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        
         <div className="faq-header text-center max-w-2xl mx-auto mb-14">
-          <span className="inline-block text-xs uppercase tracking-widest font-bold text-gold-700 dark:text-gold-400 bg-gold-500/10 border border-gold-500/30 px-4 py-1.5 rounded-full mb-4">
-            Tire suas Dúvidas
+          <span className="inline-block text-xs uppercase tracking-widest font-bold text-bronze-400 mb-3">
+            Dúvidas Frequentes
           </span>
-          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-light-950 dark:text-white mb-4">
-            Perguntas <span className="gold-gradient-text">Frequentes</span>
+          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight">
+            Informações sobre o <span className="bronze-text">Atendimento</span>
           </h2>
-          <p className="text-light-600 dark:text-gray-400 text-base sm:text-lg">
-            Tudo o que você precisa saber sobre agendamentos, formas de pagamento e estrutura.
+          <p className="text-sand-400 text-base sm:text-lg mt-3 font-light">
+            Respostas sobre política de horário, produtos utilizados e estrutura do ateliê.
           </p>
         </div>
 
@@ -85,21 +87,19 @@ export function FAQ() {
           {faqData.map((item, index) => {
             const isOpen = openIndex === index;
             return (
-              <div
+              <SpotlightCard
                 key={index}
-                className={`faq-item glass-card rounded-2xl border transition-colors overflow-hidden ${
-                  isOpen
-                    ? "border-gold-500/60 shadow-gold-glow-light dark:shadow-gold-glow"
-                    : "border-light-300 dark:border-white/10"
+                className={`faq-item overflow-hidden transition-all duration-300 border-white/10 ${
+                  isOpen ? "border-bronze-500/40" : ""
                 }`}
               >
                 <button
                   onClick={() => toggleIndex(index)}
-                  className="w-full px-6 sm:px-8 py-5 text-left flex items-center justify-between gap-4 font-semibold text-light-950 dark:text-white text-base sm:text-lg"
+                  className="w-full px-6 sm:px-8 py-5 text-left flex items-center justify-between gap-4 font-display font-bold text-white text-base sm:text-lg hover:text-bronze-300 transition-colors"
                 >
                   <span>{item.q}</span>
                   <FaChevronDown
-                    className={`w-4 h-4 text-gold-600 dark:text-gold-400 shrink-0 transition-transform duration-300 ${
+                    className={`w-4 h-4 text-bronze-400 shrink-0 transition-transform duration-300 ${
                       isOpen ? "rotate-180" : ""
                     }`}
                   />
@@ -111,15 +111,16 @@ export function FAQ() {
                   }`}
                 >
                   <div className="overflow-hidden">
-                    <div className="px-6 sm:px-8 pb-6 text-light-700 dark:text-gray-300 text-sm sm:text-base leading-relaxed border-t border-light-200 dark:border-white/5 pt-4 font-normal">
+                    <div className="px-6 sm:px-8 pb-6 text-sand-300 text-sm sm:text-base leading-relaxed border-t border-white/5 pt-4 font-light">
                       {item.a}
                     </div>
                   </div>
                 </div>
-              </div>
+              </SpotlightCard>
             );
           })}
         </div>
+
       </div>
     </section>
   );

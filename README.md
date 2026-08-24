@@ -1,22 +1,23 @@
-# Lumen & Co. — Premium Barbershop Landing Page 💈✂️
+# Lumen & Co. — Barbearia Clássica & Hair Studio Autoral
 
-> **Landing page de alta conversão para barbearias e hair studios de alto padrão.**  
-> Desenvolvida com foco obsessivo em **UX, velocidade de carregamento, conversão direta via WhatsApp, Acessibilidade e SEO Local**.
+> **Presença digital de alta conversão para o ateliê Lumen & Co. na Avenida Paulista, São Paulo.**  
+> Desenvolvida com foco em **narrativa de marca autoral, fotografia exclusiva por procedimento, copy factual, acessibilidade WCAG, performance e conversão via WhatsApp**.
 
 ---
 
-## 🎯 Visão Geral do Projeto
+## 🎯 Identidade & Posicionamento
 
-Este projeto foi desenhado para eliminar a fricção típica de agendamentos em barbearias de luxo, combinando uma identidade visual refinada (Glassmorphism, tons ouro nobre e Dark/Light mode) com um fluxo direto de conversão: **visitou → gostou → agendou**.
+A **Lumen & Co.** é uma casa de cuidados pessoais e alfaiataria capilar localizada na Av. Paulista, 1578 (Bela Vista, a 150m do MASP), fundada por **Alexandre Souza** (Mestre Barbeiro) e **Camila Torres** (Hair Artist & Colorimetrista).
 
-### 🏆 Destaques Técnicos & de Produto
-- ⚡ **Conversão em Poucos Cliques**: Hero agressivo com CTA direto para WhatsApp e seletor rápido com pré-formatação de mensagem sem fricção.
-- 📱 **Mobile-First & WhatsApp Flutuante**: Barra fixa inteligente no mobile disparada por scroll para conversão imediata sem precisar voltar ao topo.
-- 🕒 **Horário Dinâmico em Tempo Real**: Cálculo em tempo real do status de funcionamento (`Aberto agora · Fecha às XX:XX` / `Fechado agora`).
-- 🌓 **Sistema Dual Theme (Dark / Light / Auto)**: Suporte completo a tema escuro/claro com detecção de preferência de sistema (`prefers-color-scheme`) e persistência no `localStorage`.
-- 🔍 **SEO Local & Schema.org**: Marcação estruturada em JSON-LD (`BarberShop`), GeoCoordinates (Av. Paulista), metadados Open Graph e Canonical URLs.
-- ♿ **Acessibilidade (WCAG)**: Contraste rigoroso, semântica HTML5 completa (`<header>`, `<main>`, `<section>`, `<footer>`), foco visível acessível (`:focus-visible`) e navegação completa por teclado.
-- 🖼️ **Galeria de Resultados & Filtros**: Grid visual com fotos de resultados reais e filtros dinâmicos por categoria (Fade, Barba, Mechas).
+### 🏆 Destaques Técnicos & de Experiência
+- 🏛️ **Narrativa de Marca & Origem**: Seção autoral com manifesto de ofício manual na tesoura e história dos fundadores.
+- 📸 **Fotografia 100% Exclusiva**: Imagens dedicadas para cada procedimento e trabalho da galeria (zero fotos duplicadas).
+- ⚡ **Conversão Transparente**: Fluxo de solicitação de horário com hora marcada e direcionamento contextual para o WhatsApp.
+- ☕ **Fatos & Rituais Verificáveis**: Rituais com navalhetes japonesas Feather, toalhas a 90°C com eucalipto glóbulus e café espresso de microlote do Sul de Minas.
+- 📱 **Mobile-First & Barra Fixa**: Acesso ágil no smartphone com barra inferior contextual disparada por rolagem.
+- 🕒 **Horário Dinâmico em Tempo Real**: Cálculo preciso de abertura e fechamento diário (`Aberto agora · Fecha às XX:XX`).
+- 🔍 **SEO Local & Schema.org**: JSON-LD estruturado (`BarberShop` e catálogo de ofertas), GeoCoordinates e Open Graph completo.
+- ♿ **Acessibilidade (WCAG)**: Contraste auditado, semântica HTML5, `:focus-visible` nativo e navegação por teclado.
 
 ---
 
@@ -25,9 +26,10 @@ Este projeto foi desenhado para eliminar a fricção típica de agendamentos em 
 - **Framework**: [Next.js 15](https://nextjs.org/) (App Router)
 - **Biblioteca UI**: [React 19](https://react.dev/)
 - **Linguagem**: [TypeScript](https://www.typescriptlang.org/)
-- **Estilização**: [Tailwind CSS](https://tailwindcss.com/) & Vanilla CSS custom tokens
+- **Estilização**: [Tailwind CSS](https://tailwindcss.com/) & Tokens CSS autorais
 - **Animações**: [GSAP 3 & ScrollTrigger](https://gsap.com/)
 - **Ícones**: [FontAwesome 6 via React Icons](https://react-icons.github.io/react-icons/icons/fa6/)
+- **Seletor de Emojis**: [Emoji Mart v5](https://github.com/missive/emoji-mart)
 
 ---
 
@@ -50,7 +52,7 @@ npm run dev
 ```
 Acesse [http://localhost:3000](http://localhost:3000).
 
-### 4. Build de produção & Testes
+### 4. Build de produção
 ```bash
 npm run build
 npm start
@@ -58,17 +60,6 @@ npm start
 
 ---
 
-## 📊 Métricas Lighthouse Alvo
-
-| Categoria | Meta |
-| :--- | :---: |
-| ⚡ Performance | 95+ |
-| ♿ Acessibilidade | 100 |
-| 🛡️ Melhores Práticas | 100 |
-| 🔍 SEO | 100 |
-
----
-
 ## 📄 Licença
 
-Distribuído sob a licença MIT. Consulte `LICENSE` para mais detalhes.
+Distribuído sob a licença MIT.

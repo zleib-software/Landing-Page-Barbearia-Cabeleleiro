@@ -1,34 +1,51 @@
 import type { Metadata } from "next";
+import { Playfair_Display, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
+import { SmoothScroll } from "@/components/SmoothScroll";
+
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  variable: "--font-display",
+  display: "swap",
+  weight: ["400", "500", "600", "700", "800", "900"],
+});
+
+const jakarta = Plus_Jakarta_Sans({
+  subsets: ["latin"],
+  variable: "--font-sans",
+  display: "swap",
+  weight: ["300", "400", "500", "600", "700", "800"],
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://lumencobarber.com.br"),
-  title: "Lumen & Co. | Barbearia Premium na Av. Paulista",
-  description: "Barbearia premium na Bela Vista, São Paulo. Cortes, barba, visagismo e tratamentos capilares. Agende seu horário pelo WhatsApp com atendimento exclusivo.",
+  title: "Lumen & Co. | Barbearia Clássica & Hair Studio na Av. Paulista",
+  description: "Ateliê de cuidados pessoais na Bela Vista, a 150m do MASP. Cortes de precisão na tesoura, barboterapia com toalha aquecida e visagismo autoral com hora marcada.",
   keywords: [
-    "barbearia bela vista",
     "barbearia paulista",
+    "barbearia bela vista",
     "barbearia av paulista",
-    "corte de cabelo masculino são paulo",
-    "barboterapia são paulo",
-    "visagismo masculino",
+    "hair studio sp",
+    "corte de cabelo na tesoura sp",
+    "barboterapia toalha quente",
+    "morena iluminada paulista",
     "lumen and co"
   ],
-  authors: [{ name: "LUMEN & CO." }],
+  authors: [{ name: "LUMEN & CO. Barber & Studio" }],
   alternates: {
     canonical: "https://lumencobarber.com.br",
   },
   openGraph: {
-    title: "Lumen & Co. | Barbearia Premium na Av. Paulista",
-    description: "Barbearia premium na Bela Vista, São Paulo. Cortes, barba e visagismo. Agende seu horário pelo WhatsApp.",
+    title: "Lumen & Co. | Barbearia Clássica & Hair Studio na Av. Paulista",
+    description: "Ateliê de cuidados pessoais na Bela Vista, a 150m do MASP. Cortes de precisão, barboterapia e visagismo autoral.",
     url: "https://lumencobarber.com.br",
     siteName: "Lumen & Co. Barber & Studio",
     images: [
       {
-        url: "/images/hero-bg.jpg",
+        url: "/images/about-atelier.jpg",
         width: 1200,
         height: 630,
-        alt: "Barbearia Lumen & Co. na Av. Paulista"
+        alt: "Ateliê Lumen & Co. na Av. Paulista"
       }
     ],
     locale: "pt_BR",
@@ -48,14 +65,14 @@ export default function RootLayout({
     "@context": "https://schema.org",
     "@type": "BarberShop",
     "name": "LUMEN & CO. Barber & Studio",
-    "image": "https://lumencobarber.com.br/images/hero-bg.jpg",
+    "image": "https://lumencobarber.com.br/images/about-atelier.jpg",
     "url": "https://lumencobarber.com.br",
     "telephone": "+5511999999999",
     "priceRange": "$$",
-    "description": "Barbearia premium na Bela Vista, São Paulo. Cortes, barba, visagismo e tratamentos capilares.",
+    "description": "Ateliê de cuidados pessoais na Bela Vista, a 150m do MASP. Cortes de precisão na tesoura, barboterapia com toalha aquecida e visagismo autoral.",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "Av. Paulista, 1578",
+      "streetAddress": "Av. Paulista, 1578 - 1º Andar",
       "addressLocality": "São Paulo",
       "addressRegion": "SP",
       "postalCode": "01310-200",
@@ -103,33 +120,16 @@ export default function RootLayout({
     }
   };
 
-  const themeInitScript = `
-    (function() {
-      try {
-        var stored = localStorage.getItem('theme');
-        var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        if (stored === 'dark' || (!stored && prefersDark) || (stored === 'system' && prefersDark)) {
-          document.documentElement.classList.add('dark');
-          document.documentElement.classList.remove('light');
-        } else {
-          document.documentElement.classList.remove('dark');
-          document.documentElement.classList.add('light');
-        }
-      } catch (e) {}
-    })();
-  `;
-
   return (
-    <html lang="pt-BR" suppressHydrationWarning>
+    <html lang="pt-BR" className={`${playfair.variable} ${jakarta.variable} dark`} suppressHydrationWarning>
       <head>
-        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="antialiased selection:bg-gold-500 selection:text-dark-950 bg-light-100 dark:bg-dark-900 text-light-900 dark:text-gray-100 transition-colors duration-300">
-        {children}
+      <body className="font-sans antialiased selection:bg-bronze-500 selection:text-white bg-obsidian-950 text-sand-100 overflow-x-hidden">
+        <SmoothScroll>{children}</SmoothScroll>
       </body>
     </html>
   );

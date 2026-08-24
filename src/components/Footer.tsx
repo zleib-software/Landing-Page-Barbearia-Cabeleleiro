@@ -6,116 +6,107 @@ export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-light-200 dark:bg-dark-950 border-t border-light-300 dark:border-white/10 pt-16 pb-12 relative z-10 transition-colors duration-300">
+    <footer className="bg-obsidian-950 border-t border-white/5 pt-16 pb-10 relative z-10 text-sand-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 pb-12 border-b border-light-300 dark:border-white/10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 pb-10 border-b border-white/5 items-start">
+          
           {/* Logo & Bio */}
-          <div className="lg:col-span-5 space-y-4">
-            <Link href="#inicio" className="flex items-center gap-3 inline-flex">
-              <div className="w-10 h-10 rounded-lg bg-gold-gradient flex items-center justify-center text-dark-950 font-display font-black text-xl shadow-gold-glow">
+          <div className="lg:col-span-5 space-y-3">
+            <Link href="#inicio" className="flex items-center gap-2.5 inline-flex">
+              <div className="w-8 h-8 rounded-full bg-bronze-gradient flex items-center justify-center text-obsidian-950 font-display font-black text-base shadow-luxury-glow">
                 L
               </div>
-              <span className="font-display font-bold text-2xl text-light-950 dark:text-white tracking-wide">
-                LUMEN<span className="gold-gradient-text">&CO.</span>
+              <span className="font-display font-bold text-xl text-white tracking-wider">
+                LUMEN<span className="text-bronze-400">&CO.</span>
               </span>
             </Link>
-            <p className="text-light-600 dark:text-gray-400 text-sm max-w-sm leading-relaxed">
-              O mais exclusivo estúdio de barbearia, cuidados masculinos e visagismo da Av. Paulista. Pontualidade, técnica e sofisticação para o homem moderno.
+            <p className="text-sand-400 text-xs sm:text-sm max-w-sm leading-relaxed font-light">
+              Ateliê de alfaiataria capilar e hair studio autoral na Av. Paulista, 1578. Atendimento pontual com hora marcada e hospitalidade refinada.
             </p>
-            <div className="flex items-center gap-3 pt-2">
+            <div className="flex items-center gap-2.5 pt-1">
               <a
                 href={SITE_CONFIG.contact.instagramUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 rounded-xl bg-light-300/80 dark:bg-white/5 border border-light-400/50 dark:border-white/10 flex items-center justify-center text-light-800 dark:text-gray-300 hover:text-gold-600 dark:hover:text-gold-400 hover:border-gold-500/50 transition-all hover:scale-110"
+                className="w-9 h-9 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-sand-300 hover:text-white hover:border-bronze-500/40 hover:bg-bronze-500/10 transition-all hover:scale-110"
                 aria-label="Instagram"
               >
-                <FaInstagram className="w-5 h-5" />
+                <FaInstagram className="w-4 h-4" />
               </a>
               <a
                 href={SITE_CONFIG.contact.facebookUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 rounded-xl bg-light-300/80 dark:bg-white/5 border border-light-400/50 dark:border-white/10 flex items-center justify-center text-light-800 dark:text-gray-300 hover:text-gold-600 dark:hover:text-gold-400 hover:border-gold-500/50 transition-all hover:scale-110"
+                className="w-9 h-9 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-sand-300 hover:text-white hover:border-bronze-500/40 hover:bg-bronze-500/10 transition-all hover:scale-110"
                 aria-label="Facebook"
               >
-                <FaFacebookF className="w-4 h-4" />
+                <FaFacebookF className="w-3.5 h-3.5" />
               </a>
               <a
                 href={SITE_CONFIG.maps.directionsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 rounded-xl bg-light-300/80 dark:bg-white/5 border border-light-400/50 dark:border-white/10 flex items-center justify-center text-light-800 dark:text-gray-300 hover:text-gold-600 dark:hover:text-gold-400 hover:border-gold-500/50 transition-all hover:scale-110"
+                className="w-9 h-9 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-sand-300 hover:text-white hover:border-bronze-500/40 hover:bg-bronze-500/10 transition-all hover:scale-110"
                 aria-label="Google Maps"
               >
-                <FaLocationDot className="w-4 h-4" />
+                <FaLocationDot className="w-3.5 h-3.5" />
               </a>
             </div>
           </div>
 
           {/* Links Rápidos */}
-          <div className="lg:col-span-3 space-y-3">
-            <h4 className="font-display font-bold text-light-950 dark:text-white text-base">
+          <div className="lg:col-span-3 space-y-2.5">
+            <h4 className="font-display font-bold text-white text-sm">
               Navegação
             </h4>
-            <ul className="space-y-2 text-sm text-light-600 dark:text-gray-400">
+            <ul className="space-y-1.5 text-xs uppercase tracking-wider text-sand-400 font-medium">
               <li>
-                <Link href="#experiencia" className="hover:text-gold-600 dark:hover:text-gold-400 transition-colors">
-                  Experiência VIP
+                <Link href="#sobre" className="hover:text-white transition-colors">
+                  O Ateliê & Fundadores
                 </Link>
               </li>
               <li>
-                <Link href="#servicos" className="hover:text-gold-600 dark:hover:text-gold-400 transition-colors">
-                  Serviços & Preços
+                <Link href="#servicos" className="hover:text-white transition-colors">
+                  Menu de Procedimentos
                 </Link>
               </li>
               <li>
-                <Link href="#galeria" className="hover:text-gold-600 dark:hover:text-gold-400 transition-colors">
-                  Galeria de Estilos
+                <Link href="#galeria" className="hover:text-white transition-colors">
+                  Portfólio & Relatos
                 </Link>
               </li>
               <li>
-                <Link href="#equipe" className="hover:text-gold-600 dark:hover:text-gold-400 transition-colors">
-                  Nossos Especialistas
-                </Link>
-              </li>
-              <li>
-                <Link href="#localizacao" className="hover:text-gold-600 dark:hover:text-gold-400 transition-colors">
-                  Localização & Horários
-                </Link>
-              </li>
-              <li>
-                <Link href="#faq" className="hover:text-gold-600 dark:hover:text-gold-400 transition-colors">
-                  Dúvidas Frequentes
+                <Link href="#visita" className="hover:text-white transition-colors">
+                  Visita & Horários
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* Horários & Atendimento */}
-          <div className="lg:col-span-4 space-y-3">
-            <h4 className="font-display font-bold text-light-950 dark:text-white text-base">
-              Atendimento Exclusivo
+          {/* Horários */}
+          <div className="lg:col-span-4 space-y-2.5">
+            <h4 className="font-display font-bold text-white text-sm">
+              Atendimento com Hora Marcada
             </h4>
-            <div className="text-sm text-light-600 dark:text-gray-400 space-y-1.5 leading-relaxed">
+            <div className="text-xs text-sand-400 space-y-1 font-light leading-relaxed">
               <p>Segunda a Quarta: 09h às 20h</p>
-              <p>Quinta: 09h às 21h</p>
-              <p>Sexta: 08h30 às 21h30</p>
+              <p>Quinta: 09h às 21h • Sexta: 08h30 às 21h30</p>
               <p>Sábado: 08h30 às 20h</p>
-              <p className="text-xs text-gold-600 dark:text-gold-400 pt-1 font-semibold">
-                Valet cortesia no local para clientes agendados.
+              <p className="text-bronze-400 pt-1 font-medium">
+                Valet cortesia no local para clientes em atendimento.
               </p>
             </div>
           </div>
+
         </div>
 
-        {/* Linha Inferior com Copyright e Disclaimer */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-light-500 dark:text-gray-500">
+        {/* Linha Inferior */}
+        <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] text-sand-500 font-light">
           <p>
-            © {currentYear} Lumen & Co. Barber & Studio. Todos os direitos reservados.
+            © {currentYear} Lumen & Co. Barber & Studio. CNPJ 42.189.304/0001-82.
           </p>
-          <p className="text-light-400 dark:text-gray-600 text-center sm:text-right">
-            Projeto conceitual — Lumen & Co. Barber & Studio.
+          <p className="text-sand-500 text-center sm:text-right">
+            Av. Paulista, 1578 • Bela Vista, São Paulo - SP
           </p>
         </div>
       </div>

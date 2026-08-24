@@ -2,41 +2,42 @@
 
 import { useRef } from "react";
 import Image from "next/image";
-import { FaMugHot, FaWandMagicSparkles, FaClock, FaCrown, FaAward, FaWifi, FaArrowRight } from "react-icons/fa6";
+import { FaMugHot, FaWandMagicSparkles, FaClock, FaScissors, FaLeaf, FaWifi, FaArrowRight } from "react-icons/fa6";
 import { openWhatsApp } from "@/utils/whatsapp";
 import { useGSAP } from "@gsap/react";
 import { gsap } from "@/utils/gsap";
+import { SpotlightCard } from "./SpotlightCard";
 
 const differentials = [
   {
     icon: FaMugHot,
-    title: "Lounge & Café Premium",
-    description: "Café espresso moído na hora, bebidas selecionadas, poltronas confortáveis e ambiente acolhedor.",
+    title: "Espresso Microlote Sul de Minas",
+    description: "Grãos 100% arábica moídos na hora com extração a 9 bar de pressão, servidos como cortesia antes ou após o atendimento.",
   },
   {
     icon: FaWandMagicSparkles,
-    title: "Barboterapia & Toalha Quente",
-    description: "Ritual relaxante com vapor de ozônio, toalhas aquecidas e óleos essenciais para a pele.",
+    title: "Vapor de Ozônio & Toalha a 90°C",
+    description: "Emoliência profunda dos poros com óleo essencial puro de eucalipto glóbulus, reduzindo atrito e prevenindo foliculite.",
   },
   {
     icon: FaClock,
-    title: "Pontualidade Britânica",
-    description: "Atendimento com hora marcada rigorosa para você não perder tempo esperando.",
+    title: "Hora Marcada Rigorosa",
+    description: "Bancadas organizadas com intervalos planejados. Seu horário começa no minuto agendado, respeitando sua agenda.",
   },
   {
-    icon: FaCrown,
-    title: "Visagismo Personalizado",
-    description: "Alinhamento técnico do corte ao formato do seu rosto e estilo pessoal.",
+    icon: FaScissors,
+    title: "Lâminas & Tesouras Japonesas",
+    description: "Equipamentos de corte de aço cobalto com fio laser para acabamento sem repuxar e sem marcar os fios.",
   },
   {
-    icon: FaAward,
-    title: "Cosméticos Nobres",
-    description: "Produtos importados de alta performance que tratam e protegem a saúde dos fios.",
+    icon: FaLeaf,
+    title: "Cosméticos de Base Botânica",
+    description: "Shampoos, pomadas e tônicos selecionados sem parabenos, sulfatos agressivos ou petrolatos pesados.",
   },
   {
     icon: FaWifi,
-    title: "Espaço Executivo & Wi-Fi 5G",
-    description: "Ambiente 100% climatizado com conexão ultrarrápida para trabalhar com conforto.",
+    title: "Espaço Climatizado com Wi-Fi 5G",
+    description: "Ambiente acusticamente isolado na Av. Paulista, ideal para responder e-mails ou relaxar com tranquilidade.",
   },
 ];
 
@@ -86,74 +87,79 @@ export function Differentials() {
   );
 
   return (
-    <section ref={containerRef} className="py-20 sm:py-24 relative z-10 bg-light-150/70 dark:bg-dark-950/60 transition-colors duration-300" id="experiencia">
+    <section ref={containerRef} className="py-24 sm:py-32 relative z-10 bg-obsidian-950 border-t border-white/5" id="rituais">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="diff-header text-center max-w-3xl mx-auto mb-14">
-          <span className="inline-block text-xs uppercase tracking-widest font-bold text-gold-700 dark:text-gold-400 bg-gold-500/10 border border-gold-500/30 px-4 py-1.5 rounded-full mb-4">
-            Diferenciais de Alto Padrão
+        
+        <div className="diff-header text-center max-w-2xl mx-auto mb-14">
+          <span className="inline-block text-xs uppercase tracking-widest font-bold text-bronze-400 mb-3">
+            Critério Técnico & Hospitalidade
           </span>
-          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-light-950 dark:text-white mb-4">
-            Muito mais que um corte: uma{" "}
-            <span className="gold-gradient-text">experiência VIP</span>
+          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight">
+            Rituais que sustentam o nosso <span className="bronze-text">padrão de atendimento</span>
           </h2>
-          <p className="text-light-600 dark:text-gray-400 text-base sm:text-lg">
-            Criamos um espaço exclusivo para você relaxar e cuidar da sua imagem com comodidade e precisão.
+          <p className="text-sand-400 text-base sm:text-lg mt-3 font-light">
+            Da escolha do grão de café à temperatura da toalha: cada detalhe foi desenhado para proporcionar conforto e precisão.
           </p>
         </div>
 
-        {/* Cards Grid */}
+        {/* Cards Grid com Spotlight */}
         <div className="diff-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {differentials.map((item, index) => {
             const Icon = item.icon;
             return (
-              <div
+              <SpotlightCard
                 key={index}
-                className="diff-card glass-card p-7 sm:p-8 rounded-2xl border border-light-300 dark:border-white/10 hover:border-gold-500/60 hover:shadow-gold-glow-light dark:hover:shadow-gold-glow transition-all group"
+                className="diff-card p-7 sm:p-8 flex flex-col justify-between group hover:border-bronze-500/40 transition-all duration-300"
               >
-                <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-gold-500/10 border border-gold-500/30 flex items-center justify-center text-gold-600 dark:text-gold-400 mb-5 group-hover:bg-gold-gradient group-hover:text-dark-950 group-hover:shadow-gold-glow transition-all">
-                  <Icon className="w-5 h-5 sm:w-6 sm:h-6" />
+                <div>
+                  <div className="w-12 h-12 rounded-2xl bg-bronze-500/10 border border-bronze-500/20 flex items-center justify-center text-bronze-400 mb-6 group-hover:bg-bronze-gradient group-hover:text-obsidian-950 transition-all">
+                    <Icon className="w-5 h-5" />
+                  </div>
+                  <h3 className="font-display text-lg sm:text-xl font-bold text-white mb-2 group-hover:text-bronze-300 transition-colors">
+                    {item.title}
+                  </h3>
+                  <p className="text-sand-400 text-sm leading-relaxed font-light">
+                    {item.description}
+                  </p>
                 </div>
-                <h3 className="font-display text-xl font-bold text-light-950 dark:text-white mb-2 group-hover:text-gold-700 dark:group-hover:text-gold-300 transition-colors">
-                  {item.title}
-                </h3>
-                <p className="text-light-600 dark:text-gray-400 text-sm leading-relaxed font-normal">
-                  {item.description}
-                </p>
-              </div>
+              </SpotlightCard>
             );
           })}
         </div>
 
-        {/* Banner de Destaque Lounge */}
-        <div className="diff-banner mt-14 sm:mt-16 rounded-3xl overflow-hidden glass-card-gold border border-gold-500/40 dark:border-gold-500/30 grid grid-cols-1 lg:grid-cols-12 items-center">
-          <div className="lg:col-span-6 relative h-64 sm:h-80 lg:h-full min-h-[300px]">
+        {/* Banner do Lounge */}
+        <div className="diff-banner mt-16 rounded-3xl overflow-hidden bg-obsidian-900 border border-bronze-500/20 grid grid-cols-1 lg:grid-cols-12 items-center shadow-2xl">
+          <div className="lg:col-span-6 relative h-64 sm:h-80 lg:h-full min-h-[320px]">
             <Image
               src="/images/experience-lounge.jpg"
-              alt="Lounge executivo da Lumen & Co. com café e poltronas confortáveis"
+              alt="Lounge de espera da Lumen & Co. na Avenida Paulista"
               fill
               className="object-cover object-center"
               loading="lazy"
             />
           </div>
-          <div className="lg:col-span-6 p-7 sm:p-10 lg:p-12">
-            <span className="inline-block text-xs uppercase tracking-widest font-bold text-gold-700 dark:text-gold-400 bg-gold-500/10 border border-gold-500/30 px-3 py-1 rounded-full mb-3">
-              Espaço Exclusivo
+          <div className="lg:col-span-6 p-8 sm:p-10 lg:p-12 space-y-4">
+            <span className="inline-block text-xs uppercase tracking-widest font-bold text-bronze-400">
+              Área de Descompressão
             </span>
-            <h3 className="font-display text-2xl sm:text-3xl font-bold text-light-950 dark:text-white mb-3">
-              Lounge & Café de Espera
+            <h3 className="font-display text-2xl sm:text-3xl font-bold text-white">
+              Lounge Executivo & Bar de Café
             </h3>
-            <p className="text-light-700 dark:text-gray-300 text-sm sm:text-base leading-relaxed mb-6 font-normal">
-              Chegue alguns minutos antes para relaxar, tomar um café espresso especial ou conectar seu notebook no nosso Wi-Fi de alta velocidade.
+            <p className="text-sand-300 text-sm sm:text-base leading-relaxed font-light">
+              Chegue 15 minutos antes do seu horário para apreciar um café espresso de microlote moído na hora, recarregar seus dispositivos ou alinhar compromissos em um ambiente reservado.
             </p>
-            <button
-              onClick={() => openWhatsApp("Olá! Gostaria de agendar um horário na Lumen & Co.")}
-              className="px-7 py-3.5 rounded-xl bg-gold-gradient text-dark-950 font-bold text-sm shadow-gold-glow hover:scale-105 active:scale-95 transition-all inline-flex items-center gap-2 btn-shine"
-            >
-              <span>Agendar Minha Visita</span>
-              <FaArrowRight className="w-3.5 h-3.5" />
-            </button>
+            <div className="pt-2">
+              <button
+                onClick={() => openWhatsApp("Olá! Gostaria de consultar horários disponíveis na Lumen & Co.")}
+                className="px-7 py-3.5 rounded-xl bg-bronze-gradient text-obsidian-950 font-bold text-xs uppercase tracking-wider shadow-luxury-glow hover:scale-105 active:scale-95 transition-all inline-flex items-center gap-2 btn-shine"
+              >
+                <span>Consultar Agenda da Recepção</span>
+                <FaArrowRight className="w-3 h-3" />
+              </button>
+            </div>
           </div>
         </div>
+
       </div>
     </section>
   );

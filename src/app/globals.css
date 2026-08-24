@@ -1,142 +1,76 @@
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
-  :root {
-    --bg-base: #faf8f5;
-    --text-base: #140f09;
-    --card-bg: rgba(255, 255, 255, 0.85);
-    --card-border: rgba(197, 160, 89, 0.25);
-    --nav-bg: rgba(250, 248, 245, 0.88);
-  }
-
-  html.dark {
-    --bg-base: #090a0d;
-    --text-base: #f3f4f6;
-    --card-bg: rgba(22, 25, 34, 0.65);
-    --card-border: rgba(255, 255, 255, 0.08);
-    --nav-bg: rgba(10, 11, 14, 0.82);
-  }
-
   html {
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    text-rendering: optimizeLegibility;
-    background-color: var(--bg-base);
-    color: var(--text-base);
-    transition: background-color 0.3s ease, color 0.3s ease;
   }
 
   body {
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    background-color: var(--bg-base);
-    color: var(--text-base);
-    overflow-x: hidden;
-    position: relative;
-    transition: background-color 0.3s ease, color 0.3s ease;
-    background-image: 
-      radial-gradient(circle at 10% 15%, rgba(197, 160, 89, 0.08) 0%, transparent 45%),
-      radial-gradient(circle at 90% 80%, rgba(197, 160, 89, 0.06) 0%, transparent 50%),
-      radial-gradient(circle at 50% 50%, rgba(37, 211, 102, 0.02) 0%, transparent 60%);
+    background-color: #060708;
+    color: #f4f1ea;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
   }
 
-  html.dark body {
-    background-image: 
-      radial-gradient(circle at 10% 15%, rgba(197, 160, 89, 0.05) 0%, transparent 45%),
-      radial-gradient(circle at 90% 80%, rgba(197, 160, 89, 0.04) 0%, transparent 50%),
-      radial-gradient(circle at 50% 50%, rgba(37, 211, 102, 0.015) 0%, transparent 60%);
-  }
-
-  /* Acessibilidade: Focus Ring Explícito */
-  a:focus-visible,
-  button:focus-visible,
-  input:focus-visible,
-  select:focus-visible,
-  textarea:focus-visible {
-    outline: 2px solid #c5a059 !important;
-    outline-offset: 3px !important;
-  }
-
-  ::-webkit-scrollbar {
-    width: 8px;
-  }
-  ::-webkit-scrollbar-track {
-    background: var(--bg-base);
-  }
-  ::-webkit-scrollbar-thumb {
-    background: rgba(197, 160, 89, 0.4);
-    border-radius: 9999px;
-  }
-  ::-webkit-scrollbar-thumb:hover {
-    background: #c5a059;
+  :focus-visible {
+    outline: 2px solid #c49d68;
+    outline-offset: 3px;
+    border-radius: 6px;
   }
 }
 
 @layer utilities {
-  .gold-gradient-text {
-    background: linear-gradient(135deg, #8d5b06 0%, #b87e14 45%, #6e4604 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    display: inline-block;
-    font-weight: 900;
+  .luxury-glass {
+    background: rgba(16, 19, 23, 0.7);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.07);
   }
 
-  html.dark .gold-gradient-text {
-    background: linear-gradient(135deg, #fae0a2 0%, #c5a059 50%, #9a7830 100%);
+  .luxury-glass-hover {
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .luxury-glass-hover:hover {
+    background: rgba(22, 26, 32, 0.85);
+    border-color: rgba(196, 157, 104, 0.35);
+    box-shadow: 0 12px 35px -10px rgba(0, 0, 0, 0.6), 0 0 25px -5px rgba(196, 157, 104, 0.15);
+  }
+
+  .bronze-text {
+    background: linear-gradient(135deg, #f4f1ea 0%, #d6b58f 50%, #c49d68 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    display: inline-block;
+  }
+
+  .gold-gradient-text {
+    background: linear-gradient(135deg, #f4f1ea 0%, #d6b58f 50%, #c49d68 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
 
   .glass-nav {
-    background: rgba(250, 248, 245, 0.92);
-    backdrop-filter: blur(18px);
-    -webkit-backdrop-filter: blur(18px);
-    border-bottom: 1px solid rgba(197, 160, 89, 0.2);
-  }
-
-  html.dark .glass-nav {
-    background: rgba(10, 11, 14, 0.85);
-    backdrop-filter: blur(18px);
-    -webkit-backdrop-filter: blur(18px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(6, 7, 8, 0.82);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
   }
 
   .glass-card {
-    background: rgba(255, 255, 255, 0.88);
+    background: rgba(16, 19, 23, 0.65);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(197, 160, 89, 0.2);
-    box-shadow: 0 10px 30px -10px rgba(70, 50, 20, 0.06), 0 2px 8px rgba(0, 0, 0, 0.03);
-    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
-  }
-
-  html.dark .glass-card {
-    background: rgba(22, 25, 34, 0.65);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    box-shadow: none;
+    border: 1px solid rgba(255, 255, 255, 0.06);
   }
 
   .glass-card-gold {
-    background: rgba(255, 255, 255, 0.92);
+    background: rgba(22, 26, 32, 0.75);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(197, 160, 89, 0.4);
-    box-shadow: 0 20px 40px -15px rgba(197, 160, 89, 0.18), 0 4px 15px rgba(0, 0, 0, 0.04);
-  }
-
-  html.dark .glass-card-gold {
-    background: rgba(22, 25, 34, 0.75);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(197, 160, 89, 0.3);
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8), 0 0 30px rgba(197, 160, 89, 0.35);
+    border: 1px solid rgba(196, 157, 104, 0.25);
   }
 
   .btn-shine {
@@ -149,19 +83,21 @@
     position: absolute;
     top: -50%;
     left: -60%;
-    width: 40%;
+    width: 30%;
     height: 200%;
     background: linear-gradient(
       60deg,
-      rgba(255, 255, 255, 0) 0%,
-      rgba(255, 255, 255, 0.35) 50%,
-      rgba(255, 255, 255, 0) 100%
+      rgba(255, 255, 255, 0) 20%,
+      rgba(255, 255, 255, 0.25) 50%,
+      rgba(255, 255, 255, 0) 80%
     );
     transform: rotate(25deg);
-    transition: left 0.75s ease;
+    animation: shine 4s infinite;
   }
 
-  .btn-shine:hover::after {
-    left: 120%;
+  @keyframes shine {
+    0% { left: -60%; }
+    20% { left: 140%; }
+    100% { left: 140%; }
   }
 }

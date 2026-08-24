@@ -1,24 +1,19 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef } from "react";
 import Image from "next/image";
-import { FaWhatsapp, FaClock } from "react-icons/fa6";
+import * as Tabs from "@radix-ui/react-tabs";
+import { FaClock, FaCheck, FaArrowRight } from "react-icons/fa6";
 import { SITE_CONFIG, ServiceItem } from "@/data/siteConfig";
-import { formatServiceMessage, openWhatsApp } from "@/utils/whatsapp";
 import { useGSAP } from "@gsap/react";
 import { gsap } from "@/utils/gsap";
-
-type ServiceWithBadge = ServiceItem & { badge?: string };
+import { SpotlightCard } from "./SpotlightCard";
+import { BookingModal } from "./BookingModal";
 
 export function Services() {
   const containerRef = useRef<HTMLElement>(null);
-  const [activeCategory, setActiveCategory] = useState<string>("all");
-
-  const servicesList = SITE_CONFIG.services as ServiceWithBadge[];
-
-  const filteredServices = activeCategory === "all"
-    ? servicesList
-    : servicesList.filter(s => s.category === activeCategory);
+  const [selectedService, setSelectedService] = useState<string>("corte-signature");
+  const [modalOpen, setModalOpen] = useState(false);
 
   useGSAP(
     () => {
@@ -34,15 +29,14 @@ export function Services() {
         ease: "power2.out",
       });
 
-      gsap.from(".service-card", {
+      gsap.from(".services-tabs", {
         scrollTrigger: {
-          trigger: ".services-grid",
+          trigger: ".services-tabs",
           start: "top 85%",
           once: true,
         },
         opacity: 0,
-        y: 20,
-        stagger: 0.08,
+        y: 15,
         duration: 0.5,
         ease: "power2.out",
       });
@@ -50,124 +44,153 @@ export function Services() {
     { scope: containerRef }
   );
 
-  // Animação suave ao trocar de categoria
-  useEffect(() => {
-    if (containerRef.current) {
-      gsap.fromTo(
-        containerRef.current.querySelectorAll(".service-card"),
-        { opacity: 0, y: 10 },
-        { opacity: 1, y: 0, duration: 0.35, stagger: 0.04, ease: "power2.out" }
-      );
-    }
-  }, [activeCategory]);
-
-  const handleServiceBooking = (service: ServiceWithBadge) => {
-    const msg = formatServiceMessage(service.title, service.price);
-    openWhatsApp(msg);
+  const handleBooking = (serviceId: string) => {
+    setSelectedService(serviceId);
+    setModalOpen(true);
   };
 
-  return (
-    <section ref={containerRef} className="py-20 sm:py-24 relative z-10" id="servicos">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="services-header text-center max-w-3xl mx-auto mb-12">
-          <span className="inline-block text-xs uppercase tracking-widest font-bold text-gold-700 dark:text-gold-400 bg-gold-500/10 border border-gold-500/30 px-4 py-1.5 rounded-full mb-4">
-            Menu de Procedimentos
-          </span>
-          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-light-950 dark:text-white mb-4">
-            Serviços & <span className="gold-gradient-text">Tabela de Preços</span>
-          </h2>
-          <p className="text-light-600 dark:text-gray-400 text-base sm:text-lg">
-            Valores transparentes e sem surpresas. Escolha o procedimento e agende com 1 clique.
-          </p>
-        </div>
+  const renderServiceCards = (items: typeof SITE_CONFIG.services) => (
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 pt-6">
+      {items.map((service) => (
+        <SpotlightCard
+          key={service.id}
+          className="flex flex-col justify-between group hover:border-bronze-500/40 transition-all duration-300"
+        >
+          {/* Imagem do Serviço com Proporção Elegante */}
+          <div className="relative h-56 w-full overflow-hidden">
+            <Image
+              src={service.image}
+              alt={service.title}
+              fill
+              className="object-cover group-hover:scale-105 transition-transform duration-700"
+              loading="lazy"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-obsidian-950 via-obsidian-950/20 to-transparent" />
+            
+            {service.badge && (
+              <span className="absolute top-4 right-4 bg-obsidian-950/80 backdrop-blur-md text-bronze-300 text-[11px] uppercase tracking-wider font-bold px-3 py-1 rounded-full border border-bronze-500/30">
+                {service.badge}
+              </span>
+            )}
+          </div>
 
-        {/* Filtros de Categoria */}
-        <div className="flex justify-center gap-2 sm:gap-3 flex-wrap mb-10">
-          {[
-            { id: "all", label: "✨ Todos os Procedimentos" },
-            { id: "barber", label: "💈 Barbearia & Fade" },
-            { id: "salon", label: "✂️ Hair Studio & Mechas" },
-            { id: "spa", label: "🧖 Spa & Tratamentos" },
-          ].map((tab) => (
+          {/* Conteúdo do Card */}
+          <div className="p-6 sm:p-7 flex flex-col flex-grow justify-between">
+            <div>
+              <div className="flex justify-between items-baseline gap-2 mb-2">
+                <h3 className="font-display text-xl font-bold text-white group-hover:text-bronze-300 transition-colors">
+                  {service.title}
+                </h3>
+                <span className="font-display text-lg font-black text-bronze-400 whitespace-nowrap">
+                  {service.price}
+                </span>
+              </div>
+
+              <div className="flex items-center gap-1.5 text-xs text-sand-400 mb-3 font-medium">
+                <FaClock className="w-3 h-3 text-bronze-400" />
+                <span>{service.duration} de atendimento</span>
+              </div>
+
+              <p className="text-sand-300 text-sm leading-relaxed mb-6 font-light">
+                {service.description}
+              </p>
+
+              {service.highlights && service.highlights.length > 0 && (
+                <div className="space-y-2 pt-4 mb-6 border-t border-white/5">
+                  {service.highlights.map((h, i) => (
+                    <div key={i} className="flex items-center gap-2 text-xs text-sand-400 font-light">
+                      <FaCheck className="w-3 h-3 text-emerald-400 shrink-0" />
+                      <span>{h}</span>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+
             <button
-              key={tab.id}
-              onClick={() => setActiveCategory(tab.id)}
-              className={`px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-semibold transition-all ${
-                activeCategory === tab.id
-                  ? "bg-gold-gradient text-dark-950 shadow-gold-glow scale-105 font-bold"
-                  : "bg-light-200/90 dark:bg-dark-800 text-light-700 dark:text-gray-400 hover:text-light-950 dark:hover:text-white border border-light-300 dark:border-white/10 hover:border-gold-500/40"
-              }`}
+              onClick={() => handleBooking(service.id)}
+              className="w-full py-3.5 rounded-xl bg-white/5 hover:bg-bronze-gradient text-sand-200 hover:text-obsidian-950 font-bold text-xs uppercase tracking-wider border border-white/10 hover:border-transparent transition-all flex items-center justify-center gap-2 btn-shine"
             >
-              {tab.label}
+              <span>Solicitar este Procedimento</span>
+              <FaArrowRight className="w-3 h-3" />
             </button>
-          ))}
-        </div>
+          </div>
+        </SpotlightCard>
+      ))}
+    </div>
+  );
 
-        {/* Grid de Serviços */}
-        <div className="services-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-          {filteredServices.map((service) => {
-            const badgeText = service.badge || (service.popular ? "Mais Escolhido" : null);
+  return (
+    <>
+      <section ref={containerRef} className="py-24 sm:py-32 relative z-10 bg-obsidian-950 border-t border-white/5" id="servicos">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          <div className="services-header text-center max-w-2xl mx-auto mb-14">
+            <span className="inline-block text-xs uppercase tracking-widest font-bold text-bronze-400 mb-3">
+              Menu de Atendimentos
+            </span>
+            <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight">
+              Procedimentos & <span className="bronze-text">Investimento</span>
+            </h2>
+            <p className="text-sand-400 text-base sm:text-lg mt-3 font-light">
+              Diagnóstico visagista e lavagem inclusos em todos os atendimentos. Sem surpresas.
+            </p>
+          </div>
 
-            return (
-              <article
-                key={service.id}
-                className={`service-card glass-card rounded-2xl overflow-hidden border ${
-                  service.popular
-                    ? "border-gold-500/50 shadow-gold-glow-light dark:shadow-gold-glow"
-                    : "border-light-300 dark:border-white/10"
-                } hover:border-gold-500/70 flex flex-col group transition-all`}
+          {/* Radix UI Tabs */}
+          <Tabs.Root defaultValue="all" className="services-tabs">
+            <Tabs.List className="flex justify-center gap-2 sm:gap-3 flex-wrap mb-10">
+              <Tabs.Trigger
+                value="all"
+                className="px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold text-sand-400 data-[state=active]:bg-bronze-gradient data-[state=active]:text-obsidian-950 data-[state=active]:font-bold transition-all border border-white/5 data-[state=active]:border-transparent hover:text-white"
               >
-                {/* Imagem do Serviço */}
-                <div className="relative h-48 sm:h-52 w-full overflow-hidden">
-                  <Image
-                    src={service.image}
-                    alt={service.title}
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-500"
-                    loading="lazy"
-                  />
-                  {badgeText && (
-                    <span className="absolute top-3 right-3 bg-gold-gradient text-dark-950 text-xs font-black px-3 py-1 rounded-full shadow-lg border border-white/20">
-                      {badgeText}
-                    </span>
-                  )}
-                </div>
+                Todos os Procedimentos
+              </Tabs.Trigger>
+              <Tabs.Trigger
+                value="barber"
+                className="px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold text-sand-400 data-[state=active]:bg-bronze-gradient data-[state=active]:text-obsidian-950 data-[state=active]:font-bold transition-all border border-white/5 data-[state=active]:border-transparent hover:text-white"
+              >
+                Barbearia Clássica
+              </Tabs.Trigger>
+              <Tabs.Trigger
+                value="salon"
+                className="px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold text-sand-400 data-[state=active]:bg-bronze-gradient data-[state=active]:text-obsidian-950 data-[state=active]:font-bold transition-all border border-white/5 data-[state=active]:border-transparent hover:text-white"
+              >
+                Hair Studio & Visagismo
+              </Tabs.Trigger>
+              <Tabs.Trigger
+                value="spa"
+                className="px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold text-sand-400 data-[state=active]:bg-bronze-gradient data-[state=active]:text-obsidian-950 data-[state=active]:font-bold transition-all border border-white/5 data-[state=active]:border-transparent hover:text-white"
+              >
+                Terapia Capilar & Spa
+              </Tabs.Trigger>
+            </Tabs.List>
 
-                {/* Corpo do Card */}
-                <div className="p-6 flex flex-col flex-grow justify-between">
-                  <div>
-                    <div className="flex justify-between items-start gap-3 mb-2">
-                      <h3 className="font-display text-lg sm:text-xl font-bold text-light-950 dark:text-white group-hover:text-gold-700 dark:group-hover:text-gold-300 transition-colors">
-                        {service.title}
-                      </h3>
-                      <span className="font-display font-black text-lg sm:text-xl text-gold-600 dark:text-gold-400 whitespace-nowrap">
-                        {service.price}
-                      </span>
-                    </div>
+            <Tabs.Content value="all">
+              {renderServiceCards(SITE_CONFIG.services)}
+            </Tabs.Content>
 
-                    <div className="flex items-center gap-1.5 text-xs text-light-600 dark:text-gray-400 mb-3 font-semibold">
-                      <FaClock className="w-3.5 h-3.5 text-gold-600 dark:text-gold-400" />
-                      <span>{service.duration}</span>
-                    </div>
+            <Tabs.Content value="barber">
+              {renderServiceCards(SITE_CONFIG.services.filter(s => s.category === "barber"))}
+            </Tabs.Content>
 
-                    <p className="text-light-700 dark:text-gray-300 text-sm leading-relaxed mb-6 font-normal">
-                      {service.description}
-                    </p>
-                  </div>
+            <Tabs.Content value="salon">
+              {renderServiceCards(SITE_CONFIG.services.filter(s => s.category === "salon"))}
+            </Tabs.Content>
 
-                  <button
-                    onClick={() => handleServiceBooking(service)}
-                    className="w-full py-3 rounded-xl bg-wa hover:bg-wa-dark text-white font-bold text-sm shadow-wa-glow flex items-center justify-center gap-2 transition-all hover:scale-[1.02] active:scale-[0.98] btn-shine"
-                  >
-                    <FaWhatsapp className="w-4 h-4 text-white" />
-                    <span>Agendar este Serviço</span>
-                  </button>
-                </div>
-              </article>
-            );
-          })}
+            <Tabs.Content value="spa">
+              {renderServiceCards(SITE_CONFIG.services.filter(s => s.category === "spa"))}
+            </Tabs.Content>
+          </Tabs.Root>
+
         </div>
-      </div>
-    </section>
+      </section>
+
+      <BookingModal
+        open={modalOpen}
+        onOpenChange={setModalOpen}
+        defaultService={selectedService}
+      />
+    </>
   );
 }
