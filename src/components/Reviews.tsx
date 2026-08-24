@@ -1,7 +1,9 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useRef } from "react";
 import { Star, CheckCircle } from "lucide-react";
+import { useGSAP } from "@gsap/react";
+import { gsap } from "@/utils/gsap";
 
 const reviews = [
   {
@@ -28,10 +30,42 @@ const reviews = [
 ];
 
 export function Reviews() {
+  const containerRef = useRef<HTMLElement>(null);
+
+  useGSAP(
+    () => {
+      gsap.from(".reviews-header", {
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: "top 85%",
+          once: true,
+        },
+        opacity: 0,
+        y: 15,
+        duration: 0.6,
+        ease: "power2.out",
+      });
+
+      gsap.from(".review-card", {
+        scrollTrigger: {
+          trigger: ".reviews-grid",
+          start: "top 85%",
+          once: true,
+        },
+        opacity: 0,
+        y: 20,
+        stagger: 0.1,
+        duration: 0.5,
+        ease: "power2.out",
+      });
+    },
+    { scope: containerRef }
+  );
+
   return (
-    <section className="py-24 relative z-10 bg-light-150/70 dark:bg-dark-950/60 transition-colors duration-300">
+    <section ref={containerRef} className="py-20 sm:py-24 relative z-10 bg-light-150/70 dark:bg-dark-950/60 transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="reviews-header text-center max-w-3xl mx-auto mb-14">
           <span className="inline-block text-xs uppercase tracking-widest font-bold text-gold-700 dark:text-gold-400 bg-gold-500/10 border border-gold-500/30 px-4 py-1.5 rounded-full mb-4">
             Avaliações Verificadas
           </span>
@@ -43,25 +77,20 @@ export function Reviews() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="reviews-grid grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
           {reviews.map((rev, index) => (
-            <motion.div
+            <div
               key={index}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.15 }}
-              whileHover={{ y: -6 }}
-              className="glass-card p-8 rounded-3xl border border-light-300 dark:border-white/10 hover:border-gold-500/50 shadow-elevation-light dark:shadow-none flex flex-col justify-between"
+              className="review-card glass-card p-7 sm:p-8 rounded-3xl border border-light-300 dark:border-white/10 hover:border-gold-500/50 shadow-elevation-light dark:shadow-none flex flex-col justify-between"
             >
               <div>
-                <div className="flex items-center justify-between mb-6">
+                <div className="flex items-center justify-between mb-5">
                   <div className="flex items-center gap-3">
-                    <div className="w-12 h-12 rounded-full bg-light-200 dark:bg-dark-700 border border-gold-500/40 flex items-center justify-center font-display font-bold text-gold-700 dark:text-gold-400 text-sm">
+                    <div className="w-11 h-11 rounded-full bg-light-200 dark:bg-dark-700 border border-gold-500/40 flex items-center justify-center font-display font-bold text-gold-700 dark:text-gold-400 text-sm">
                       {rev.initials}
                     </div>
                     <div>
-                      <h3 className="font-bold text-light-950 dark:text-white text-base leading-tight">
+                      <h3 className="font-bold text-light-950 dark:text-white text-sm sm:text-base leading-tight">
                         {rev.name}
                       </h3>
                       <div className="flex items-center gap-1 text-emerald-600 dark:text-emerald-400 text-xs mt-0.5 font-medium">
@@ -81,7 +110,7 @@ export function Reviews() {
                   "{rev.comment}"
                 </p>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>

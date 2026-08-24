@@ -26,7 +26,7 @@ Este projeto foi desenhado para eliminar a fricção típica de agendamentos em 
 - **Biblioteca UI**: [React 19](https://react.dev/)
 - **Linguagem**: [TypeScript](https://www.typescriptlang.org/)
 - **Estilização**: [Tailwind CSS](https://tailwindcss.com/) & Vanilla CSS custom tokens
-- **Animações**: [Framer Motion](https://www.framer.com/motion/)
+- **Animações**: [GSAP 3 & ScrollTrigger](https://gsap.com/)
 - **Ícones**: [Lucide React](https://lucide.dev/)
 
 ---

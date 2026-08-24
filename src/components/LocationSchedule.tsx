@@ -1,9 +1,10 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
-import { MapPin, Phone, ExternalLink, Calendar, Clock, CheckCircle } from "lucide-react";
+import { useEffect, useState, useRef } from "react";
+import { MapPin, Phone, ExternalLink, Calendar, Clock } from "lucide-react";
 import { SITE_CONFIG } from "@/data/siteConfig";
+import { useGSAP } from "@gsap/react";
+import { gsap } from "@/utils/gsap";
 
 const scheduleList = [
   { label: "Seg", full: "Segunda-feira", dayIndex: 1, hours: "09:00 às 20:00", openHour: 9, closeHour: 20, isOpenDay: true },
@@ -16,11 +17,53 @@ const scheduleList = [
 ];
 
 export function LocationSchedule() {
+  const containerRef = useRef<HTMLElement>(null);
   const [currentDayIndex, setCurrentDayIndex] = useState<number>(1);
   const [statusText, setStatusText] = useState<{ isOpen: boolean; text: string }>({
     isOpen: true,
     text: "Verificando horário...",
   });
+
+  useGSAP(
+    () => {
+      gsap.from(".location-header", {
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: "top 85%",
+          once: true,
+        },
+        opacity: 0,
+        y: 15,
+        duration: 0.6,
+        ease: "power2.out",
+      });
+
+      gsap.from(".location-map", {
+        scrollTrigger: {
+          trigger: ".location-grid",
+          start: "top 85%",
+          once: true,
+        },
+        opacity: 0,
+        x: -20,
+        duration: 0.6,
+        ease: "power2.out",
+      });
+
+      gsap.from(".location-info", {
+        scrollTrigger: {
+          trigger: ".location-grid",
+          start: "top 85%",
+          once: true,
+        },
+        opacity: 0,
+        x: 20,
+        duration: 0.6,
+        ease: "power2.out",
+      });
+    },
+    { scope: containerRef }
+  );
 
   useEffect(() => {
     const now = new Date();
@@ -58,9 +101,9 @@ export function LocationSchedule() {
   }, []);
 
   return (
-    <section className="py-20 sm:py-24 relative z-10" id="localizacao">
+    <section ref={containerRef} className="py-20 sm:py-24 relative z-10" id="localizacao">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto mb-14">
+        <div className="location-header text-center max-w-3xl mx-auto mb-14">
           <span className="inline-block text-xs uppercase tracking-widest font-bold text-gold-700 dark:text-gold-400 bg-gold-500/10 border border-gold-500/30 px-4 py-1.5 rounded-full mb-4">
             Venha nos Visitar
           </span>
@@ -72,15 +115,9 @@ export function LocationSchedule() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+        <div className="location-grid grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
           {/* Iframe Interativo do Google Maps */}
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="lg:col-span-7 rounded-3xl overflow-hidden border border-gold-500/40 dark:border-gold-500/30 shadow-elevation-light dark:shadow-elevation min-h-[380px] sm:min-h-[420px] relative"
-          >
+          <div className="location-map lg:col-span-7 rounded-3xl overflow-hidden border border-gold-500/40 dark:border-gold-500/30 shadow-elevation-light dark:shadow-elevation min-h-[380px] sm:min-h-[420px] relative">
             <iframe
               src={SITE_CONFIG.maps.embedUrl}
               className="w-full h-full min-h-[380px] sm:min-h-[420px] border-0 grayscale-[20%] dark:grayscale-[40%] contrast-[1.05] dark:contrast-[1.1] hover:grayscale-0 transition-all duration-500"
@@ -89,16 +126,10 @@ export function LocationSchedule() {
               referrerPolicy="no-referrer-when-downgrade"
               title="Localização da Barbearia no Google Maps"
             />
-          </motion.div>
+          </div>
 
           {/* Card de Informações e Horários */}
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="lg:col-span-5 glass-card p-6 sm:p-8 rounded-3xl border border-light-300 dark:border-white/10 shadow-elevation-light dark:shadow-none flex flex-col justify-between"
-          >
+          <div className="location-info lg:col-span-5 glass-card p-6 sm:p-8 rounded-3xl border border-light-300 dark:border-white/10 shadow-elevation-light dark:shadow-none flex flex-col justify-between">
             <div>
               {/* Status Aberto / Fechado em Tempo Real */}
               <div className="mb-6 p-3.5 rounded-2xl bg-light-200/90 dark:bg-dark-900 border border-light-300 dark:border-white/10 flex items-center justify-between">
@@ -182,7 +213,7 @@ export function LocationSchedule() {
               <ExternalLink className="w-4 h-4" />
               <span>Como Chegar no Maps</span>
             </a>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

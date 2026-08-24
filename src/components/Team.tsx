@@ -1,21 +1,55 @@
 "use client";
 
+import { useRef } from "react";
 import Image from "next/image";
-import { motion } from "framer-motion";
-import { MessageCircle, Award, Instagram } from "lucide-react";
+import { MessageCircle, Award } from "lucide-react";
 import { SITE_CONFIG, TeamMember } from "@/data/siteConfig";
 import { formatTeamMessage, openWhatsApp } from "@/utils/whatsapp";
+import { useGSAP } from "@gsap/react";
+import { gsap } from "@/utils/gsap";
 
 export function Team() {
+  const containerRef = useRef<HTMLElement>(null);
+
+  useGSAP(
+    () => {
+      gsap.from(".team-header", {
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: "top 85%",
+          once: true,
+        },
+        opacity: 0,
+        y: 15,
+        duration: 0.6,
+        ease: "power2.out",
+      });
+
+      gsap.from(".team-card", {
+        scrollTrigger: {
+          trigger: ".team-grid",
+          start: "top 85%",
+          once: true,
+        },
+        opacity: 0,
+        y: 20,
+        stagger: 0.1,
+        duration: 0.5,
+        ease: "power2.out",
+      });
+    },
+    { scope: containerRef }
+  );
+
   const handleTeamBooking = (member: TeamMember) => {
     const msg = formatTeamMessage(member.name, member.role);
     openWhatsApp(msg);
   };
 
   return (
-    <section className="py-24 relative z-10" id="equipe">
+    <section ref={containerRef} className="py-20 sm:py-24 relative z-10" id="equipe">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="team-header text-center max-w-3xl mx-auto mb-14">
           <span className="inline-block text-xs uppercase tracking-widest font-bold text-gold-700 dark:text-gold-400 bg-gold-500/10 border border-gold-500/30 px-4 py-1.5 rounded-full mb-4">
             Nossa Bancada de Mestres
           </span>
@@ -27,16 +61,11 @@ export function Team() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-          {SITE_CONFIG.team.map((member, index) => (
-            <motion.div
+        <div className="team-grid grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          {SITE_CONFIG.team.map((member) => (
+            <div
               key={member.id}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.15 }}
-              whileHover={{ y: -6 }}
-              className="glass-card rounded-3xl overflow-hidden border border-light-300 dark:border-white/10 hover:border-gold-500/60 hover:shadow-gold-glow-light dark:hover:shadow-gold-glow flex flex-col group transition-all"
+              className="team-card glass-card rounded-3xl overflow-hidden border border-light-300 dark:border-white/10 hover:border-gold-500/60 hover:shadow-gold-glow-light dark:hover:shadow-gold-glow flex flex-col group transition-all"
             >
               <div className="relative h-80 w-full overflow-hidden">
                 <Image
@@ -44,10 +73,11 @@ export function Team() {
                   alt={member.name}
                   fill
                   className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                  loading="lazy"
                 />
               </div>
 
-              <div className="p-8 flex flex-col flex-grow justify-between">
+              <div className="p-7 sm:p-8 flex flex-col flex-grow justify-between">
                 <div>
                   <h3 className="font-display text-2xl font-bold text-light-950 dark:text-white mb-1">
                     {member.name}
@@ -74,7 +104,7 @@ export function Team() {
                   <span>Agendar com {member.name.split(" ")[0]}</span>
                 </button>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>

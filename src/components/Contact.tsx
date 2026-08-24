@@ -1,16 +1,47 @@
 "use client";
 
-import { useState } from "react";
-import { motion } from "framer-motion";
-import { MessageCircle, Mail, Phone, Send } from "lucide-react";
+import { useState, useRef } from "react";
+import { MessageCircle, Mail, Send } from "lucide-react";
 import { SITE_CONFIG } from "@/data/siteConfig";
 import { openWhatsApp } from "@/utils/whatsapp";
+import { useGSAP } from "@gsap/react";
+import { gsap } from "@/utils/gsap";
 
 export function Contact() {
+  const containerRef = useRef<HTMLElement>(null);
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [subject, setSubject] = useState("");
   const [message, setMessage] = useState("");
+
+  useGSAP(
+    () => {
+      gsap.from(".contact-info", {
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: "top 85%",
+          once: true,
+        },
+        opacity: 0,
+        x: -20,
+        duration: 0.6,
+        ease: "power2.out",
+      });
+
+      gsap.from(".contact-form-card", {
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: "top 85%",
+          once: true,
+        },
+        opacity: 0,
+        x: 20,
+        duration: 0.6,
+        ease: "power2.out",
+      });
+    },
+    { scope: containerRef }
+  );
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -25,11 +56,11 @@ export function Contact() {
   };
 
   return (
-    <section className="py-24 relative z-10" id="contato">
+    <section ref={containerRef} className="py-20 sm:py-24 relative z-10" id="contato">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
           {/* Coluna Texto & Contatos */}
-          <div className="lg:col-span-6">
+          <div className="contact-info lg:col-span-6">
             <span className="inline-block text-xs uppercase tracking-widest font-bold text-gold-700 dark:text-gold-400 bg-gold-500/10 border border-gold-500/30 px-4 py-1.5 rounded-full mb-4">
               Atendimento Personalizado
             </span>
@@ -64,12 +95,7 @@ export function Contact() {
           </div>
 
           {/* Formulário */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="lg:col-span-6 glass-card-gold p-8 sm:p-10 rounded-3xl border border-gold-500/40 dark:border-gold-500/30"
-          >
+          <div className="contact-form-card lg:col-span-6 glass-card-gold p-7 sm:p-10 rounded-3xl border border-gold-500/40 dark:border-gold-500/30">
             <h3 className="font-display text-2xl font-bold text-light-950 dark:text-white mb-2">
               Enviar Mensagem Direta
             </h3>
@@ -111,7 +137,7 @@ export function Contact() {
                   type="text"
                   value={subject}
                   onChange={(e) => setSubject(e.target.value)}
-                  placeholder="Ex: Dia do Noivo, Agendamento ou Dúvida"
+                  placeholder="Ex: Agendamento ou Dúvida"
                   className="w-full bg-white dark:bg-dark-900/90 border border-light-300 dark:border-white/15 focus:border-gold-500 rounded-xl px-4 py-3 text-sm text-light-950 dark:text-white focus:outline-none focus:ring-2 focus:ring-gold-500/20 transition-all placeholder:text-light-400 dark:placeholder:text-gray-600 shadow-sm"
                 />
               </div>
@@ -137,7 +163,7 @@ export function Contact() {
                 <span>Enviar para o WhatsApp</span>
               </button>
             </form>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

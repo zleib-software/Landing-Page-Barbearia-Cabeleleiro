@@ -1,15 +1,17 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
-import { motion } from "framer-motion";
 import { MessageCircle, Clock } from "lucide-react";
 import { SITE_CONFIG, ServiceItem } from "@/data/siteConfig";
 import { formatServiceMessage, openWhatsApp } from "@/utils/whatsapp";
+import { useGSAP } from "@gsap/react";
+import { gsap } from "@/utils/gsap";
 
 type ServiceWithBadge = ServiceItem & { badge?: string };
 
 export function Services() {
+  const containerRef = useRef<HTMLElement>(null);
   const [activeCategory, setActiveCategory] = useState<string>("all");
 
   const servicesList = SITE_CONFIG.services as ServiceWithBadge[];
@@ -18,15 +20,56 @@ export function Services() {
     ? servicesList
     : servicesList.filter(s => s.category === activeCategory);
 
+  useGSAP(
+    () => {
+      gsap.from(".services-header", {
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: "top 85%",
+          once: true,
+        },
+        opacity: 0,
+        y: 15,
+        duration: 0.6,
+        ease: "power2.out",
+      });
+
+      gsap.from(".service-card", {
+        scrollTrigger: {
+          trigger: ".services-grid",
+          start: "top 85%",
+          once: true,
+        },
+        opacity: 0,
+        y: 20,
+        stagger: 0.08,
+        duration: 0.5,
+        ease: "power2.out",
+      });
+    },
+    { scope: containerRef }
+  );
+
+  // Animação suave ao trocar de categoria
+  useEffect(() => {
+    if (containerRef.current) {
+      gsap.fromTo(
+        containerRef.current.querySelectorAll(".service-card"),
+        { opacity: 0, y: 10 },
+        { opacity: 1, y: 0, duration: 0.35, stagger: 0.04, ease: "power2.out" }
+      );
+    }
+  }, [activeCategory]);
+
   const handleServiceBooking = (service: ServiceWithBadge) => {
     const msg = formatServiceMessage(service.title, service.price);
     openWhatsApp(msg);
   };
 
   return (
-    <section className="py-20 sm:py-24 relative z-10" id="servicos">
+    <section ref={containerRef} className="py-20 sm:py-24 relative z-10" id="servicos">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto mb-12">
+        <div className="services-header text-center max-w-3xl mx-auto mb-12">
           <span className="inline-block text-xs uppercase tracking-widest font-bold text-gold-700 dark:text-gold-400 bg-gold-500/10 border border-gold-500/30 px-4 py-1.5 rounded-full mb-4">
             Menu de Procedimentos
           </span>
@@ -61,22 +104,14 @@ export function Services() {
         </div>
 
         {/* Grid de Serviços */}
-        <motion.div
-          layout
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8"
-        >
+        <div className="services-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {filteredServices.map((service) => {
             const badgeText = service.badge || (service.popular ? "Mais Escolhido" : null);
 
             return (
-              <motion.article
-                layout
+              <article
                 key={service.id}
-                initial={{ opacity: 0, scale: 0.96 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.96 }}
-                transition={{ duration: 0.3 }}
-                className={`glass-card rounded-2xl overflow-hidden border ${
+                className={`service-card glass-card rounded-2xl overflow-hidden border ${
                   service.popular
                     ? "border-gold-500/50 shadow-gold-glow-light dark:shadow-gold-glow"
                     : "border-light-300 dark:border-white/10"
@@ -128,10 +163,10 @@ export function Services() {
                     <span>Agendar este Serviço</span>
                   </button>
                 </div>
-              </motion.article>
+              </article>
             );
           })}
-        </motion.div>
+        </div>
       </div>
     </section>
   );

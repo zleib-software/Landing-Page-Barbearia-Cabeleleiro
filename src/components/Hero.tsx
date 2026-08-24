@@ -1,16 +1,33 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import Image from "next/image";
-import { motion } from "framer-motion";
 import { MessageCircle, Star, Scissors, User, ArrowRight, ShieldCheck, Clock } from "lucide-react";
 import { SITE_CONFIG } from "@/data/siteConfig";
 import { formatBookingMessage, openWhatsApp } from "@/utils/whatsapp";
+import { useGSAP } from "@gsap/react";
+import { gsap } from "@/utils/gsap";
 
 export function Hero() {
+  const containerRef = useRef<HTMLElement>(null);
   const [service, setService] = useState("corte-signature");
   const [professional, setProfessional] = useState("qualquer");
   const [period, setPeriod] = useState("Proximo disponivel");
+
+  useGSAP(
+    () => {
+      const tl = gsap.timeline({ defaults: { ease: "power2.out" } });
+
+      tl.from(".hero-badge", { opacity: 0, y: 12, duration: 0.5 })
+        .from(".hero-title", { opacity: 0, y: 16, duration: 0.6 }, "-=0.3")
+        .from(".hero-desc", { opacity: 0, y: 12, duration: 0.5 }, "-=0.3")
+        .from(".hero-ctas", { opacity: 0, y: 12, duration: 0.5 }, "-=0.3")
+        .from(".hero-proof", { opacity: 0, duration: 0.5 }, "-=0.3")
+        .from(".hero-stats > div", { opacity: 0, y: 10, stagger: 0.08, duration: 0.5 }, "-=0.3")
+        .from(".hero-card", { opacity: 0, y: 16, duration: 0.7 }, "-=0.5");
+    },
+    { scope: containerRef }
+  );
 
   const handleBookingSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -37,7 +54,7 @@ export function Hero() {
   };
 
   return (
-    <section className="relative min-h-[90vh] flex items-center pt-28 pb-16 overflow-hidden" id="inicio">
+    <section ref={containerRef} className="relative min-h-[90vh] flex items-center pt-28 pb-16 overflow-hidden" id="inicio">
       {/* Background Image com Overlay */}
       <div className="absolute inset-0 z-0">
         <Image
@@ -53,29 +70,24 @@ export function Hero() {
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           {/* Apresentação Principal de Alta Conversão */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            className="lg:col-span-7 max-w-2xl"
-          >
-            <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white dark:bg-dark-800/80 border border-amber-600/30 dark:border-gold-500/30 backdrop-blur-md mb-6 shadow-sm">
+          <div className="lg:col-span-7 max-w-2xl">
+            <div className="hero-badge inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white dark:bg-dark-800/80 border border-amber-600/30 dark:border-gold-500/30 backdrop-blur-md mb-6 shadow-sm">
               <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
               <span className="text-xs font-extrabold text-gray-900 dark:text-gray-200">
                 Atendimento com hora marcada na Av. Paulista
               </span>
             </div>
 
-            <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-black text-gray-950 dark:text-white leading-[1.15] tracking-tight mb-6">
+            <h1 className="hero-title font-display text-4xl sm:text-5xl lg:text-6xl font-black text-gray-950 dark:text-white leading-[1.15] tracking-tight mb-6">
               Barbearia premium na <span className="gold-gradient-text">Bela Vista</span>.
             </h1>
 
-            <p className="text-lg sm:text-xl text-gray-800 dark:text-gray-200 leading-relaxed mb-6 font-medium">
+            <p className="hero-desc text-lg sm:text-xl text-gray-800 dark:text-gray-200 leading-relaxed mb-6 font-medium">
               Cortes de alta precisão, barboterapia relaxante e visagismo com atendimento exclusivo no coração da Av. Paulista.
             </p>
 
             {/* CTAs Diretos */}
-            <div className="flex flex-col sm:flex-row gap-4 mb-4">
+            <div className="hero-ctas flex flex-col sm:flex-row gap-4 mb-4">
               <button
                 onClick={handleDirectWhatsApp}
                 className="px-8 py-4 rounded-xl bg-wa hover:bg-wa-dark text-white font-black text-base shadow-wa-glow hover:scale-105 active:scale-95 transition-all flex items-center justify-center gap-3 btn-shine"
@@ -94,7 +106,7 @@ export function Hero() {
             </div>
 
             {/* Prova Social Imediata abaixo do CTA */}
-            <div className="flex items-center gap-3 pt-2 mb-10">
+            <div className="hero-proof flex items-center gap-3 pt-2 mb-10">
               <div className="flex text-amber-500 dark:text-amber-400">
                 {[...Array(5)].map((_, i) => (
                   <Star key={i} className="w-4 h-4 fill-amber-500 dark:fill-amber-400" />
@@ -106,7 +118,7 @@ export function Hero() {
             </div>
 
             {/* Estatísticas Rápidas */}
-            <div className="grid grid-cols-3 gap-6 pt-6 border-t border-gray-300 dark:border-white/10">
+            <div className="hero-stats grid grid-cols-3 gap-6 pt-6 border-t border-gray-300 dark:border-white/10">
               <div>
                 <h3 className="font-display text-2xl sm:text-3xl font-black text-amber-800 dark:text-gold-400">100%</h3>
                 <p className="text-xs sm:text-sm text-gray-800 dark:text-gray-400 font-bold">Pontualidade</p>
@@ -120,14 +132,11 @@ export function Hero() {
                 <p className="text-xs sm:text-sm text-gray-800 dark:text-gray-400 font-bold">Manobrista Cortesia</p>
               </div>
             </div>
-          </motion.div>
+          </div>
 
           {/* Widget de Agendamento Rápido no Hero */}
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-            className="lg:col-span-5"
+          <div
+            className="hero-card lg:col-span-5"
             id="agendamento-express"
           >
             <div className="glass-card-gold p-6 sm:p-8 rounded-2xl sm:rounded-3xl shadow-elevation-light dark:shadow-elevation relative">
@@ -206,7 +215,7 @@ export function Hero() {
                 </div>
               </form>
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

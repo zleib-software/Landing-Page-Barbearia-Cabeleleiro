@@ -1,9 +1,10 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
-import { motion, AnimatePresence } from "framer-motion";
-import { Eye, Sparkles } from "lucide-react";
+import { Eye } from "lucide-react";
+import { useGSAP } from "@gsap/react";
+import { gsap } from "@/utils/gsap";
 
 interface GalleryItem {
   id: string;
@@ -54,16 +55,58 @@ const galleryItems: GalleryItem[] = [
 ];
 
 export function Gallery() {
+  const containerRef = useRef<HTMLElement>(null);
   const [filter, setFilter] = useState<string>("all");
 
   const filteredItems = filter === "all"
     ? galleryItems
     : galleryItems.filter(item => item.category === filter);
 
+  useGSAP(
+    () => {
+      gsap.from(".gallery-header", {
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: "top 85%",
+          once: true,
+        },
+        opacity: 0,
+        y: 15,
+        duration: 0.6,
+        ease: "power2.out",
+      });
+
+      gsap.from(".gallery-card", {
+        scrollTrigger: {
+          trigger: ".gallery-grid",
+          start: "top 85%",
+          once: true,
+        },
+        opacity: 0,
+        y: 20,
+        stagger: 0.08,
+        duration: 0.5,
+        ease: "power2.out",
+      });
+    },
+    { scope: containerRef }
+  );
+
+  // Transição suave ao trocar de filtro
+  useEffect(() => {
+    if (containerRef.current) {
+      gsap.fromTo(
+        containerRef.current.querySelectorAll(".gallery-card"),
+        { opacity: 0, scale: 0.97 },
+        { opacity: 1, scale: 1, duration: 0.35, stagger: 0.04, ease: "power2.out" }
+      );
+    }
+  }, [filter]);
+
   return (
-    <section className="py-20 sm:py-24 relative z-10 bg-light-150/70 dark:bg-dark-950/60 transition-colors duration-300" id="galeria">
+    <section ref={containerRef} className="py-20 sm:py-24 relative z-10 bg-light-150/70 dark:bg-dark-950/60 transition-colors duration-300" id="galeria">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto mb-10">
+        <div className="gallery-header text-center max-w-3xl mx-auto mb-10">
           <span className="inline-block text-xs uppercase tracking-widest font-bold text-gold-700 dark:text-gold-400 bg-gold-500/10 border border-gold-500/30 px-4 py-1.5 rounded-full mb-4">
             Prova do Trabalho
           </span>
@@ -98,53 +141,45 @@ export function Gallery() {
         </div>
 
         {/* Layout Visualmente Dominante */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-stretch">
-          {/* Card Principal em Destaque (Se filtrado em 'all' ou 'fade') */}
-          <AnimatePresence mode="popLayout">
-            {filteredItems.map((item, idx) => {
-              const isDominant = filter === "all" && idx === 0;
+        <div className="gallery-grid grid grid-cols-1 md:grid-cols-12 gap-6 items-stretch">
+          {filteredItems.map((item, idx) => {
+            const isDominant = filter === "all" && idx === 0;
 
-              return (
-                <motion.div
-                  layout
-                  key={item.id}
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.95 }}
-                  transition={{ duration: 0.35 }}
-                  className={`relative rounded-3xl overflow-hidden border border-light-300 dark:border-white/10 group shadow-elevation-light dark:shadow-elevation ${
-                    isDominant
-                      ? "md:col-span-7 min-h-[380px] sm:min-h-[440px]"
-                      : filter === "all"
-                      ? "md:col-span-5 min-h-[220px] sm:min-h-[240px]"
-                      : "md:col-span-6 lg:col-span-4 min-h-[300px]"
-                  }`}
-                >
-                  <Image
-                    src={item.image}
-                    alt={item.title}
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-700"
-                    loading="lazy"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-dark-950/95 via-dark-950/40 to-transparent flex flex-col justify-end p-6 sm:p-8 opacity-90 group-hover:opacity-100 transition-opacity">
-                    <div className="flex items-center gap-2 mb-2">
-                      <span className="text-xs uppercase tracking-wider font-extrabold text-gold-400 bg-gold-500/20 px-2.5 py-0.5 rounded-full border border-gold-500/30">
-                        {item.tag}
-                      </span>
-                    </div>
-                    <h3 className={`font-display font-bold text-white leading-tight ${isDominant ? "text-xl sm:text-2xl" : "text-base sm:text-lg"}`}>
-                      {item.title}
-                    </h3>
-                    <div className="mt-3 flex items-center gap-2 text-xs text-gray-300 font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      <Eye className="w-4 h-4 text-gold-400" />
-                      <span>Ver resultado detalhado</span>
-                    </div>
+            return (
+              <div
+                key={item.id}
+                className={`gallery-card relative rounded-3xl overflow-hidden border border-light-300 dark:border-white/10 group shadow-elevation-light dark:shadow-elevation ${
+                  isDominant
+                    ? "md:col-span-7 min-h-[380px] sm:min-h-[440px]"
+                    : filter === "all"
+                    ? "md:col-span-5 min-h-[220px] sm:min-h-[240px]"
+                    : "md:col-span-6 lg:col-span-4 min-h-[300px]"
+                }`}
+              >
+                <Image
+                  src={item.image}
+                  alt={item.title}
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-700"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-dark-950/95 via-dark-950/40 to-transparent flex flex-col justify-end p-6 sm:p-8 opacity-90 group-hover:opacity-100 transition-opacity">
+                  <div className="flex items-center gap-2 mb-2">
+                    <span className="text-xs uppercase tracking-wider font-extrabold text-gold-400 bg-gold-500/20 px-2.5 py-0.5 rounded-full border border-gold-500/30">
+                      {item.tag}
+                    </span>
                   </div>
-                </motion.div>
-              );
-            })}
-          </AnimatePresence>
+                  <h3 className={`font-display font-bold text-white leading-tight ${isDominant ? "text-xl sm:text-2xl" : "text-base sm:text-lg"}`}>
+                    {item.title}
+                  </h3>
+                  <div className="mt-3 flex items-center gap-2 text-xs text-gray-300 font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <Eye className="w-4 h-4 text-gold-400" />
+                    <span>Ver resultado detalhado</span>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>

@@ -1,9 +1,11 @@
 "use client";
 
+import { useRef } from "react";
 import Image from "next/image";
-import { motion } from "framer-motion";
 import { Coffee, Sparkles, Clock, Crown, Award, Wifi, ArrowRight } from "lucide-react";
 import { openWhatsApp } from "@/utils/whatsapp";
+import { useGSAP } from "@gsap/react";
+import { gsap } from "@/utils/gsap";
 
 const differentials = [
   {
@@ -39,10 +41,54 @@ const differentials = [
 ];
 
 export function Differentials() {
+  const containerRef = useRef<HTMLElement>(null);
+
+  useGSAP(
+    () => {
+      gsap.from(".diff-header", {
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: "top 85%",
+          once: true,
+        },
+        opacity: 0,
+        y: 15,
+        duration: 0.6,
+        ease: "power2.out",
+      });
+
+      gsap.from(".diff-card", {
+        scrollTrigger: {
+          trigger: ".diff-grid",
+          start: "top 85%",
+          once: true,
+        },
+        opacity: 0,
+        y: 20,
+        stagger: 0.08,
+        duration: 0.5,
+        ease: "power2.out",
+      });
+
+      gsap.from(".diff-banner", {
+        scrollTrigger: {
+          trigger: ".diff-banner",
+          start: "top 85%",
+          once: true,
+        },
+        opacity: 0,
+        y: 20,
+        duration: 0.6,
+        ease: "power2.out",
+      });
+    },
+    { scope: containerRef }
+  );
+
   return (
-    <section className="py-20 sm:py-24 relative z-10 bg-light-150/70 dark:bg-dark-950/60 transition-colors duration-300" id="experiencia">
+    <section ref={containerRef} className="py-20 sm:py-24 relative z-10 bg-light-150/70 dark:bg-dark-950/60 transition-colors duration-300" id="experiencia">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto mb-14">
+        <div className="diff-header text-center max-w-3xl mx-auto mb-14">
           <span className="inline-block text-xs uppercase tracking-widest font-bold text-gold-700 dark:text-gold-400 bg-gold-500/10 border border-gold-500/30 px-4 py-1.5 rounded-full mb-4">
             Diferenciais de Alto Padrão
           </span>
@@ -56,18 +102,13 @@ export function Differentials() {
         </div>
 
         {/* Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+        <div className="diff-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {differentials.map((item, index) => {
             const Icon = item.icon;
             return (
-              <motion.div
+              <div
                 key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: index * 0.08 }}
-                whileHover={{ y: -4, transition: { duration: 0.2 } }}
-                className="glass-card p-7 sm:p-8 rounded-2xl border border-light-300 dark:border-white/10 hover:border-gold-500/60 hover:shadow-gold-glow-light dark:hover:shadow-gold-glow transition-all group"
+                className="diff-card glass-card p-7 sm:p-8 rounded-2xl border border-light-300 dark:border-white/10 hover:border-gold-500/60 hover:shadow-gold-glow-light dark:hover:shadow-gold-glow transition-all group"
               >
                 <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-gold-500/10 border border-gold-500/30 flex items-center justify-center text-gold-600 dark:text-gold-400 mb-5 group-hover:bg-gold-gradient group-hover:text-dark-950 group-hover:shadow-gold-glow transition-all">
                   <Icon className="w-6 h-6 sm:w-7 sm:h-7" />
@@ -78,19 +119,13 @@ export function Differentials() {
                 <p className="text-light-600 dark:text-gray-400 text-sm leading-relaxed font-normal">
                   {item.description}
                 </p>
-              </motion.div>
+              </div>
             );
           })}
         </div>
 
         {/* Banner de Destaque Lounge */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="mt-14 sm:mt-16 rounded-3xl overflow-hidden glass-card-gold border border-gold-500/40 dark:border-gold-500/30 grid grid-cols-1 lg:grid-cols-12 items-center"
-        >
+        <div className="diff-banner mt-14 sm:mt-16 rounded-3xl overflow-hidden glass-card-gold border border-gold-500/40 dark:border-gold-500/30 grid grid-cols-1 lg:grid-cols-12 items-center">
           <div className="lg:col-span-6 relative h-64 sm:h-80 lg:h-full min-h-[300px]">
             <Image
               src="/images/experience-lounge.jpg"
@@ -118,7 +153,7 @@ export function Differentials() {
               <ArrowRight className="w-4 h-4" />
             </button>
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );
